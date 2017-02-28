@@ -11,7 +11,7 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAIAAAAAAAAAAAEAAAAAAAAAAAGAAAAABAAAAAUAAA=</HashCode>
+      <HashCode>AAAIAAAAAAAAAAAEAAAAAAAIAAAGAAAAABAAAAAUAAA=</HashCode>
       <FileName>DynamicEntity.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -38,7 +38,7 @@
       <Field Name="renderable" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Renderable" Collapsed="true">
+  <Class Name="Renderable">
     <Position X="11" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAA=</HashCode>
@@ -52,7 +52,7 @@
       <FileName>EmptyRenderable.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="RenderableDecorator" Collapsed="true">
+  <Class Name="RenderableDecorator">
     <Position X="9.25" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAAEAAAAAAAAAAAAAAAAAAQAAAAQAAA=</HashCode>
@@ -60,7 +60,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Sprite">
-    <Position X="9.25" Y="9.75" Width="1.5" />
+    <Position X="9.25" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAABAEAAAQAAAAAAAQAAA=</HashCode>
       <FileName>Sprite.h</FileName>
@@ -73,8 +73,8 @@
       <FileName>Transform.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Rigidbody" Collapsed="true">
-    <Position X="6.5" Y="5.25" Width="1.5" />
+  <Class Name="Rigidbody">
+    <Position X="5.75" Y="5.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>BIhAAQAAAACAAAAAAAAAAAAAAAAAAAQQAAAAAAAECAA=</HashCode>
       <FileName>Rigidbody.h</FileName>

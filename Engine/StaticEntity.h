@@ -8,6 +8,7 @@ class StaticEntity :
 {
 public:
 	StaticEntity();
+	StaticEntity(Renderable *r);
 	virtual ~StaticEntity();
 	void render(Renderer *r);
 	void update();

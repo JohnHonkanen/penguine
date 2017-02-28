@@ -8,6 +8,7 @@ class DynamicEntity :
 {
 public:
 	DynamicEntity();
+	DynamicEntity(Renderable *r);
 	virtual ~DynamicEntity();
 	void render(Renderer *r);
 	void update();

@@ -6,6 +6,11 @@ StaticEntity::StaticEntity()
 {
 }
 
+StaticEntity::StaticEntity(Renderable * r)
+{
+	this->renderable = r;
+}
+
 
 StaticEntity::~StaticEntity()
 {

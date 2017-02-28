@@ -4,6 +4,12 @@
 
 DynamicEntity::DynamicEntity()
 {
+	this->renderable = nullptr;
+}
+
+DynamicEntity::DynamicEntity(Renderable *r)
+{
+	this->renderable = r;
 }
 
 
