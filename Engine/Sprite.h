@@ -13,5 +13,6 @@ private:
 	Transform transform;
 public:
 	Sprite(Renderable *r, Transform &t);
+	void render(Renderer *r);
 };
 

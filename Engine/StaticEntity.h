@@ -1,7 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "Transform.h"
-#include "AbstractRenderable.h"
+#include "Renderable.h"
 
 class StaticEntity :
 	public Entity
@@ -12,6 +12,6 @@ public:
 	void render(Renderer *r);
 	void update();
 	Transform transform;
-	AbstractRenderable *renderable;
+	Renderable *renderable;
 };
 

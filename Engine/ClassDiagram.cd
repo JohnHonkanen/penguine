@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DynamicEntity">
+    <Position X="9" Y="4.75" Width="1.5" />
+    <InheritanceLine Type="Entity" ManuallyRouted="true">
+      <Path>
+        <Point X="12" Y="2.312" />
+        <Point X="12" Y="2.693" />
+        <Point X="9.75" Y="2.693" />
+        <Point X="9.75" Y="4.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAEAAAAAAAAAAAGAAAAABAAAAAUAAA=</HashCode>
+      <FileName>DynamicEntity.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="renderable" />
+      <Field Name="transform" />
+      <Field Name="rigidbody" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Entity" Collapsed="true">
+    <Position X="11.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAUAAA=</HashCode>
+      <FileName>Entity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StaticEntity">
+    <Position X="13.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAEAAAAAAAAAAAEAAAAQAAAAAAUAAA=</HashCode>
+      <FileName>StaticEntity.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="transform" />
+      <Field Name="renderable" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Renderable" Collapsed="true">
+    <Position X="11" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAA=</HashCode>
+      <FileName>Renderable.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EmptyRenderable" Collapsed="true">
+    <Position X="12.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAACAAQAAA=</HashCode>
+      <FileName>EmptyRenderable.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RenderableDecorator" Collapsed="true">
+    <Position X="9.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAEAAAAAAAAAAAAAAAAAAQAAAAQAAA=</HashCode>
+      <FileName>RenderableDecorator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sprite">
+    <Position X="9.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAABAEAAAQAAAAAAAQAAA=</HashCode>
+      <FileName>Sprite.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Transform" Collapsed="true">
+    <Position X="11.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAEAAAAAAAAAAAQQAQCAAAEAAAAAAAAAAAABIA=</HashCode>
+      <FileName>Transform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rigidbody" Collapsed="true">
+    <Position X="6.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIhAAQAAAACAAAAAAAAAAAAAAAAAAAQQAAAAAAAECAA=</HashCode>
+      <FileName>Rigidbody.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Renderer" Collapsed="true">
+    <Position X="16" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAABAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Renderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

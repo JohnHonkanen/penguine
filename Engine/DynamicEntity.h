@@ -2,7 +2,7 @@
 #include "Entity.h"
 #include "Transform.h"
 #include "Rigidbody.h"
-#include "AbstractRenderable.h"
+#include "Renderable.h"
 class DynamicEntity :
 	public Entity
 {
@@ -13,6 +13,6 @@ public:
 	void update();
 	Transform transform;
 	Rigidbody rigidbody;
-	AbstractRenderable *renderable;
+	Renderable *renderable;
 };
 

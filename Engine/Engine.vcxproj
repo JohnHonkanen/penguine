@@ -108,7 +108,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\dev\SDL2-2.0.5\include;C:\dev\glew-2.0.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\dev\SDL2-2.0.5\include;C:\dev\glew-2.0.0\include;C:\dev\glm-0.9.8.3\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,7 +148,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\dev\SDL2-2.0.5\include;C:\dev\glew-2.0.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\dev\SDL2-2.0.5\include;C:\dev\glew-2.0.0\include;C:\dev\glm-0.9.8.3\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -160,11 +160,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AbstractComponent.cpp" />
+    <ClCompile Include="Renderable.cpp" />
+    <ClCompile Include="DynamicEntity.cpp" />
+    <ClCompile Include="EmptyRenderable.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RenderableDecorator.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="Rigidbody.cpp" />
+    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="StaticEntity.cpp" />
+    <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AbstractComponent.h" />
+    <ClInclude Include="Renderable.h" />
+    <ClInclude Include="DynamicEntity.h" />
+    <ClInclude Include="EmptyRenderable.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="RenderableDecorator.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Rigidbody.h" />
+    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="StaticEntity.h" />
+    <ClInclude Include="Transform.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
