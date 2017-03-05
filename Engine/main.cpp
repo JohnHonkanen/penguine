@@ -1,22 +1,21 @@
-#include <SDL.h>
+#include "SDLRenderer.h"
+#include "BallGenerator.h"
+#include "Shoot.h"
+#include <iostream>
 
-// Program entry point - SDL manages the actual WinMain entry point for us
+using namespace std;
 int main(int argc, char *argv[])
 {
-	SDL_GLContext glContext; // OpenGL context handle
-	SDL_Window * hWindow; // window handle
-
-	SDL_Init(SDL_INIT_VIDEO); // initialize SDL
-
-							  // Create 800x600 window
-	hWindow = SDL_CreateWindow("SDL Test",
-		100, 100, 800, 600,
-		SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
-
-	glContext = SDL_GL_CreateContext(hWindow);
-	SDL_Delay(5000);
-
-	SDL_DestroyWindow(hWindow);
-	SDL_Quit();
+	SDLRenderer renderer;
+	renderer.init();
+	BallGenerator bg(vec3(0,0,0), vec3(0,500,0));
+	bg.init();
+	while (true) {
+		bg.update(0.01f);
+		renderer.start();
+		bg.render(&renderer);
+		renderer.end();
+	}
+	renderer.destroy();
 	return 0;
 }

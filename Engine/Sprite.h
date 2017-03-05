@@ -10,9 +10,9 @@ class Sprite :
 private:
 	Renderable *renderable;
 	string sprite;
-	Transform transform;
+	Transform *transform;
 public:
-	Sprite(Renderable *r, Transform &t);
+	Sprite(Renderable *r, Transform *t);
 	void render(Renderer *r);
 };
 

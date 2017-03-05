@@ -11,13 +11,12 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAIAAAAAAAAAAAEAAAAAAAIAAAGAAAAABAAAAAUAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAEAgAEAAAAAAAAAAAGAAAAABAAAAAUAAA=</HashCode>
       <FileName>DynamicEntity.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="renderable" />
       <Field Name="transform" />
-      <Field Name="rigidbody" />
+      <Field Name="renderable" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Entity" Collapsed="true">
@@ -30,7 +29,7 @@
   <Class Name="StaticEntity">
     <Position X="13.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAAAAAAAEAAAAAAAAAAAEAAAAQAAAAAAUAAA=</HashCode>
+      <HashCode>AAAAAAABAAAEAAAEAAAAAAAAAAAEAAAAQAAAAAAUAAA=</HashCode>
       <FileName>StaticEntity.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -46,21 +45,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="EmptyRenderable" Collapsed="true">
-    <Position X="12.5" Y="8.25" Width="1.5" />
+    <Position X="13.25" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAACAAQAAA=</HashCode>
       <FileName>EmptyRenderable.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RenderableDecorator">
-    <Position X="9.25" Y="8.25" Width="1.5" />
+    <Position X="9.25" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAAEAAAAAAAAAAAAAAAAAAQAAAAQAAA=</HashCode>
       <FileName>RenderableDecorator.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sprite">
-    <Position X="9.25" Y="11" Width="1.5" />
+    <Position X="9.25" Y="12.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAABAEAAAQAAAAAAAQAAA=</HashCode>
       <FileName>Sprite.h</FileName>
@@ -73,17 +72,17 @@
       <FileName>Transform.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Rigidbody">
-    <Position X="5.75" Y="5.25" Width="2.25" />
+  <Class Name="Physics">
+    <Position X="5.25" Y="5.25" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>BIhAAQAAAACAAAAAAAAAAAAAAAAAAAQQAAAAAAAECAA=</HashCode>
-      <FileName>Rigidbody.h</FileName>
+      <HashCode>BIhAAQAAAACAAAAAAAIAAAAAAAAAAAQAAAAAAAAEAAA=</HashCode>
+      <FileName>Physics.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Renderer" Collapsed="true">
     <Position X="16" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAAAAAAAAAAABAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <HashCode>AAAgAAACAAAAAAAgAAAAAEBAAAAAAAIAAQCAAAAAAAA=</HashCode>
       <FileName>Renderer.h</FileName>
     </TypeIdentifier>
   </Class>

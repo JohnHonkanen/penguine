@@ -12,6 +12,16 @@ Transform::~Transform()
 {
 }
 /*
+	Sets the position to a specified amount
+	@param vec3 position to be set
+*/
+void Transform::setPosition(vec3 position)
+{
+	this->transform[3].x = position.x;
+	this->transform[3].y = position.y;
+	this->transform[3].z = position.z;
+}
+/*
 	Translates our Matrix
 	@param x x-value to translate
 	@param y y-value to translate
@@ -28,7 +38,7 @@ void Transform::translate(float x, float y, float z)
 */
 void Transform::translate(vec3 translation)
 {
-	glm::translate(this->transform, translation);
+	this->transform = glm::translate(this->transform, translation);
 }
 /*
 	Rotates our Matrix
@@ -41,7 +51,7 @@ void Transform::rotate(float angle, vec3 axis, bool inRadians)
 	if (!inRadians)
 		angle *= DEG_TO_RAD;
 
-	glm::rotate(this->transform, angle, axis);
+	this->transform = glm::rotate(this->transform, angle, axis);
 }
 /*
 	Rotates our Matrix
@@ -85,7 +95,7 @@ void Transform::scale(float sx, float sy, float sz)
 */
 void Transform::scale(vec3 scale)
 {
-	glm::scale(this->transform, scale);
+	this->transform = glm::scale(this->transform, scale);
 }
 /*
 	Gets our mat4 matrix

@@ -8,7 +8,7 @@ class Transform
 public:
 	Transform();
 	virtual ~Transform();
-
+	void setPosition(vec3 position);
 	void translate(float x, float y, float z);
 	void translate(vec3 translation);
 	void rotate(float angle, vec3 axis, bool inRadians=true);

@@ -3,12 +3,12 @@
 #define GRAVITY 15
 
 using namespace glm;
-class Rigidbody
+class Physics
 {
 public:
-	Rigidbody();
-	virtual ~Rigidbody();
-	void update();
+	Physics();
+	virtual ~Physics();
+	void update(float ts);
 	void addForce(vec3 f);
 	void addForce(float x, float y, float z);
 	void resetForce();

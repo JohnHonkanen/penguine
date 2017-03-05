@@ -1,31 +1,31 @@
-#include "Rigidbody.h"
+#include "Physics.h"
 
 
 
-Rigidbody::Rigidbody()
+Physics::Physics()
 {
 }
 
 
-Rigidbody::~Rigidbody()
+Physics::~Physics()
 {
 }
 /*
 	Updates acceleration and resets force. If gravity is on, apply that to force.
 */
-void Rigidbody::update()
+void Physics::update(float ts)
 {
 	if (grav)
 		addForce(0, -GRAVITY, 0);
 
-	this->acceleration += this->force;
+	this->acceleration += this->force * ts;
 	resetForce();
 }
 /*
 	Add force
 	@param vec3 vector force
 */
-void Rigidbody::addForce(vec3 f)
+void Physics::addForce(vec3 f)
 {
 	this->force += f;
 }
@@ -35,21 +35,21 @@ void Rigidbody::addForce(vec3 f)
 	@param y scalar force in y direction
 	@param z scalar force in z direction
 */
-void Rigidbody::addForce(float x, float y, float z)
+void Physics::addForce(float x, float y, float z)
 {
 	addForce(vec3(x, y, z));
 }
 /*
 	Resets Force
 */
-void Rigidbody::resetForce()
+void Physics::resetForce()
 {
 	this->force = vec3(0.0f);
 }
 /*
 	Gets acceleration
 */
-vec3 Rigidbody::getAcceleration()
+vec3 Physics::getAcceleration()
 {
 	return this->acceleration;
 }
