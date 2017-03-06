@@ -35,18 +35,25 @@ GLFWwindow *GLFWRenderer::setup()
 	GLFWwindow* window;
 	window = glfwCreateWindow(800, 600, "Penguine", nullptr, nullptr);
 
-	if (window == nullptr) {
-		cout << "Failed to create GLFW window" << endl;
-		glfwTerminate();
-	}
-
+	
 	glfwMakeContextCurrent(window);
+
+	
+}
+
+void GLFWRenderer::init() {
+
+	this->window = setup();
+	// Set this to true so GLEW knows to use a modern approach to retrieving function pointers and extensions
+	glewExperimental = GL_TRUE;
 
 	// Set the required callback functions
 	glfwSetKeyCallback(window, this->key_callback);
 
-	// Set this to true so GLEW knows to use a modern approach to retrieving function pointers and extensions
-	glewExperimental = GL_TRUE;
+	if (window == nullptr) {
+		cout << "Failed to create GLFW window" << endl;
+		glfwTerminate();
+	}
 }
 
 void GLFWRenderer::start() {
@@ -57,8 +64,11 @@ void GLFWRenderer::start() {
 	//Rendering commands go here
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f); //Color to clear with
 	glClear(GL_COLOR_BUFFER_BIT); //Clears the screen
+	glLoadIdentity();
+	glOrtho(-1000, 1000, -1000, 1000, 0.0f, 1.0f); // Reference system of our simulation
+
 								  
-	// Draw commands
+	// Draw commands go here
 
 }
 

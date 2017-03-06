@@ -15,7 +15,7 @@ class GLFWRenderer :
 private: 
 	GLFWwindow *window;
 
-	GLFWwindow *setup();
+	GLFWwindow *setup(GLFWwindow &window);
 public:
 	GLFWRenderer();
 	virtual ~GLFWRenderer();
