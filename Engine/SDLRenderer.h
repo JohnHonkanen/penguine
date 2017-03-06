@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <GL\glew.h>
 #include <iostream>
+#include <glfw3.h>
 #include "Renderer.h"
 #include <iostream>
 
