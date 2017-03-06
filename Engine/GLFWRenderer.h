@@ -1,9 +1,11 @@
 #pragma once
+#define _USE_MATH_DEFINES
 
-#include <glfw3.h>
+#include <cmath> 
 #include <GL\glew.h>
 
-#include "Renderable.h"
+#include <glfw3.h>
+#include "Renderer.h"
 #include <iostream>
 
 
@@ -13,9 +15,8 @@ class GLFWRenderer :
 	public Renderer 
 {
 private: 
-	GLFWwindow *window;
 
-	GLFWwindow *setup(GLFWwindow &window);
+	GLFWwindow *window;
 public:
 	GLFWRenderer();
 	virtual ~GLFWRenderer();
@@ -24,6 +25,8 @@ public:
 	void start();
 	void end();
 	void destroy();
+	void drawVerts();
 
-	void key_callback(GLFWwindow *window, int key, int scancode, int action, int mode);
+	void renderSprite(std::string spriteLocation, Transform transform);
+
 };
