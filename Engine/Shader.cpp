@@ -37,7 +37,7 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath)
 	GLint flen;
 	GLuint vertex, fragment;
 	GLint success;
-	GLint program;
+	
 	GLchar infoLog[512];
 
 	// Vertex Shader
@@ -79,6 +79,7 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath)
 	glDeleteShader(fragment);
 
 }
+
 // Uses the current shader
 void Shader::Use()
 {

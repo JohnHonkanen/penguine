@@ -3,6 +3,7 @@
 // Window dimensions
 const GLuint WIDTH = 800, HEIGHT = 600;
 
+
 GLFWRenderer::GLFWRenderer()
 {
 
@@ -51,17 +52,13 @@ void GLFWRenderer::init() {
 	// Define the viewport dimensions
 	glViewport(0, 0, WIDTH, HEIGHT);
 
-	
-	
+	//Initialize Program
+	program = new Shader("minimal.vert", "minimal.frag"); // Build and compile our shader program
 
 }
 
 //Draw Buffers using Vertecies
 void GLFWRenderer::drawVerts() {
-
-	// Build and compile our shader program
-	Shader program("minimal.vert", "minimal.frag");
-	program.Use();
 
 	GLfloat vertices[] = {
 		// Positions          // Colors           // Texture Coords
@@ -107,13 +104,22 @@ void GLFWRenderer::drawVerts() {
 
 	glBindVertexArray(0); // Unbind VAO
 
-	//Properly de-allocate all resources once they've outlived their purpose
-	//A VAO stores the glBindBuffer calls when the target is GL_ELEMENT_ARRAY_BUFFER. This means it stores its unbind calls
-	//so make sure you don't unbind the element array buffer before unbinding your VAO, otherwise it doesn't have an EBO
-	//configured. 
+						  //Draw Container
+	glBindVertexArray(VAO);
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+	glBindVertexArray(0);
+
+						  //Properly de-allocate all resources once they've outlived their purpose
+						  //A VAO stores the glBindBuffer calls when the target is GL_ELEMENT_ARRAY_BUFFER. This means it stores its unbind calls
+						  //so make sure you don't unbind the element array buffer before unbinding your VAO, otherwise it doesn't have an EBO
+						  //configured. 
+
+
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
 	glDeleteBuffers(1, &EBO);
+
+	
 
 }
 
@@ -129,7 +135,7 @@ void GLFWRenderer::loadTextures() {
 	// ====================
 	// Texture 1
 	// ====================
-	
+
 	ILuint container;
 	ilGenImages(1, &container);
 	ilBindImage(container);
@@ -144,7 +150,7 @@ void GLFWRenderer::loadTextures() {
 	height = ilGetInteger(IL_IMAGE_HEIGHT);
 
 	//See http://www-f9.ijs.si/~matevz/docs/DevIL/il/f00059.htm
-	ilTexImage(width, height, 0, 3, IL_RGB, IL_UNSIGNED_BYTE, NULL);
+	//ilTexImage(width, height, 0, 3, IL_RGB, IL_UNSIGNED_BYTE, NULL);
 
 	// Load and create a texture 
 	GLuint texture1;
@@ -194,7 +200,7 @@ void GLFWRenderer::loadTextures() {
 
 	GLuint texture2;
 	texture2 = ilutGLBindTexImage();
-	
+
 	// All upcoming GL_TEXTURE_2D operations now have effect on this texture object
 	// Set the texture wrapping parameters
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT (usually basic wrapping method)
@@ -202,22 +208,31 @@ void GLFWRenderer::loadTextures() {
 	// Set texture filtering parameters
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	/*
-	// Set our texture parameters
-	iluImageParameter(GL_TEXTURE_WRAP_S, GL_REPEAT);
-	iluImageParameter(GL_TEXTURE_WRAP_T, GL_REPEAT);
-	// Set texture filtering
-	iluImageParameter(GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	iluImageParameter(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	*/
+
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, ilGetData());
 	//Put mipmap here
 	glGenerateMipmap(GL_TEXTURE_2D);
 	ilDeleteImages(1, &awesomeFace); //Deletes Image
 	glBindTexture(GL_TEXTURE_2D, 0); //Unbinds Texture
+
+	// ------------------------ Activate Textures ---------------------
+
+	glActiveTexture(GL_TEXTURE0);
+	/*After activating a texture unit, a subsequent
+	glBindTexture call will bind that texture to the currently active texture unit. */
+	glBindTexture(GL_TEXTURE_2D, texture1);
+	/*By setting them via glUniform1i we make sure each uniform sampler corresponds to the proper texture unit.*/
+	glUniform1i(glGetUniformLocation(program->Program, "ourTexture1"), 0); //programs["initShader"]
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, texture2);
+	glUniform1i(glGetUniformLocation(program->Program, "ourTexture2"), 1); //programs["initShader"]
+
 }
 
 void GLFWRenderer::start() {
+
+
+	this->program->Use();
 
 	//Rendering commands go here
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f); //Color to clear with
@@ -233,6 +248,7 @@ void GLFWRenderer::end() {
 }
 
 void GLFWRenderer::destroy() {
+	delete this->program;
 	//Terminate & Clean up resources before application exit
 	glfwTerminate();
 }

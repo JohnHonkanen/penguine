@@ -16,7 +16,7 @@ class GLFWRenderer :
 	public Renderer 
 {
 private: 
-
+	Shader *program;
 	GLFWwindow *window;
 public:
 	GLFWRenderer();
