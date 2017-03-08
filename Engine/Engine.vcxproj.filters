@@ -67,6 +67,12 @@
     <Filter Include="Source Files\Behaviours\Movement">
       <UniqueIdentifier>{f10dd952-4400-4dbf-80a7-cbbc5a6f3651}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Renderer\GLFW">
+      <UniqueIdentifier>{5c864914-2267-414b-a1f1-0536307d0512}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\GLFW">
+      <UniqueIdentifier>{07e6a62c-afaa-441a-8fdc-69d4c10d787c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -130,7 +136,10 @@
       <Filter>Source Files\Particle</Filter>
     </ClCompile>
     <ClCompile Include="GLFWRenderer.cpp">
-      <Filter>Source Files\Renderer</Filter>
+      <Filter>Source Files\Renderer\GLFW</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source Files\Renderer\GLFW</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -192,12 +201,21 @@
       <Filter>Header Files\Particle</Filter>
     </ClInclude>
     <ClInclude Include="GLFWRenderer.h">
-      <Filter>Header Files\Renderer</Filter>
+      <Filter>Header Files\Renderer\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Header Files\Renderer\GLFW</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd">
       <Filter>Source Files</Filter>
+    </None>
+    <None Include="minimal.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="minimal.vert">
+      <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -6,6 +6,7 @@
 
 #include <glfw3.h>
 #include "Renderer.h"
+#include "Shader.h"
 #include <iostream>
 
 
@@ -26,6 +27,7 @@ public:
 	void end();
 	void destroy();
 	void drawVerts();
+	void loadTextures();
 
 	void renderSprite(std::string spriteLocation, Transform transform);
 
