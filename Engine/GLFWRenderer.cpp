@@ -55,11 +55,6 @@ void GLFWRenderer::init() {
 	//Initialize Program
 	program = new Shader("minimal.vert", "minimal.frag"); // Build and compile our shader program
 
-}
-
-//Draw Buffers using Vertecies
-void GLFWRenderer::drawVerts() {
-
 	GLfloat vertices[] = {
 		// Positions          // Colors           // Texture Coords
 		0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // Top Right
@@ -79,7 +74,7 @@ void GLFWRenderer::drawVerts() {
 	//specify the order at which we want to draw these vertices in. 
 	//Example: Use 4 vertices to draw a square using 2 triangles instead of 6. 
 
-	GLuint VBO, VAO, EBO;
+
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
 	glGenBuffers(1, &EBO);
@@ -104,22 +99,28 @@ void GLFWRenderer::drawVerts() {
 
 	glBindVertexArray(0); // Unbind VAO
 
-						  //Draw Container
+	loadTextures();
+}
+
+//Draw Buffers using Vertecies + load Texture
+void GLFWRenderer::draw() {
+
+	// ------------------------ Bind Textures using texture units ---------------------
+
+	glActiveTexture(GL_TEXTURE0);
+	/*After activating a texture unit, a subsequent
+	glBindTexture call will bind that texture to the currently active texture unit. */
+	glBindTexture(GL_TEXTURE_2D, texture1);
+	/*By setting them via glUniform1i we make sure each uniform sampler corresponds to the proper texture unit.*/
+	glUniform1i(glGetUniformLocation(program->Program, "ourTexture1"), 0);
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, texture2);
+	glUniform1i(glGetUniformLocation(program->Program, "ourTexture2"), 1);
+
+	//Draw Container
 	glBindVertexArray(VAO);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
-
-						  //Properly de-allocate all resources once they've outlived their purpose
-						  //A VAO stores the glBindBuffer calls when the target is GL_ELEMENT_ARRAY_BUFFER. This means it stores its unbind calls
-						  //so make sure you don't unbind the element array buffer before unbinding your VAO, otherwise it doesn't have an EBO
-						  //configured. 
-
-
-	glDeleteVertexArrays(1, &VAO);
-	glDeleteBuffers(1, &VBO);
-	glDeleteBuffers(1, &EBO);
-
-	
 
 }
 
@@ -140,11 +141,11 @@ void GLFWRenderer::loadTextures() {
 	ilGenImages(1, &container);
 	ilBindImage(container);
 	if (ilLoadImage((const ILstring)"container.jpg")) {
-		//cout << "Container loaded! " << endl;
+		//cout << "Texture 1 loaded! " << endl;
 	}
 	else {
 		cout << ilGetError() << endl;
-		//cout << "Failed Load Image 1" << endl;
+		cout << "Failed Load Texture Image 1" << endl;
 	}
 	width = ilGetInteger(IL_IMAGE_WIDTH);
 	height = ilGetInteger(IL_IMAGE_HEIGHT);
@@ -153,7 +154,7 @@ void GLFWRenderer::loadTextures() {
 	//ilTexImage(width, height, 0, 3, IL_RGB, IL_UNSIGNED_BYTE, NULL);
 
 	// Load and create a texture 
-	GLuint texture1;
+	
 	//glGenTextures() takes as input how many textures we want to generate and stores them in a
 	//GLuint array given as its second argument (in our case just a single GLuint)*/
 	glGenTextures(1, &texture1);
@@ -167,12 +168,14 @@ void GLFWRenderer::loadTextures() {
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT (usually basic wrapping method)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	// Set texture filtering parameters
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // _MIPMAP_NEAREST
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	//ilutGLTexImage();
 
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, ilGetData());
+	//glTexImage2D(GL_TEXTURE_2D, 0, ilGetInteger(IL_IMAGE_BPP), ilGetInteger(IL_IMAGE_WIDTH), ilGetInteger(IL_IMAGE_HEIGHT), 0, ilGetInteger(IL_IMAGE_FORMAT), GL_UNSIGNED_BYTE, ilGetData());
+
 	//Put mipmap here
 	glGenerateMipmap(GL_TEXTURE_2D);
 	ilDeleteImages(1, &container); // Deletes image
@@ -185,60 +188,49 @@ void GLFWRenderer::loadTextures() {
 	ilGenImages(1, &awesomeFace);
 	ilBindImage(awesomeFace);
 	if (ilLoadImage((const ILstring)"awesomeFace.png")) {
-		//cout << "AwesomeFace loaded! " << endl;
+		//cout << "Texcture 2 loaded! " << endl;
 	}
 	else {
 		cout << ilGetError() << endl;
-		//cout << "Failed Load Image 2" << endl;
+		cout << "Failed Load Texture Image 2" << endl;
 	}
+	ilConvertImage(IL_RGB, IL_UNSIGNED_BYTE);
 
 	width = ilGetInteger(IL_IMAGE_WIDTH);
 	height = ilGetInteger(IL_IMAGE_HEIGHT);
 
 	// Load and create a texture 
-	ilTexImage(width, height, 0, 3, IL_RGB, IL_UNSIGNED_BYTE, NULL);
-
-	GLuint texture2;
-	texture2 = ilutGLBindTexImage();
+	glGenTextures(1, &texture2);
+	//We need to bind it so any subsequent texture commands will configure the currently bound texture:
+	glBindTexture(GL_TEXTURE_2D, texture2);
 
 	// All upcoming GL_TEXTURE_2D operations now have effect on this texture object
 	// Set the texture wrapping parameters
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT (usually basic wrapping method)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	// Set texture filtering parameters
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); //_MIPMAP_NEAREST
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, ilGetData());
+	//glTexImage2D(GL_TEXTURE_2D, 0, ilGetInteger(IL_IMAGE_BPP), ilGetInteger(IL_IMAGE_WIDTH), ilGetInteger(IL_IMAGE_HEIGHT), 0, ilGetInteger(IL_IMAGE_FORMAT), GL_UNSIGNED_BYTE, ilGetData());
 	//Put mipmap here
 	glGenerateMipmap(GL_TEXTURE_2D);
 	ilDeleteImages(1, &awesomeFace); //Deletes Image
 	glBindTexture(GL_TEXTURE_2D, 0); //Unbinds Texture
 
-	// ------------------------ Activate Textures ---------------------
-
-	glActiveTexture(GL_TEXTURE0);
-	/*After activating a texture unit, a subsequent
-	glBindTexture call will bind that texture to the currently active texture unit. */
-	glBindTexture(GL_TEXTURE_2D, texture1);
-	/*By setting them via glUniform1i we make sure each uniform sampler corresponds to the proper texture unit.*/
-	glUniform1i(glGetUniformLocation(program->Program, "ourTexture1"), 0); //programs["initShader"]
-	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, texture2);
-	glUniform1i(glGetUniformLocation(program->Program, "ourTexture2"), 1); //programs["initShader"]
-
 }
 
 void GLFWRenderer::start() {
-
-
-	this->program->Use();
 
 	//Rendering commands go here
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f); //Color to clear with
 	glClear(GL_COLOR_BUFFER_BIT); //Clears the screen
 	glLoadIdentity();
 	glOrtho(-1000, 1000, -1000, 1000, 0.0f, 1.0f); // Reference system of our simulation
+
+
+	this->program->Use();
 
 }
 
@@ -248,6 +240,17 @@ void GLFWRenderer::end() {
 }
 
 void GLFWRenderer::destroy() {
+
+	//Properly de-allocate all resources once they've outlived their purpose
+	//A VAO stores the glBindBuffer calls when the target is GL_ELEMENT_ARRAY_BUFFER. This means it stores its unbind calls
+	//so make sure you don't unbind the element array buffer before unbinding your VAO, otherwise it doesn't have an EBO
+	//configured. 
+
+	glDeleteVertexArrays(1, &VAO);
+	glDeleteBuffers(1, &VBO);
+	glDeleteBuffers(1, &EBO);
+
+
 	delete this->program;
 	//Terminate & Clean up resources before application exit
 	glfwTerminate();

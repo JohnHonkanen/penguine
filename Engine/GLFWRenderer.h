@@ -18,6 +18,8 @@ class GLFWRenderer :
 private: 
 	Shader *program;
 	GLFWwindow *window;
+	GLuint VBO, VAO, EBO;
+	GLuint texture1, texture2;
 public:
 	GLFWRenderer();
 	virtual ~GLFWRenderer();
@@ -26,7 +28,7 @@ public:
 	void start();
 	void end();
 	void destroy();
-	void drawVerts();
+	void draw();
 	void loadTextures();
 
 	void renderSprite(std::string spriteLocation, Transform transform);

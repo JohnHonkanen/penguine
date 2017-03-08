@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 
 		//bg.update(0.01f);
 		renderer.start();
-		renderer.drawVerts();
+		renderer.draw();
 		//renderer.loadTextures();
 		//bg.render(&renderer);
 		//Do something in main
