@@ -4,7 +4,7 @@
 
 Transform::Transform()
 {
-	transform = mat4(1.0f); // Creates an identity matrix
+	//transform = mat4(0.0f); // Creates an identity matrix
 }
 
 
@@ -113,6 +113,6 @@ vec3 Transform::getPosition()
 */
 void Transform::reset()
 {
-	this->transform = mat4(1);
+	this->transform = mat4();
 }
 

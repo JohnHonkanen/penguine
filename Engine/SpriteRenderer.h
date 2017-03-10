@@ -2,6 +2,7 @@
 
 #include <GL\glew.h>
 #include <glm\glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
 #include <string>
 
 #include <iostream>
@@ -23,11 +24,11 @@ private:
 	string name;
 	GLuint VAO, VBO, EBO; // 2D Mesh for the sprite
 	TextureManager *textureManager;
-	Transform transform; // Origin of the renderObject
+	Transform *transform; // Origin of the renderObject
 	Shader *program;
 
 public:
-	SpriteRenderer(string fileLocation, string name, TextureManager *textureManager, Transform transform, Shader *program);
+	SpriteRenderer(string fileLocation, string name, TextureManager *textureManager, Transform *transform, Shader *program);
 	virtual ~SpriteRenderer();
 
 	void init();

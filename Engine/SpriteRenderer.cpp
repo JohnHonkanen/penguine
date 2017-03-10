@@ -2,7 +2,7 @@
 
 
 
-SpriteRenderer::SpriteRenderer(string fileLocation, string name, TextureManager *textureManager, Transform transform, Shader *program)
+SpriteRenderer::SpriteRenderer(string fileLocation, string name, TextureManager *textureManager, Transform *transform, Shader *program)
 {
 	SpriteRenderer::fileLocation = fileLocation;
 	SpriteRenderer::name = name;
@@ -11,7 +11,6 @@ SpriteRenderer::SpriteRenderer(string fileLocation, string name, TextureManager 
 	SpriteRenderer::program = program;
 
 }
-
 
 SpriteRenderer::~SpriteRenderer()
 {
@@ -72,8 +71,14 @@ void SpriteRenderer::init()
 
 void SpriteRenderer::renderObject()
 {
-	cout << "Now Rendering TexID: " << textureManager->getTexture(name) <<endl;
 	SpriteRenderer::program->Use();
+
+	//Get matrix's uniform location, get and set matrix
+	GLuint transformLoc = glGetUniformLocation(program->Program, "transform");
+	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform->get()));
+
+	cout << "Now Rendering TexID: " << textureManager->getTexture(name) <<endl;
+	
 	glBindTexture(GL_TEXTURE_2D, textureManager->getTexture(name));
 	//By setting them via glUniform1i we make sure each uniform sampler corresponds to the proper texture unit.
 	glUniform1i(glGetUniformLocation(program->Program, "ourTexture"), 0);
