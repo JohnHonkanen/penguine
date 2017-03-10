@@ -88,6 +88,9 @@
     <Filter Include="Source Files\Renderer\SDL">
       <UniqueIdentifier>{2c95ecf3-0daa-439b-baae-32d77e590015}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Renderer\SDL">
+      <UniqueIdentifier>{3a683dde-ef31-4348-b6d3-ac881ad4c3d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -227,9 +230,6 @@
     <ClInclude Include="BallGenerator.h">
       <Filter>Header Files\Particle</Filter>
     </ClInclude>
-    <ClInclude Include="Shader.h">
-      <Filter>Header Files\Renderer\GLFW</Filter>
-    </ClInclude>
     <ClInclude Include="MeshGenerator.h">
       <Filter>Header Files\OpenGL</Filter>
     </ClInclude>
@@ -255,6 +255,9 @@
       <Filter>Header Files\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="openGLRenderer.h">
+      <Filter>Header Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
       <Filter>Header Files\OpenGL</Filter>
     </ClInclude>
   </ItemGroup>

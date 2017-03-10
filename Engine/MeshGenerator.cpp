@@ -2,11 +2,9 @@
 
 map<GLuint, GLuint *> MeshGenerator::VAOMap;
 
-GLuint MeshGenerator::createMesh(const GLuint numVerts, const GLfloat * vertices, const GLfloat * colors, 
-	const GLfloat * normals, const GLfloat * texCoords, const GLuint indexCount, const GLuint* indices)
+void MeshGenerator::createMesh(const GLfloat *data, const GLuint* indices, GLuint *VAO, GLuint *VBO, GLuint *EBO)
 {
-	GLuint VAO, VBO, EBO;
-	GLuint *meshBuffers = new GLuint[5];
+	GLuint *meshBuffers = new GLuint[3];
 
 	//VBO = Vertex Buffer Object
 	//VAO = Vertex Array Object
@@ -16,73 +14,38 @@ GLuint MeshGenerator::createMesh(const GLuint numVerts, const GLfloat * vertices
 	//Example: Use 4 vertices to draw a square using 2 triangles instead of 6. 
 
 
-	glGenVertexArrays(1, &VAO);
-	glGenBuffers(1, &VBO);
-	glGenBuffers(1, &EBO);
+	glGenVertexArrays(1, VAO);
+	glGenBuffers(1, VBO);
+	glGenBuffers(1, EBO);
 
-	glBindVertexArray(VAO);
+	glBindVertexArray(*VAO);
 
-	// VBO for vertex data
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, numVerts, vertices, GL_STATIC_DRAW);
-	glVertexAttribPointer((GLuint)VERTEX, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
-	glEnableVertexAttribArray(VERTEX);
-	meshBuffers[VERTEX] = VBO;
+	glBindBuffer(GL_ARRAY_BUFFER, *VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(data), data, GL_STATIC_DRAW);
 
-	// VBO for color data
-	if (colors != nullptr) {
-		glGenBuffers(1, &VBO);
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferData(GL_ARRAY_BUFFER, 3 * numVerts*sizeof(GLfloat), colors, GL_STATIC_DRAW);
-		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
-		glEnableVertexAttribArray(COLOR);
-		meshBuffers[COLOR] = VBO;
-	}
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, *EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-	// VBO for tex-coord data
-	if (texCoords != nullptr) {
-		glGenBuffers(1, &VBO);
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferData(GL_ARRAY_BUFFER, 2 * numVerts*sizeof(GLfloat), texCoords, GL_STATIC_DRAW);
-		glVertexAttribPointer(TEXCOORD, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
-		glEnableVertexAttribArray(TEXCOORD);
-		meshBuffers[TEXCOORD] = VBO;
-	}
-
-	// VBO for normal data
-	if (normals != nullptr) {
-		glGenBuffers(1, &VBO);
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferData(GL_ARRAY_BUFFER, 3 * numVerts*sizeof(GLfloat), normals, GL_STATIC_DRAW);
-		glVertexAttribPointer((GLuint)NORMAL, 3, GL_FLOAT, GL_FALSE, 0, 0);
-		glEnableVertexAttribArray(NORMAL);
-		meshBuffers[NORMAL] = VBO;
-	}
-
-	// EBO for INDEX data
-	if (indices != nullptr && indexCount > 0) {
-		glGenBuffers(1, &EBO);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, indexCount, indices, GL_STATIC_DRAW);
-		meshBuffers[INDEX] = EBO;
-	}
+	// Position attribute
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(0);
+	// Color attribute
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(1);
+	// TexCoord attribute
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(2);
 
 	glBindVertexArray(0); // Unbind VAO
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
-	meshBuffers[STORED_VAO] = VAO;
-	meshBuffers[STORED_VBO] = VBO;
-	meshBuffers[STORED_EBO] = EBO;
+	meshBuffers[STORED_VAO] = *VAO;
+	meshBuffers[STORED_VBO] = *VBO;
+	meshBuffers[STORED_EBO] = *EBO;
 
 	// return the identifier needed to draw this mesh
 
-	VAOMap.insert(pair<GLuint, GLuint *>(VAO, meshBuffers));
-	return VAO;
-}
-
-GLuint MeshGenerator::createMesh(const GLuint numVerts, const GLfloat * vertices, const GLfloat * colors, const GLfloat * texCoords, const GLuint indexCount, const GLuint * indices)
-{
-	return MeshGenerator::createMesh(numVerts, vertices, colors, nullptr, texCoords, indexCount, indices);
+	VAOMap.insert(pair<GLuint, GLuint *>(*VAO, meshBuffers));
 }
 
 void MeshGenerator::updateMesh(const GLuint mesh, const unsigned int bufferType, const GLfloat * data, const GLuint size)
@@ -102,7 +65,7 @@ void MeshGenerator::updateMesh(const GLuint mesh, const unsigned int bufferType,
 	glBufferData(GL_ARRAY_BUFFER, size*sizeof(GLfloat), data, GL_STATIC_DRAW);
 	glVertexAttribPointer((GLuint)bufferType, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(bufferType);
-	meshBuffers[VERTEX] = VBO;
+	meshBuffers[VBO];
 
 	glBindVertexArray(0);
 }
