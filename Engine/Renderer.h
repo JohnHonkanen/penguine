@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include "Transform.h"
+
+
 class Renderer
 {
 public:
@@ -11,5 +13,6 @@ public:
 	virtual void start() = 0;
 	virtual void end() = 0;
 	virtual void destroy() = 0;
+	virtual void draw() = 0;
 };
 
