@@ -9,6 +9,8 @@
 #include "Shader.h"
 #include <iostream>
 
+#include "TextureGenerator.h"
+#include <map>
 
 using namespace std;
 
@@ -20,6 +22,7 @@ private:
 	GLFWwindow *window;
 	GLuint VBO, VAO, EBO;
 	GLuint texture1, texture2;
+	map<string, GLuint> texture;
 public:
 	GLFWRenderer();
 	virtual ~GLFWRenderer();
@@ -29,7 +32,6 @@ public:
 	void end();
 	void destroy();
 	void draw();
-	void loadTextures();
 
 	void renderSprite(std::string spriteLocation, Transform transform);
 

@@ -44,10 +44,8 @@ void GLFWRenderer::init() {
 	// Initialize GLEW to setup the OpenGL Function pointers
 	glewInit();
 
-	//Initialize il & ilu
+	//Initialize DevIL
 	ilInit();
-	iluInit();
-	ilutRenderer(ILUT_OPENGL);
 
 	// Define the viewport dimensions
 	glViewport(0, 0, WIDTH, HEIGHT);
@@ -99,7 +97,8 @@ void GLFWRenderer::init() {
 
 	glBindVertexArray(0); // Unbind VAO
 
-	loadTextures();
+	texture.insert(pair<string, GLuint>("container", TextureGenerator::createTexture("container.jpg")));
+	texture.insert(pair<string, GLuint>("awesomeface", TextureGenerator::createTexture("awesomeface.png")));
 }
 
 //Draw Buffers using Vertecies + load Texture
@@ -110,114 +109,17 @@ void GLFWRenderer::draw() {
 	glActiveTexture(GL_TEXTURE0);
 	/*After activating a texture unit, a subsequent
 	glBindTexture call will bind that texture to the currently active texture unit. */
-	glBindTexture(GL_TEXTURE_2D, texture1);
+	glBindTexture(GL_TEXTURE_2D, texture["container"]);
 	/*By setting them via glUniform1i we make sure each uniform sampler corresponds to the proper texture unit.*/
 	glUniform1i(glGetUniformLocation(program->Program, "ourTexture1"), 0);
 	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, texture2);
+	glBindTexture(GL_TEXTURE_2D, texture["awesomeface"]);
 	glUniform1i(glGetUniformLocation(program->Program, "ourTexture2"), 1);
 
 	//Draw Container
 	glBindVertexArray(VAO);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
-
-}
-
-//Create Texture
-
-void GLFWRenderer::loadTextures() {
-
-	ILuint width;
-	ILuint height;
-
-	// Load image, create texture and generate mipmaps
-
-	// ====================
-	// Texture 1
-	// ====================
-
-	ILuint container;
-	ilGenImages(1, &container);
-	ilBindImage(container);
-	if (ilLoadImage((const ILstring)"container.jpg")) {
-		//cout << "Texture 1 loaded! " << endl;
-	}
-	else {
-		cout << ilGetError() << endl;
-		cout << "Failed Load Texture Image 1" << endl;
-	}
-	width = ilGetInteger(IL_IMAGE_WIDTH);
-	height = ilGetInteger(IL_IMAGE_HEIGHT);
-
-	//See http://www-f9.ijs.si/~matevz/docs/DevIL/il/f00059.htm
-	//ilTexImage(width, height, 0, 3, IL_RGB, IL_UNSIGNED_BYTE, NULL);
-
-	// Load and create a texture 
-	
-	//glGenTextures() takes as input how many textures we want to generate and stores them in a
-	//GLuint array given as its second argument (in our case just a single GLuint)*/
-	glGenTextures(1, &texture1);
-
-	//We need to bind it so any subsequent texture commands will configure the currently bound texture:
-	glBindTexture(GL_TEXTURE_2D, texture1);
-	//Generates and binds texture via glGenTextures and glBindTexture
-	//texture1 = ilutGLBindTexImage();
-	// All upcoming GL_TEXTURE_2D operations now have effect on this texture object
-	// Set the texture wrapping parameters
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT (usually basic wrapping method)
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	// Set texture filtering parameters
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // _MIPMAP_NEAREST
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-	//ilutGLTexImage();
-
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, ilGetData());
-	//glTexImage2D(GL_TEXTURE_2D, 0, ilGetInteger(IL_IMAGE_BPP), ilGetInteger(IL_IMAGE_WIDTH), ilGetInteger(IL_IMAGE_HEIGHT), 0, ilGetInteger(IL_IMAGE_FORMAT), GL_UNSIGNED_BYTE, ilGetData());
-
-	//Put mipmap here
-	glGenerateMipmap(GL_TEXTURE_2D);
-	ilDeleteImages(1, &container); // Deletes image
-	glBindTexture(GL_TEXTURE_2D, 0); // Unbind texture when done (set second parameter to 0), so we won't accidentily mess up our texture.
-
-	// ===================
-	// Texture 2
-	// ===================
-	ILuint awesomeFace;
-	ilGenImages(1, &awesomeFace);
-	ilBindImage(awesomeFace);
-	if (ilLoadImage((const ILstring)"awesomeFace.png")) {
-		//cout << "Texcture 2 loaded! " << endl;
-	}
-	else {
-		cout << ilGetError() << endl;
-		cout << "Failed Load Texture Image 2" << endl;
-	}
-	ilConvertImage(IL_RGB, IL_UNSIGNED_BYTE);
-
-	width = ilGetInteger(IL_IMAGE_WIDTH);
-	height = ilGetInteger(IL_IMAGE_HEIGHT);
-
-	// Load and create a texture 
-	glGenTextures(1, &texture2);
-	//We need to bind it so any subsequent texture commands will configure the currently bound texture:
-	glBindTexture(GL_TEXTURE_2D, texture2);
-
-	// All upcoming GL_TEXTURE_2D operations now have effect on this texture object
-	// Set the texture wrapping parameters
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// Set texture wrapping to GL_REPEAT (usually basic wrapping method)
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	// Set texture filtering parameters
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); //_MIPMAP_NEAREST
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, ilGetData());
-	//glTexImage2D(GL_TEXTURE_2D, 0, ilGetInteger(IL_IMAGE_BPP), ilGetInteger(IL_IMAGE_WIDTH), ilGetInteger(IL_IMAGE_HEIGHT), 0, ilGetInteger(IL_IMAGE_FORMAT), GL_UNSIGNED_BYTE, ilGetData());
-	//Put mipmap here
-	glGenerateMipmap(GL_TEXTURE_2D);
-	ilDeleteImages(1, &awesomeFace); //Deletes Image
-	glBindTexture(GL_TEXTURE_2D, 0); //Unbinds Texture
 
 }
 

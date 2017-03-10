@@ -73,6 +73,12 @@
     <Filter Include="Source Files\Renderer\GLFW">
       <UniqueIdentifier>{07e6a62c-afaa-441a-8fdc-69d4c10d787c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\OpenGL">
+      <UniqueIdentifier>{4eab07d1-107c-46ff-957d-2a9ec8daaffc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\OpenGL">
+      <UniqueIdentifier>{c3ae2cb3-ab3d-4157-b352-19ce269ec7cb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -141,6 +147,12 @@
     <ClCompile Include="Shader.cpp">
       <Filter>Source Files\Renderer\GLFW</Filter>
     </ClCompile>
+    <ClCompile Include="MeshGenerator.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureGenerator.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -205,6 +217,12 @@
     </ClInclude>
     <ClInclude Include="Shader.h">
       <Filter>Header Files\Renderer\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshGenerator.h">
+      <Filter>Header Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureGenerator.h">
+      <Filter>Header Files\OpenGL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
