@@ -1,7 +1,9 @@
 #include "glfwWindow.h"
 
-glfwWindow::glfwWindow()
+glfwWindow::glfwWindow(GLuint width, GLuint height)
 {
+	glfwWindow::WIDTH = width;
+	glfwWindow::HEIGHT = height;
 }
 
 
@@ -34,11 +36,6 @@ void glfwWindow::init()
 
 	// Define the viewport dimensions
 	glViewport(0, 0, WIDTH, HEIGHT);
-}
-
-const GLFWwindow *glfwWindow::getWindow()
-{
-	return glfwWindow::window;
 }
 
 void glfwWindow::swapBuffers()

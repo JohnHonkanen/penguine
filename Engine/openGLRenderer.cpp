@@ -2,8 +2,9 @@
 
 
 
-openGLRenderer::openGLRenderer()
+openGLRenderer::openGLRenderer(Window *window)
 {
+	openGLRenderer::window = window;
 }
 
 

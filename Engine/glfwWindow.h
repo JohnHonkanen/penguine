@@ -16,11 +16,10 @@ private:
 	GLuint WIDTH, HEIGHT;
 
 public:
-	glfwWindow();
+	glfwWindow(GLuint WIDTH, GLuint HEIGHT);
 	virtual ~glfwWindow();
 
 	void init();
-	const GLFWwindow *getWindow();
 	void swapBuffers();
 	void destroy();
 

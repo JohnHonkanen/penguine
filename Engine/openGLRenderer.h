@@ -12,7 +12,7 @@ private:
 	Window *window;
 
 public:
-	openGLRenderer();
+	openGLRenderer(Window *window);
 	virtual ~openGLRenderer();
 
 	void init();
