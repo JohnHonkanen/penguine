@@ -185,6 +185,7 @@
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="StaticEntity.cpp" />
     <ClCompile Include="TextureGenerator.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +211,7 @@
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="StaticEntity.h" />
     <ClInclude Include="TextureGenerator.h" />
+    <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Transform.h" />
   </ItemGroup>
   <ItemGroup>

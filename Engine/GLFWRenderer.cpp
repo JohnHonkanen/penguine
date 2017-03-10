@@ -97,8 +97,10 @@ void GLFWRenderer::init() {
 
 	glBindVertexArray(0); // Unbind VAO
 
-	texture.insert(pair<string, GLuint>("container", TextureGenerator::createTexture("container.jpg")));
-	texture.insert(pair<string, GLuint>("awesomeface", TextureGenerator::createTexture("awesomeface.png")));
+	//texture.insert(pair<string, GLuint>("container", TextureGenerator::createTexture("container.jpg")));
+	textureManager.saveTexture("container.jpg", "container");
+	//texture.insert(pair<string, GLuint>("awesomeface", TextureGenerator::createTexture("awesomeface.png")));
+	textureManager.saveTexture("awesomeface.png", "awesomeface");
 }
 
 //Draw Buffers using Vertecies + load Texture
@@ -109,11 +111,11 @@ void GLFWRenderer::draw() {
 	glActiveTexture(GL_TEXTURE0);
 	/*After activating a texture unit, a subsequent
 	glBindTexture call will bind that texture to the currently active texture unit. */
-	glBindTexture(GL_TEXTURE_2D, texture["container"]);
+	glBindTexture(GL_TEXTURE_2D, textureManager.getTexture("container"));
 	/*By setting them via glUniform1i we make sure each uniform sampler corresponds to the proper texture unit.*/
 	glUniform1i(glGetUniformLocation(program->Program, "ourTexture1"), 0);
 	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, texture["awesomeface"]);
+	glBindTexture(GL_TEXTURE_2D, textureManager.getTexture("awesomeface"));
 	glUniform1i(glGetUniformLocation(program->Program, "ourTexture2"), 1);
 
 	//Draw Container

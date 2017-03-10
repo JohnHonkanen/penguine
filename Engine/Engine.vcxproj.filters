@@ -153,6 +153,9 @@
     <ClCompile Include="TextureGenerator.cpp">
       <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -222,6 +225,9 @@
       <Filter>Header Files\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="TextureGenerator.h">
+      <Filter>Header Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
       <Filter>Header Files\OpenGL</Filter>
     </ClInclude>
   </ItemGroup>

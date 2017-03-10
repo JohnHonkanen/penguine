@@ -9,7 +9,7 @@
 #include "Shader.h"
 #include <iostream>
 
-#include "TextureGenerator.h"
+#include "TextureManager.h"
 #include <map>
 
 using namespace std;
@@ -21,8 +21,8 @@ private:
 	Shader *program;
 	GLFWwindow *window;
 	GLuint VBO, VAO, EBO;
-	GLuint texture1, texture2;
-	map<string, GLuint> texture;
+	TextureManager textureManager;
+
 public:
 	GLFWRenderer();
 	virtual ~GLFWRenderer();
