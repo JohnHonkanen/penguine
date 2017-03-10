@@ -2,7 +2,7 @@
 #include "Entity.h"
 #include "Transform.h"
 #include "Physics.h"
-#include "Renderable.h"
+#include "RenderingStrategy.h"
 #include "Movement.h"
 #include <iostream>
 
@@ -12,16 +12,14 @@ class DynamicEntity :
 {
 public:
 	DynamicEntity();
-	DynamicEntity(Renderable *r, Movement* m);
+	DynamicEntity(Movement* m);
 	virtual ~DynamicEntity();
 	void init();
 	void render(Renderer *r);
 	void update(float ts);
-	void setRenderable(Renderable *renderable);
 	void setMovement(Movement *movement);
 	Transform transform;
 	Physics physics;
-	Renderable *renderable;
 	Movement *movement;
 
 };

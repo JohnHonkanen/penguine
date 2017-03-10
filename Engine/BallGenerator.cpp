@@ -2,11 +2,13 @@
 
 
 
-BallGenerator::BallGenerator(vec3 loc, vec3 force):ParticleDecorator(new BaseParticle(nullptr))
+BallGenerator::BallGenerator(vec3 loc, vec3 force, TextureManager *textureManager, Shader *program):ParticleDecorator(new BaseParticle(nullptr))
 {
 	//this->emitter->transform.setPosition(loc);
 	this->entity = new DynamicEntity();
-	this->entity->setRenderable(new Sprite(new EmptyRenderable(), &this->entity->transform));
+	SpriteRenderer sprite("container.jpg", "container", textureManager, &this->entity->transform, program); // Set-up Sprite Renderer
+	sprite.init(); // Initialize Sprite Renderer
+	this->entity->setRenderingStrategy(&sprite);
 	this->entity->setMovement(new Shoot(this->entity, force));
 	this->spawn = new SingleSpawn(emitter, entity);
 }
@@ -32,8 +34,9 @@ void BallGenerator::update(float ts)
 
 void BallGenerator::render(Renderer * r)
 {
-	ParticleDecorator::render(r);
 	this->entity->render(r);
+	ParticleDecorator::render(r);
+	
 }
 
 void BallGenerator::destroy()

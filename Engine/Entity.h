@@ -1,9 +1,8 @@
 #pragma once
 #include "Transform.h"
-#include "Renderable.h"
-/*pre-definition*/
-class Renderer;
-/*End of pre-definition*/
+#include "RenderingStrategy.h"
+#include "Renderer.h"
+
 class Entity
 {
 public:
@@ -12,8 +11,8 @@ public:
 	virtual void init() = 0;
 	virtual void render(Renderer *r) = 0;
 	virtual void update(float ts) = 0;
-	virtual void setRenderable(Renderable *renderable)=0;
+	void setRenderingStrategy(RenderingStrategy *strategy);
 	Transform transform;
-	Renderable *renderable;
+	RenderingStrategy *strategy;
 };
 

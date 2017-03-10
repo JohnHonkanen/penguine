@@ -10,3 +10,7 @@ RenderingStrategy::RenderingStrategy()
 RenderingStrategy::~RenderingStrategy()
 {
 }
+
+void RenderingStrategy::renderObject()
+{
+}

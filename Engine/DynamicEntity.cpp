@@ -4,19 +4,18 @@
 
 DynamicEntity::DynamicEntity()
 {
-	this->renderable = nullptr;
+	this->strategy = new RenderingStrategy();
 }
 
-DynamicEntity::DynamicEntity(Renderable *r, Movement* m)
+DynamicEntity::DynamicEntity(Movement* m)
 {
-	this->renderable = r;
 	this->movement = m;
 }
 
 
 DynamicEntity::~DynamicEntity()
 {
-	delete renderable;
+	delete strategy;
 }
 
 void DynamicEntity::init()
@@ -26,7 +25,8 @@ void DynamicEntity::init()
 
 void DynamicEntity::render(Renderer * r)
 {
-	renderable->render(r);
+	r->setStrategy(Entity::strategy);
+	r->draw();
 }
 
 void DynamicEntity::update(float ts)
@@ -34,11 +34,6 @@ void DynamicEntity::update(float ts)
 	this->movement->update(ts);
 	this->physics.update(ts);
 	this->transform.translate(this->physics.getAcceleration()); // Updates our Entity
-}
-
-void DynamicEntity::setRenderable(Renderable * renderable)
-{
-	this->renderable = renderable;
 }
 
 void DynamicEntity::setMovement(Movement * movement)

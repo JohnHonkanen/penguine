@@ -5,6 +5,7 @@
 openGLRenderer::openGLRenderer(Window *window)
 {
 	openGLRenderer::window = window;
+	Renderer::renderingStrategy = nullptr;
 }
 
 
@@ -48,5 +49,7 @@ void openGLRenderer::destroy()
 
 void openGLRenderer::draw()
 {
-	Renderer::renderingStrategy->renderObject();
+	if (Renderer::renderingStrategy != nullptr) {
+		Renderer::renderingStrategy->renderObject();
+	}
 }
