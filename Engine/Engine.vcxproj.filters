@@ -79,6 +79,15 @@
     <Filter Include="Header Files\OpenGL">
       <UniqueIdentifier>{c3ae2cb3-ab3d-4157-b352-19ce269ec7cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Behaviours\RenderingStrategy">
+      <UniqueIdentifier>{c245bfda-74c0-4124-9236-6e3c039ad99e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Behaviours\RenderingStrategy">
+      <UniqueIdentifier>{b5338493-17dc-47af-adcb-6ff517fd8478}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\SDL">
+      <UniqueIdentifier>{2c95ecf3-0daa-439b-baae-32d77e590015}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -129,9 +138,6 @@
     <ClCompile Include="ParticleDecorator.cpp">
       <Filter>Source Files\Particle</Filter>
     </ClCompile>
-    <ClCompile Include="SDLRenderer.cpp">
-      <Filter>Source Files\Renderer</Filter>
-    </ClCompile>
     <ClCompile Include="Shoot.cpp">
       <Filter>Source Files\Behaviours\Movement</Filter>
     </ClCompile>
@@ -141,12 +147,6 @@
     <ClCompile Include="BallGenerator.cpp">
       <Filter>Source Files\Particle</Filter>
     </ClCompile>
-    <ClCompile Include="GLFWRenderer.cpp">
-      <Filter>Source Files\Renderer\GLFW</Filter>
-    </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>Source Files\Renderer\GLFW</Filter>
-    </ClCompile>
     <ClCompile Include="MeshGenerator.cpp">
       <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
@@ -154,6 +154,24 @@
       <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteRenderer.cpp">
+      <Filter>Source Files\Behaviours\RenderingStrategy</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingStrategy.cpp">
+      <Filter>Source Files\Behaviours\RenderingStrategy</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="glfwWindow.cpp">
+      <Filter>Source Files\Renderer\GLFW</Filter>
+    </ClCompile>
+    <ClCompile Include="openGLRenderer.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
       <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
   </ItemGroup>
@@ -169,9 +187,6 @@
     </ClInclude>
     <ClInclude Include="DynamicEntity.h">
       <Filter>Header Files\Entity</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>Header Files\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="EmptyRenderable.h">
       <Filter>Header Files\Renderables</Filter>
@@ -203,9 +218,6 @@
     <ClInclude Include="ParticleDecorator.h">
       <Filter>Header Files\Particle</Filter>
     </ClInclude>
-    <ClInclude Include="SDLRenderer.h">
-      <Filter>Header Files\Renderer</Filter>
-    </ClInclude>
     <ClInclude Include="Shoot.h">
       <Filter>Header Files\Behaviours\Movement</Filter>
     </ClInclude>
@@ -214,9 +226,6 @@
     </ClInclude>
     <ClInclude Include="BallGenerator.h">
       <Filter>Header Files\Particle</Filter>
-    </ClInclude>
-    <ClInclude Include="GLFWRenderer.h">
-      <Filter>Header Files\Renderer\GLFW</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
       <Filter>Header Files\Renderer\GLFW</Filter>
@@ -230,6 +239,24 @@
     <ClInclude Include="TextureManager.h">
       <Filter>Header Files\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="SpriteRenderer.h">
+      <Filter>Header Files\Behaviours\RenderingStrategy</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingStrategy.h">
+      <Filter>Header Files\Behaviours\RenderingStrategy</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Header Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="glfwWindow.h">
+      <Filter>Header Files\Renderer\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Header Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="openGLRenderer.h">
+      <Filter>Header Files\OpenGL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd">
@@ -239,6 +266,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="minimal.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="single.frag">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

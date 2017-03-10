@@ -164,9 +164,10 @@
   <ItemGroup>
     <ClCompile Include="BallGenerator.cpp" />
     <ClCompile Include="BaseParticle.cpp" />
-    <ClCompile Include="GLFWRenderer.cpp" />
+    <ClCompile Include="glfwWindow.cpp" />
     <ClCompile Include="MeshGenerator.cpp" />
     <ClCompile Include="Movement.cpp" />
+    <ClCompile Include="openGLRenderer.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="ParticleDecorator.cpp" />
     <ClCompile Include="Renderable.cpp" />
@@ -177,23 +178,26 @@
     <ClCompile Include="RenderableDecorator.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Physics.cpp" />
-    <ClCompile Include="SDLRenderer.cpp" />
+    <ClCompile Include="RenderingStrategy.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Shoot.cpp" />
     <ClCompile Include="SingleSpawn.cpp" />
     <ClCompile Include="Spawn.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="StaticEntity.cpp" />
     <ClCompile Include="TextureGenerator.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BallGenerator.h" />
     <ClInclude Include="BaseParticle.h" />
-    <ClInclude Include="GLFWRenderer.h" />
+    <ClInclude Include="glfwWindow.h" />
     <ClInclude Include="MeshGenerator.h" />
     <ClInclude Include="Movement.h" />
+    <ClInclude Include="openGLRenderer.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="ParticleDecorator.h" />
     <ClInclude Include="Renderable.h" />
@@ -203,21 +207,24 @@
     <ClInclude Include="RenderableDecorator.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Physics.h" />
-    <ClInclude Include="SDLRenderer.h" />
+    <ClInclude Include="RenderingStrategy.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Shoot.h" />
     <ClInclude Include="SingleSpawn.h" />
     <ClInclude Include="Spawn.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="SpriteRenderer.h" />
     <ClInclude Include="StaticEntity.h" />
     <ClInclude Include="TextureGenerator.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
     <None Include="minimal.frag" />
     <None Include="minimal.vert" />
+    <None Include="single.frag" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

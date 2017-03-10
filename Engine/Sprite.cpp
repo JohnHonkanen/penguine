@@ -7,5 +7,5 @@ Sprite::Sprite(Renderable * r, Transform *t): RenderableDecorator(r)
 
 void Sprite::render(Renderer * r)
 {
-	r->renderSprite(sprite, *transform);
+	//r->renderSprite(sprite, *transform);
 }
