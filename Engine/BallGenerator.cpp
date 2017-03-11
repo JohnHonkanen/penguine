@@ -6,9 +6,9 @@ BallGenerator::BallGenerator(vec3 loc, vec3 force, TextureManager *textureManage
 {
 	//this->emitter->transform.setPosition(loc);
 	this->entity = new DynamicEntity();
-	SpriteRenderer sprite("container.jpg", "container", textureManager, &this->entity->transform, program); // Set-up Sprite Renderer
-	sprite.init(); // Initialize Sprite Renderer
-	this->entity->setRenderingStrategy(&sprite);
+	SpriteRenderer *sprite = new SpriteRenderer("container.jpg", "container", textureManager, &this->entity->transform, program); // Set-up Sprite Renderer
+	sprite->init(); // Initialize Sprite Renderer
+	this->entity->setRenderingStrategy(sprite);
 	this->entity->setMovement(new Shoot(this->entity, force));
 	this->spawn = new SingleSpawn(emitter, entity);
 }

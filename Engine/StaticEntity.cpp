@@ -4,7 +4,7 @@
 
 StaticEntity::StaticEntity()
 {
-	strategy = new RenderingStrategy();
+	strategy = nullptr;
 }
 
 StaticEntity::~StaticEntity()

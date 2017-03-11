@@ -76,14 +76,11 @@ void SpriteRenderer::renderObject()
 	//Get matrix's uniform location, get and set matrix
 	GLuint transformLoc = glGetUniformLocation(program->Program, "transform");
 	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform->get()));
-
-	cout << "Now Rendering TexID: " << textureManager->getTexture(name) <<endl;
 	
 	glBindTexture(GL_TEXTURE_2D, textureManager->getTexture(name));
 	//By setting them via glUniform1i we make sure each uniform sampler corresponds to the proper texture unit.
 	glUniform1i(glGetUniformLocation(program->Program, "ourTexture"), 0);
 
-	cout << "Now Drawing VAO: " << VAO << endl;
 	//Draw Container
 	glBindVertexArray(VAO); 
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

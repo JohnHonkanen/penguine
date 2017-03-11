@@ -5,7 +5,7 @@ public:
 	RenderingStrategy();
 	virtual ~RenderingStrategy();
 
-	virtual void renderObject();
+	virtual void renderObject() = 0;
 
 };
 

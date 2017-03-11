@@ -1,6 +1,6 @@
 #pragma once
 #include <glm\glm.hpp>
-#define GRAVITY 15
+#define GRAVITY 1
 
 using namespace glm;
 class Physics

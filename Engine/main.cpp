@@ -19,16 +19,16 @@ int main(int argc, char *argv[])
 	renderer.init(); // Initialize Rendering Library
 
 	TextureManager textureManager;
-	textureManager.saveTexture("container.jpg", "container");
+	textureManager.saveTexture("awesomeface.png", "container");
 
 	Shader shaderProgram("minimal.vert", "single.frag"); // Initialize Shader Programs
 
-	BallGenerator ballGen(vec3(0.0f), vec3(1.0f, 0.0f, 0.0f), &textureManager, &shaderProgram);
+	BallGenerator ballGen(vec3(0.0f), vec3(0.0f, 25.0f, 0.0f), &textureManager, &shaderProgram);
 	ballGen.init();
 
 	for (;;) {
 		
-		ballGen.update(1); //updates balls
+		ballGen.update(0.005f); //updates balls
 
 		renderer.start();  // Sets up Rendering Loop
 		ballGen.render(&renderer); // Renders Balls

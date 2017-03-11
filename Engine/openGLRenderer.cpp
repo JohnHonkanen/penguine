@@ -49,7 +49,7 @@ void openGLRenderer::destroy()
 
 void openGLRenderer::draw()
 {
-	if (Renderer::renderingStrategy != nullptr) {
-		Renderer::renderingStrategy->renderObject();
+	if (renderingStrategy != nullptr) {
+		renderingStrategy->renderObject();
 	}
 }
