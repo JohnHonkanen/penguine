@@ -5,8 +5,7 @@ CircularSpawn::CircularSpawn(Entity * emitter, float radius, int numberOfPoints,
 	CircularSpawn::radius = radius;
 	CircularSpawn::numberOfPoints = numberOfPoints;
 	CircularSpawn::angle = startAngle;
-	CircularSpawn::step = (M_PI*0.5f) / numberOfPoints;
-	angle = 0.0f + (M_PI*0.25f);
+	CircularSpawn::step = (2*M_PI) / numberOfPoints;
 }
 
 CircularSpawn::~CircularSpawn()
@@ -15,8 +14,6 @@ CircularSpawn::~CircularSpawn()
 
 void CircularSpawn::init()
 {
-	if (angle > (M_PI*0.75))
-		angle = 0.0f + (M_PI*0.25f);
 	vec3 emitterPos = CircularSpawn::emitter->transform.getPosition();
 	float x = cos(angle) * radius;
 	float y = sin(angle) * radius;

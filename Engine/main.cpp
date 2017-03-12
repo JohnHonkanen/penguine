@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	renderer.init(); // Initialize Rendering Library
 
 	TextureManager textureManager;
-	textureManager.saveTexture("awesomeface.png", "container");
+	textureManager.saveTexture("fire.png", "container");
 
 	Shader shaderProgram("minimal.vert", "single.frag"); // Initialize Shader Programs
 

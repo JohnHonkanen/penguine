@@ -9,7 +9,7 @@ BallGenerator::BallGenerator(vec3 loc, vec3 force, TextureManager *textureManage
 	BallGenerator::textureManager = textureManager;
 	BallGenerator::program = program;
 	BallGenerator::force = force;
-	BallGenerator::spawn = new CircularSpawn(emitter, 1.0f, 15);
+	BallGenerator::spawn = new CircularSpawn(emitter, 0.1f, 15);
 }
 
 
@@ -24,16 +24,31 @@ void BallGenerator::init()
 		generateBall();
 	}
 	spawnClock.startClock();
-	spawnClock.setDelay(1000);
+	spawnClock.setDelay(300);
 }
 
 void BallGenerator::update(float ts)
 {
+	stack<int> expiredParticles;
 	spawnClock.updateClock();
 	ParticleDecorator::update(ts);
 	this->spawn->update(ts);
 	for (int i = 0; i < BallGenerator::balls.size(); i++) {
-		BallGenerator::balls[i]->update(ts);
+		if (BallGenerator::balls[i]->clock.alarm()) {
+			expiredParticles.push(i);
+		}else{
+			BallGenerator::balls[i]->update(ts);
+		}
+		
+	}
+	while (!expiredParticles.empty()) {
+		if (expiredParticles.top() < BallGenerator::balls.size()) {
+			delete BallGenerator::balls[expiredParticles.top()];
+			BallGenerator::balls[expiredParticles.top()] = BallGenerator::balls.back();
+			BallGenerator::balls.pop_back();
+		}
+		expiredParticles.pop();
+		
 	}
 	if (spawnClock.alarm()) {
 		for (int i = 0; i < 15; i++) {
@@ -65,7 +80,7 @@ void BallGenerator::destroy()
 
 void BallGenerator::generateBall()
 {
-	DynamicEntity *dynamicEntity = new DynamicEntity();
+	DynamicEntity *dynamicEntity = new DynamicEntity(1500);
 	BallGenerator::spawn->setEntity(dynamicEntity);
 	BallGenerator::spawn->init();
 	float randForce = rand() % 1500;

@@ -77,6 +77,7 @@ void SpriteRenderer::renderObject()
 	GLuint modelLoc = glGetUniformLocation(SpriteRenderer::program->Program, "model");
 	GLuint viewLoc = glGetUniformLocation(SpriteRenderer::program->Program, "view");
 	GLuint projectionLoc = glGetUniformLocation(SpriteRenderer::program->Program, "projection");
+	GLuint alphaLoc = glGetUniformLocation(SpriteRenderer::program->Program, "ourAlpha");
 
 	//glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform->get()));
 	
@@ -92,6 +93,7 @@ void SpriteRenderer::renderObject()
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(transform->get()));
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(RenderingStrategy::view.get()));
 	glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(RenderingStrategy::projection.get()));
+	glUniform1f(alphaLoc,1.0f);
 
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);

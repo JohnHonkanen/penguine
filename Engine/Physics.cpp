@@ -4,6 +4,7 @@
 
 Physics::Physics()
 {
+	grav = false;
 }
 
 
@@ -45,6 +46,10 @@ void Physics::addForce(float x, float y, float z)
 void Physics::resetForce()
 {
 	this->force = vec3(0.0f);
+}
+void Physics::setGravity(bool grav)
+{
+	Physics::grav = grav;
 }
 /*
 	Gets acceleration

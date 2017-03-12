@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <stack>
 #include <stdlib.h>
 #include "StaticEntity.h"
 #include "DynamicEntity.h"
