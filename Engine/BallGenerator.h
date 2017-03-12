@@ -11,6 +11,7 @@
 #include "Shader.h"
 #include "SingleSpawn.h"
 #include "Shoot.h"
+#include "Clock.h"
 
 using namespace std;
 class BallGenerator :
@@ -19,7 +20,12 @@ class BallGenerator :
 private:
 	Entity *emitter;
 	Entity *entity;
+	vector<Entity*> balls;
 	Spawn *spawn;
+	TextureManager *textureManager;
+	Shader *program;
+	vec3 force;
+	Clock spawnClock;
 public:
 	BallGenerator(vec3 loc, vec3 force, TextureManager *textureManager, Shader *program);
 	virtual ~BallGenerator();
@@ -27,6 +33,8 @@ public:
 	void update(float ts);
 	void render(Renderer *r);
 	void destroy();
+
+	void generateBall();
 
 };
 

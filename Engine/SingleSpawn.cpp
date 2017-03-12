@@ -23,3 +23,8 @@ void SingleSpawn::update(float ts)
 		Do nothing
 	*/
 }
+
+void SingleSpawn::setEntity(Entity * entity)
+{
+	SingleSpawn::entity = entity;
+}

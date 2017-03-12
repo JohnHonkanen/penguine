@@ -34,7 +34,6 @@ void DynamicEntity::update(float ts)
 	this->movement->update(ts);
 	this->physics.update(ts);
 	this->transform.translate(this->physics.getAcceleration()); // Updates our Entity
-	cout << transform.getPosition().x << " || " << transform.getPosition().y << endl;
 }
 
 void DynamicEntity::setMovement(Movement * movement)
