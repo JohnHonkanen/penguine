@@ -19,6 +19,7 @@ public:
 	void scale(float scale);
 	void scale(float scaleX, float scaleY, float scaleZ);
 	void scale(vec3 scale);
+	void setTransform(mat4 matrix);
 
 	mat4 get();
 	vec3 getPosition();

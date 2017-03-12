@@ -74,15 +74,25 @@ void SpriteRenderer::renderObject()
 	SpriteRenderer::program->Use();
 
 	//Get matrix's uniform location, get and set matrix
-	GLuint transformLoc = glGetUniformLocation(program->Program, "transform");
-	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform->get()));
+	GLuint modelLoc = glGetUniformLocation(SpriteRenderer::program->Program, "model");
+	GLuint viewLoc = glGetUniformLocation(SpriteRenderer::program->Program, "view");
+	GLuint projectionLoc = glGetUniformLocation(SpriteRenderer::program->Program, "projection");
+
+	//glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform->get()));
 	
+	//glBindTexture call will bind that texture to the currently active texture unit.
 	glBindTexture(GL_TEXTURE_2D, textureManager->getTexture(name));
 	//By setting them via glUniform1i we make sure each uniform sampler corresponds to the proper texture unit.
 	glUniform1i(glGetUniformLocation(program->Program, "ourTexture"), 0);
 
 	//Draw Container
 	glBindVertexArray(VAO); 
+	
+	//Pass to Shader
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(transform->get()));
+	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(RenderingStrategy::view.get()));
+	glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(RenderingStrategy::projection.get()));
+
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
 }

@@ -97,6 +97,12 @@ void Transform::scale(vec3 scale)
 {
 	this->transform = glm::scale(this->transform, scale);
 }
+
+void Transform::setTransform(mat4 matrix)
+{
+	Transform::transform = matrix;
+}
+
 /*
 	Gets our mat4 matrix
 */

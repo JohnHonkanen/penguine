@@ -13,7 +13,6 @@ class glfwWindow :
 
 private:
 	GLFWwindow *window;
-	GLuint WIDTH, HEIGHT;
 
 public:
 	glfwWindow(GLuint WIDTH, GLuint HEIGHT);

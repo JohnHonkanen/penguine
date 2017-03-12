@@ -27,6 +27,13 @@ void openGLRenderer::init()
 	//Initialize DevIL
 	ilInit();
 	cout << "il Initialized" << endl;
+
+	glm::mat4 view;
+	glm::mat4 projection;
+	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -1.0f)); //Change Z value to move camera closer/further away from screen
+	projection = glm::perspective(45.0f, (GLfloat)window->WIDTH / (GLfloat)window->HEIGHT, 0.1f, 100.0f);
+	openGLRenderer::view.setTransform(view);
+	openGLRenderer::projection.setTransform(projection);
 }
 
 void openGLRenderer::start()
@@ -52,6 +59,8 @@ void openGLRenderer::destroy()
 void openGLRenderer::draw()
 {
 	if (renderingStrategy != nullptr) {
+		renderingStrategy->addView(openGLRenderer::view);
+		renderingStrategy->addProjection(openGLRenderer::projection);
 		renderingStrategy->renderObject();
 	}
 }
