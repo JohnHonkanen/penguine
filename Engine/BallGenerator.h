@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <stdlib.h>
 #include "StaticEntity.h"
 #include "DynamicEntity.h"
 #include "BaseParticle.h"
@@ -9,7 +10,7 @@
 #include "TextureManager.h"
 #include "Spawn.h"
 #include "Shader.h"
-#include "SingleSpawn.h"
+#include "CircularSpawn.h"
 #include "Shoot.h"
 #include "Clock.h"
 

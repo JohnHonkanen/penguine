@@ -9,7 +9,7 @@ BallGenerator::BallGenerator(vec3 loc, vec3 force, TextureManager *textureManage
 	BallGenerator::textureManager = textureManager;
 	BallGenerator::program = program;
 	BallGenerator::force = force;
-	BallGenerator::spawn = new SingleSpawn(emitter, nullptr);
+	BallGenerator::spawn = new CircularSpawn(emitter, 1.0f, 15);
 }
 
 
@@ -20,9 +20,11 @@ BallGenerator::~BallGenerator()
 void BallGenerator::init()
 {
 	ParticleDecorator::init();
-	generateBall();
+	for (int i = 0; i < 15; i++) {
+		generateBall();
+	}
 	spawnClock.startClock();
-	spawnClock.setDelay(3000);
+	spawnClock.setDelay(1000);
 }
 
 void BallGenerator::update(float ts)
@@ -34,7 +36,9 @@ void BallGenerator::update(float ts)
 		BallGenerator::balls[i]->update(ts);
 	}
 	if (spawnClock.alarm()) {
-		generateBall();
+		for (int i = 0; i < 15; i++) {
+			generateBall();
+		}
 		spawnClock.resetClock();
 	}
 }
@@ -62,13 +66,16 @@ void BallGenerator::destroy()
 void BallGenerator::generateBall()
 {
 	DynamicEntity *dynamicEntity = new DynamicEntity();
-	dynamicEntity->setMovement(new Shoot(dynamicEntity, force));
+	BallGenerator::spawn->setEntity(dynamicEntity);
+	BallGenerator::spawn->init();
+	float randForce = rand() % 1500;
+	vec2 circPoint = dynamic_cast<CircularSpawn*>(spawn)->circularPoint * randForce;
+	vec3 shootForce = vec3(circPoint, 0.0f);
+	dynamicEntity->setMovement(new Shoot(dynamicEntity, shootForce));
 	SpriteRenderer *sprite = new SpriteRenderer("container.jpg", "container", textureManager, &dynamicEntity->transform, program); // Set-up Sprite Renderer
 	sprite->init(); // Initialize Sprite Renderer
 
 	dynamicEntity->setRenderingStrategy(sprite);
 	dynamicEntity->init();
 	BallGenerator::balls.push_back(dynamicEntity);
-	BallGenerator::spawn->setEntity(dynamicEntity);
-	BallGenerator::spawn->init();
 }
