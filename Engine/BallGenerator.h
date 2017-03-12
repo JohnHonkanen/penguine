@@ -17,8 +17,8 @@ class BallGenerator :
 	public ParticleDecorator
 {
 private:
-	StaticEntity *emitter;
-	DynamicEntity *entity;
+	Entity *emitter;
+	Entity *entity;
 	Spawn *spawn;
 public:
 	BallGenerator(vec3 loc, vec3 force, TextureManager *textureManager, Shader *program);
@@ -27,5 +27,6 @@ public:
 	void update(float ts);
 	void render(Renderer *r);
 	void destroy();
+
 };
 
