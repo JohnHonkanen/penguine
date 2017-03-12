@@ -27,7 +27,7 @@ GLuint TextureGenerator::createTexture(const string fileLocation)
 		cout << "Failed to load image at: " << fileLocation << endl;
 	}
 	//Convert Image to usable Image
-	ilConvertImage(IL_RGB, IL_UNSIGNED_BYTE);
+	ilConvertImage(IL_RGBA, IL_UNSIGNED_BYTE);
 
 	width = ilGetInteger(IL_IMAGE_WIDTH);
 	height = ilGetInteger(IL_IMAGE_HEIGHT);
@@ -53,7 +53,7 @@ GLuint TextureGenerator::createTexture(const string fileLocation)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);  
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, ilGetData());
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, ilGetData());
 
 	//Generate mipmap here
 	glGenerateMipmap(GL_TEXTURE_2D);

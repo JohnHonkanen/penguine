@@ -34,6 +34,10 @@ void openGLRenderer::init()
 	projection = glm::perspective(45.0f, (GLfloat)window->WIDTH / (GLfloat)window->HEIGHT, 0.1f, 100.0f);
 	openGLRenderer::view.setTransform(view);
 	openGLRenderer::projection.setTransform(projection);
+
+	// Setup OpenGL options
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 void openGLRenderer::start()

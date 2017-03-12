@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 
 	Shader shaderProgram("minimal.vert", "single.frag"); // Initialize Shader Programs
 
-	BallGenerator ballGen(vec3(0.5f,0.0f,0.0f), vec3(0.0f, 15.0f, 0.0f), &textureManager, &shaderProgram);
+	BallGenerator ballGen(vec3(0.0f,0.0f,0.0f), vec3(0.0f, 15.0f, 0.0f), &textureManager, &shaderProgram);
 	ballGen.init();
 
 	Clock appClock;
@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 		appClock.updateClock(); //Ticks App Clock
 		// Calculates Delta Time
 		currentTime = appClock.getMilliseconds();
-		double dt = (currentTime - previousTime) * 0.001f; //Convert DT to seconds
+		double dt = (currentTime - previousTime) * 0.00001f; //Convert DT to seconds
 		previousTime = currentTime;
 		//End of DeltaTime
 		ballGen.update(dt); //updates balls
