@@ -63,7 +63,6 @@ void BallGenerator::generateBall()
 {
 	DynamicEntity *dynamicEntity = new DynamicEntity();
 	dynamicEntity->setMovement(new Shoot(dynamicEntity, force));
-	dynamicEntity->transform.scale(0.1f);
 	SpriteRenderer *sprite = new SpriteRenderer("container.jpg", "container", textureManager, &dynamicEntity->transform, program); // Set-up Sprite Renderer
 	sprite->init(); // Initialize Sprite Renderer
 
