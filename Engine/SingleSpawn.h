@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <glm\glm.hpp>
+#include <iostream>
 #include "Entity.h"
 #include "Spawn.h"
 

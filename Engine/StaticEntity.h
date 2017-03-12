@@ -12,7 +12,6 @@ public:
 	void init();
 	void render(Renderer *r);
 	void update(float ts);
-	Transform transform;
 	Movement *movement;
 };
 

@@ -18,7 +18,6 @@ public:
 	void render(Renderer *r);
 	void update(float ts);
 	void setMovement(Movement *movement);
-	Transform transform;
 	Physics physics;
 	Movement *movement;
 
