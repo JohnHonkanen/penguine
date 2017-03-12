@@ -6,6 +6,8 @@
 
 class Entity
 {
+protected:
+	float lifeTime;
 public:
 	Entity();
 	virtual ~Entity();
@@ -16,5 +18,6 @@ public:
 	Clock clock;
 	Transform transform;
 	RenderingStrategy *strategy;
+	float alpha;
 };
 

@@ -11,7 +11,7 @@
 #include "TextureManager.h"
 #include "Spawn.h"
 #include "Shader.h"
-#include "CircularSpawn.h"
+#include "ConeSpawn.h"
 #include "Shoot.h"
 #include "Clock.h"
 

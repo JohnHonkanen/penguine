@@ -20,11 +20,12 @@ int main(int argc, char *argv[])
 	renderer.init(); // Initialize Rendering Library
 
 	TextureManager textureManager;
-	textureManager.saveTexture("fire.png", "container");
+	textureManager.saveTexture("smoke.png", "smoke");
+	textureManager.saveTexture("fire.png", "fire");
 
 	Shader shaderProgram("minimal.vert", "single.frag"); // Initialize Shader Programs
 
-	BallGenerator ballGen(vec3(0.0f,0.0f,0.0f), vec3(0.0f, 150.0f, 0.0f), &textureManager, &shaderProgram);
+	BallGenerator ballGen(vec3(0.0f,0.0f,-10.0f), vec3(0.0f, 150.0f, 0.0f), &textureManager, &shaderProgram);
 	ballGen.init();
 
 	Clock appClock;

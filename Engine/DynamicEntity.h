@@ -11,8 +11,6 @@ using namespace std;
 class DynamicEntity :
 	public Entity
 {
-private:
-	float lifeTime;
 public:
 	DynamicEntity();
 	DynamicEntity(float lifeTime);
