@@ -13,8 +13,9 @@ glfwWindow::~glfwWindow()
 
 void glfwWindow::init()
 {
+	cout << "Glfw inititing" << endl;
 	glfwInit();
-
+	cout << "Glfw Done" << endl;
 	//Set OpenGL version to (Major, Minor). 
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -26,8 +27,11 @@ void glfwWindow::init()
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
 	//Create Window
+	cout << "Creating Window" << endl;
 	window = glfwCreateWindow(800, 600, "Penguine", nullptr, nullptr);
+	cout << "Done Creting Window" << endl;
 	glfwMakeContextCurrent(window);
+	
 
 	if (window == nullptr) {
 		cout << "Failed to create GLFW window" << endl;

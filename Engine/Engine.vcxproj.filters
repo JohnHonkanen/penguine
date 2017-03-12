@@ -91,6 +91,12 @@
     <Filter Include="Header Files\Renderer\SDL">
       <UniqueIdentifier>{3a683dde-ef31-4348-b6d3-ac881ad4c3d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Clock">
+      <UniqueIdentifier>{51d497c8-3c05-48fb-9a7c-7868571250be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Clock">
+      <UniqueIdentifier>{35c9b6b1-2e11-4f4a-bccc-9b3107e92477}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -177,6 +183,9 @@
     <ClCompile Include="Shader.cpp">
       <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="Clock.cpp">
+      <Filter>Source Files\Clock</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -259,6 +268,9 @@
     </ClInclude>
     <ClInclude Include="Shader.h">
       <Filter>Header Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Clock.h">
+      <Filter>Header Files\Clock</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

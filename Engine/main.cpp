@@ -1,44 +1,21 @@
 #include <iostream>
-
-#include "TextureManager.h"
-#include "Shader.h"
-#include "Window.h"
-#include "glfwWindow.h"
-#include "openGLRenderer.h"
-#include "BallGenerator.h"
-
+#include "Clock.h"
 
 using namespace std;
-using namespace glm;
 
 int main(int argc, char *argv[])
 {
-	
-	Window *window = new glfwWindow(800, 600);
-	openGLRenderer renderer(window);
-	renderer.init(); // Initialize Rendering Library
-
-	TextureManager textureManager;
-	textureManager.saveTexture("awesomeface.png", "container");
-
-	Shader shaderProgram("minimal.vert", "single.frag"); // Initialize Shader Programs
-
-	BallGenerator ballGen(vec3(0.0f), vec3(0.0f, 25.0f, 0.0f), &textureManager, &shaderProgram);
-	ballGen.init();
-
-	for (;;) {
-		
-		ballGen.update(0.005f); //updates balls
-
-		renderer.start();  // Sets up Rendering Loop
-		ballGen.render(&renderer); // Renders Balls
-		
-						 
-		renderer.end(); //Swap Buffers
+	Clock clock;
+	clock.startClock();
+	clock.setDelay(5000);
+	bool flag = true;
+	while (flag) {
+		clock.updateClock();
+		cout << clock.getMilliseconds() << endl;
+		if (clock.alarm()) {
+			cout << "5 Seconds has passed" << endl;
+			flag = false;
+		}
 	}
-
-	cin.get();
-	renderer.destroy();
-
 	return 0;
 }

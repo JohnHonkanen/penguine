@@ -2,10 +2,11 @@
 
 #include <GL\glew.h>
 #include <IL\il.h>
-
+#include <iostream>
 #include "Renderer.h"
 #include "Window.h"
 
+using namespace std;
 class openGLRenderer: public Renderer
 {
 private:
