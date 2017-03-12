@@ -19,5 +19,6 @@ public:
 	virtual ~SingleSpawn();
 	void init();
 	void update(float ts);
+	void setEntity(Entity *entity);
 };
 
