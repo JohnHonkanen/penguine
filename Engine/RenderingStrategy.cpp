@@ -4,6 +4,7 @@
 
 RenderingStrategy::RenderingStrategy()
 {
+	RenderingStrategy::alpha = 1.0f;
 }
 
 
@@ -19,4 +20,14 @@ void RenderingStrategy::addView(Transform view)
 void RenderingStrategy::addProjection(Transform projection)
 {
 	RenderingStrategy::projection = projection;
+}
+
+void RenderingStrategy::setAlpha(float alpha)
+{
+	this->alpha = alpha;
+}
+
+float RenderingStrategy::getAlpha()
+{
+	return RenderingStrategy::alpha;
 }

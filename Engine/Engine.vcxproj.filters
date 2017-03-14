@@ -186,6 +186,12 @@
     <ClCompile Include="Clock.cpp">
       <Filter>Source Files\Clock</Filter>
     </ClCompile>
+    <ClCompile Include="CircularSpawn.cpp">
+      <Filter>Source Files\Behaviours\Spawn</Filter>
+    </ClCompile>
+    <ClCompile Include="ConeSpawn.cpp">
+      <Filter>Source Files\Behaviours\Spawn</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -271,6 +277,12 @@
     </ClInclude>
     <ClInclude Include="Clock.h">
       <Filter>Header Files\Clock</Filter>
+    </ClInclude>
+    <ClInclude Include="CircularSpawn.h">
+      <Filter>Header Files\Behaviours\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="ConeSpawn.h">
+      <Filter>Header Files\Behaviours\Spawn</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

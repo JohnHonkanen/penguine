@@ -13,12 +13,10 @@ class SingleSpawn :
 {
 private:
 	Entity *emitter;
-	Entity *entity;
 public:
 	SingleSpawn(Entity *emitter, Entity* e);
 	virtual ~SingleSpawn();
 	void init();
 	void update(float ts);
-	void setEntity(Entity *entity);
 };
 

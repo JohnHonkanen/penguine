@@ -26,7 +26,6 @@ private:
 	TextureManager *textureManager;
 	Transform *transform; // Origin of the renderObject
 	Shader *program;
-
 public:
 	SpriteRenderer(string fileLocation, string name, TextureManager *textureManager, Transform *transform, Shader *program);
 	virtual ~SpriteRenderer();

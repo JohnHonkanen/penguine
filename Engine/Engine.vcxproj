@@ -164,7 +164,9 @@
   <ItemGroup>
     <ClCompile Include="BallGenerator.cpp" />
     <ClCompile Include="BaseParticle.cpp" />
+    <ClCompile Include="CircularSpawn.cpp" />
     <ClCompile Include="Clock.cpp" />
+    <ClCompile Include="ConeSpawn.cpp" />
     <ClCompile Include="glfwWindow.cpp" />
     <ClCompile Include="MeshGenerator.cpp" />
     <ClCompile Include="Movement.cpp" />
@@ -195,7 +197,9 @@
   <ItemGroup>
     <ClInclude Include="BallGenerator.h" />
     <ClInclude Include="BaseParticle.h" />
+    <ClInclude Include="CircularSpawn.h" />
     <ClInclude Include="Clock.h" />
+    <ClInclude Include="ConeSpawn.h" />
     <ClInclude Include="glfwWindow.h" />
     <ClInclude Include="MeshGenerator.h" />
     <ClInclude Include="Movement.h" />

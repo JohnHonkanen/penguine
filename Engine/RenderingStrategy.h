@@ -11,6 +11,7 @@ class RenderingStrategy
 protected:
 	Transform view;
 	Transform projection;
+	float alpha;
 public:
 	RenderingStrategy();
 	virtual ~RenderingStrategy();
@@ -19,5 +20,7 @@ public:
 
 	void addView(Transform view);
 	void addProjection(Transform projection);
+	void setAlpha(float alpha);
+	float getAlpha();
 };
 

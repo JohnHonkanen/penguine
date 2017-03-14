@@ -9,7 +9,7 @@ BallGenerator::BallGenerator(vec3 loc, vec3 force, TextureManager *textureManage
 	BallGenerator::textureManager = textureManager;
 	BallGenerator::program = program;
 	BallGenerator::force = force;
-	BallGenerator::spawn = new SingleSpawn(emitter, nullptr);
+	BallGenerator::spawn = new ConeSpawn(emitter, vec3(0,10,0), 1.0f);
 }
 
 
@@ -20,21 +20,48 @@ BallGenerator::~BallGenerator()
 void BallGenerator::init()
 {
 	ParticleDecorator::init();
-	generateBall();
+	for (int i = 0; i < 30; i++) {
+		generateBall();
+	}
 	spawnClock.startClock();
-	spawnClock.setDelay(3000);
+	spawnClock.setDelay(300);
 }
 
 void BallGenerator::update(float ts)
 {
+	stack<int> expiredParticles;
 	spawnClock.updateClock();
 	ParticleDecorator::update(ts);
 	this->spawn->update(ts);
 	for (int i = 0; i < BallGenerator::balls.size(); i++) {
-		BallGenerator::balls[i]->update(ts);
+		if (BallGenerator::balls[i]->clock.alarm()) {
+			float alpha = BallGenerator::balls[i]->strategy->getAlpha();
+			alpha -= 0.01f;
+			BallGenerator::balls[i]->transform.scale(0.99f);
+			BallGenerator::balls[i]->strategy->setAlpha(alpha);
+			if(BallGenerator::balls[i]->strategy->getAlpha() <= 0.0f)
+				expiredParticles.push(i);
+			else {
+				BallGenerator::balls[i]->update(ts);
+			}
+		}else{
+			BallGenerator::balls[i]->update(ts);
+		}
+		
+	}
+	while (!expiredParticles.empty()) {
+		if (expiredParticles.top() < BallGenerator::balls.size()) {
+			delete BallGenerator::balls[expiredParticles.top()];
+			BallGenerator::balls[expiredParticles.top()] = BallGenerator::balls.back();
+			BallGenerator::balls.pop_back();
+		}
+		expiredParticles.pop();
+		
 	}
 	if (spawnClock.alarm()) {
-		generateBall();
+		for (int i = 0; i < 30; i++) {
+			generateBall();
+		}
 		spawnClock.resetClock();
 	}
 }
@@ -61,14 +88,23 @@ void BallGenerator::destroy()
 
 void BallGenerator::generateBall()
 {
-	DynamicEntity *dynamicEntity = new DynamicEntity();
-	dynamicEntity->setMovement(new Shoot(dynamicEntity, force));
-	SpriteRenderer *sprite = new SpriteRenderer("container.jpg", "container", textureManager, &dynamicEntity->transform, program); // Set-up Sprite Renderer
+	DynamicEntity *dynamicEntity = new DynamicEntity(1500);
+	BallGenerator::spawn->setEntity(dynamicEntity);
+	BallGenerator::spawn->init();
+	vec3 at = vec3(0,10.0f,-10.0f);
+	vec3 shootForce = at - dynamicEntity->transform.getPosition();
+	shootForce *= (rand() % 100) * 0.1f + 10.0f;
+	dynamicEntity->setMovement(new Shoot(dynamicEntity, shootForce));
+	dynamicEntity->transform.scale((rand() % 100) *0.01f + 0.3f);
+	dynamicEntity->alpha = 0.5f;
+	
+	string type = "smoke";
+	
+	SpriteRenderer *sprite = new SpriteRenderer("smoke.png", type, textureManager, &dynamicEntity->transform, program); // Set-up Sprite Renderer
 	sprite->init(); // Initialize Sprite Renderer
 
 	dynamicEntity->setRenderingStrategy(sprite);
 	dynamicEntity->init();
+	dynamicEntity->strategy->setAlpha((rand() % 50) *0.01f);
 	BallGenerator::balls.push_back(dynamicEntity);
-	BallGenerator::spawn->setEntity(dynamicEntity);
-	BallGenerator::spawn->init();
 }
