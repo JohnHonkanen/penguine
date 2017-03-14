@@ -1,10 +1,9 @@
 #pragma once
 
 #include <iostream>
-#include <glfw3.h>
 
 #include "Window.h"
-
+#include <glfw3.h>
 
 using namespace std;
 
