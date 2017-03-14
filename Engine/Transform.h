@@ -26,5 +26,6 @@ public:
 	void reset();
 private:
 	mat4 transform;
+	vec3 position;
 };
 

@@ -4,7 +4,6 @@
 
 Transform::Transform()
 {
-	//transform = mat4(0.0f); // Creates an identity matrix
 }
 
 
@@ -17,9 +16,7 @@ Transform::~Transform()
 */
 void Transform::setPosition(vec3 position)
 {
-	this->transform[3].x = position.x;
-	this->transform[3].y = position.y;
-	this->transform[3].z = position.z;
+	Transform::position = position;
 }
 /*
 	Translates our Matrix
@@ -112,7 +109,7 @@ mat4 Transform::get()
 }
 vec3 Transform::getPosition()
 {
-	return vec3(this->transform[3]);
+	return Transform::position;
 }
 /*
 	Resets to identity matrix
