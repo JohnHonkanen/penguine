@@ -6,7 +6,6 @@
 #include "DynamicEntity.h"
 #include "BaseParticle.h"
 #include "ParticleDecorator.h"
-#include "Sprite.h"
 #include "SpriteRenderer.h"
 #include "TextureManager.h"
 #include "Spawn.h"
@@ -33,7 +32,7 @@ public:
 	virtual ~BallGenerator();
 	void init();
 	void update(float ts);
-	void render(Renderer *r);
+	void render();
 	void destroy();
 
 	void generateBall();

@@ -1,21 +1,26 @@
 #pragma once
-#include <string>
+
+#include <GL\glew.h>
+
 #include "Transform.h"
-#include "RenderingStrategy.h"
 
 
-class Renderer
+using namespace glm;
+class Renderer// Rendering Strategy
 {
 protected:
-	RenderingStrategy *renderingStrategy;
+	Transform view;
+	Transform projection;
+	float alpha;
 public:
 	Renderer();
 	virtual ~Renderer();
-	virtual void init() = 0;
-	virtual void start() = 0;
-	virtual void end() = 0;
-	virtual void destroy() = 0;
-	virtual void draw() = 0;
-	void setStrategy(RenderingStrategy *renderingStrategy);
+
+	virtual void renderObject() = 0;
+
+	void addView(Transform view);
+	void addProjection(Transform projection);
+	void setAlpha(float alpha);
+	float getAlpha();
 };
 

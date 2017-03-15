@@ -3,26 +3,25 @@
 #include <GL\glew.h>
 #include <IL\il.h>
 #include <iostream>
-#include "Renderer.h"
+#include "GraphicsHandler.h"
 #include "Window.h"
 #include "Transform.h"
 
 using namespace std;
-class openGLRenderer: public Renderer
+class openGLHandler: public GraphicsHandler
 {
 private:
 	Window *window;
 	Transform view;
 	Transform projection;
 public:
-	openGLRenderer(Window *window);
-	virtual ~openGLRenderer();
+	openGLHandler(Window *window);
+	virtual ~openGLHandler();
 
 	void init();
 	void start();
 	void end();
 	void destroy();
-	void draw();
 
 };
 

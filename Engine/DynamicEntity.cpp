@@ -35,10 +35,9 @@ void DynamicEntity::init()
 	
 }
 
-void DynamicEntity::render(Renderer * r)
+void DynamicEntity::render()
 {
-	r->setStrategy(strategy);
-	r->draw();
+	Entity::strategy->renderObject();
 }
 
 void DynamicEntity::update(float ts)

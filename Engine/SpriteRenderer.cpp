@@ -91,9 +91,9 @@ void SpriteRenderer::renderObject()
 	
 	//Pass to Shader
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(transform->get()));
-	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(RenderingStrategy::view.get()));
-	glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(RenderingStrategy::projection.get()));
-	glUniform1f(alphaLoc, RenderingStrategy::alpha);
+	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(Renderer::view.get()));
+	glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(Renderer::projection.get()));
+	glUniform1f(alphaLoc, Renderer::alpha);
 
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);

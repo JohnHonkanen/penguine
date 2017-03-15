@@ -66,12 +66,12 @@ void BallGenerator::update(float ts)
 	}
 }
 
-void BallGenerator::render(Renderer * r)
+void BallGenerator::render()
 {
 	for (int i = 0; i < BallGenerator::balls.size(); i++) {
-		BallGenerator::balls[i]->render(r);
+		BallGenerator::balls[i]->render();
 	}
-	ParticleDecorator::render(r);
+	ParticleDecorator::render();
 	
 }
 
@@ -100,8 +100,8 @@ void BallGenerator::generateBall()
 	
 	string type = "smoke";
 	
-	SpriteRenderer *sprite = new SpriteRenderer("smoke.png", type, textureManager, &dynamicEntity->transform, program); // Set-up Sprite Renderer
-	sprite->init(); // Initialize Sprite Renderer
+	SpriteRenderer *sprite = new SpriteRenderer("smoke.png", type, textureManager, &dynamicEntity->transform, program); // Set-up Sprite GraphicsHandler
+	sprite->init(); // Initialize Sprite GraphicsHandler
 
 	dynamicEntity->setRenderingStrategy(sprite);
 	dynamicEntity->init();

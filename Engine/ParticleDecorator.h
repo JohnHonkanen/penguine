@@ -10,7 +10,7 @@ public:
 	virtual ~ParticleDecorator();
 	void init();
 	void update(float ts);
-	void render(Renderer *r);
+	void render();
 	void destroy();
 };
 

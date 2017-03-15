@@ -17,10 +17,9 @@ void StaticEntity::init()
 
 }
 
-void StaticEntity::render(Renderer * r)
+void StaticEntity::render()
 {
-	r->setStrategy(Entity::strategy);
-	r->draw();
+	Entity::strategy->renderObject();
 }
 
 void StaticEntity::update(float ts)

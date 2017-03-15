@@ -4,7 +4,7 @@
 #include "Shader.h"
 #include "Window.h"
 #include "glfwWindow.h"
-#include "openGLRenderer.h"
+#include "openGLHandler.h"
 #include "BallGenerator.h"
 #include "Clock.h"
 
@@ -16,8 +16,8 @@ int main(int argc, char *argv[])
 {
 
 	Window *window = new glfwWindow(800, 600);
-	openGLRenderer renderer(window);
-	renderer.init(); // Initialize Rendering Library
+	openGLHandler graphicsHandler(window);
+	graphicsHandler.init(); // Initialize Rendering Library
 
 	TextureManager textureManager;
 	textureManager.saveTexture("smoke.png", "smoke");
@@ -48,14 +48,14 @@ int main(int argc, char *argv[])
 		if (frameClock.alarm()) {
 			ballGen.update(dt); //updates balls
 			previousTime = currentTime;
-			renderer.start();  // Sets up Rendering Loop
-			ballGen.render(&renderer); // Renders Balls
-			renderer.end(); //Swap Buffers
+			graphicsHandler.start();  // Sets up Rendering Loop
+			ballGen.render(); // Renders Balls
+			graphicsHandler.end(); //Swap Buffers
 			frameClock.resetClock(); // Once frame is done reset to 0
 		}
 	}
 	ballGen.destroy();
-	renderer.destroy();
+	graphicsHandler.destroy();
 
 	return 0;
 }

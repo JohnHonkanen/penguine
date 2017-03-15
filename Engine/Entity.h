@@ -1,8 +1,8 @@
 #pragma once
 #include "Transform.h"
 #include "Clock.h"
-#include "RenderingStrategy.h"
 #include "Renderer.h"
+#include "GraphicsHandler.h"
 
 class Entity
 {
@@ -12,12 +12,12 @@ public:
 	Entity();
 	virtual ~Entity();
 	virtual void init() = 0;
-	virtual void render(Renderer *r) = 0;
+	virtual void render() = 0;
 	virtual void update(float ts) = 0;
-	void setRenderingStrategy(RenderingStrategy *strategy);
+	void setRenderingStrategy(Renderer *strategy);
 	Clock clock;
 	Transform transform;
-	RenderingStrategy *strategy;
+	Renderer *strategy;
 	float alpha;
 };
 

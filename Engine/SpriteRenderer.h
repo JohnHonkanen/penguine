@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-#include "RenderingStrategy.h"
+#include "Renderer.h"
 #include "TextureManager.h"
 #include "Transform.h"
 #include "Shader.h"
@@ -17,7 +17,7 @@
 using namespace std;
 
 class SpriteRenderer :
-	public RenderingStrategy
+	public Renderer
 {
 private:
 	string fileLocation;

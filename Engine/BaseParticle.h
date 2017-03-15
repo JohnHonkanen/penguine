@@ -9,7 +9,7 @@ public:
 	BaseParticle(Entity*);
 	virtual ~BaseParticle();
 	void init();
-	void render(Renderer *r);
+	void render();
 	void update(float ts);
 	void destroy();
 	Entity *entity;

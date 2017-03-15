@@ -13,7 +13,7 @@ void BaseParticle::init()
 {
 }
 
-void BaseParticle::render(Renderer * r)
+void BaseParticle::render()
 {
 }
 
