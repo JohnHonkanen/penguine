@@ -20,15 +20,13 @@ public:
 	void scale(float scaleX, float scaleY, float scaleZ);
 	void scale(vec3 scale);
 	void setTransform(mat4 matrix);
-
+	void moveToOrigin();
+	void returnToPosition();
 
 	mat4 get();
 	vec3 getPosition();
-	vec3 getRotation();
 	void reset();
 private:
-	vec4 position;
-	mat4 transformMatrix;
-	vec3 rotation;
+	mat4 transform;
+	vec3 position;
 };
-
