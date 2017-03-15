@@ -5,11 +5,10 @@
 #include "Window.h"
 #include "glfwWindow.h"
 #include "openGLHandler.h"
-#include "BallGenerator.h"
 #include "Clock.h"
 #include "MeshGenerator.h"
 #include "Camera.h"
-
+#include "BoxRenderer.h"
 
 using namespace std;
 using namespace glm;
@@ -29,11 +28,16 @@ int main(int argc, char *argv[])
 	TextureManager textureManager;
 	textureManager.saveTexture("smoke.png", "smoke");
 	textureManager.saveTexture("fire.png", "fire");
+	textureManager.saveTexture("lava.jpg", "lava");
 
-	Shader shaderProgram("minimal.vert", "single.frag"); // Initialize Shader Programs
+	Shader shaderProgram("minimal.vert", "single.frag"); // Initialize Shader Program
 
-	BallGenerator ballGen(vec3(0.0f,0.0f,-10.0f), vec3(0.0f, 5.0f, 0.0f), &textureManager, &shaderProgram, &Camera2D);
-	ballGen.init();
+	Transform transform;
+	Material material;
+	material.texture = "lava";
+	
+	BoxRenderer boxRenderer(material, &textureManager, &transform, &shaderProgram, &Camera2D);
+	boxRenderer.init();
 
 	Clock appClock;
 	appClock.startClock();
@@ -55,15 +59,17 @@ int main(int argc, char *argv[])
 
 		//End of DeltaTime
 		if (frameClock.alarm()) {
-			ballGen.update(dt); //updates balls
+			// Update Function
+			// End of Update
 			previousTime = currentTime;
 			graphicsHandler.start();  // Sets up Rendering Loop
-			ballGen.render(); // Renders Balls
+			// Render Function
+			boxRenderer.renderObject();
+			// End of Render
 			graphicsHandler.end(); //Swap Buffers
 			frameClock.resetClock(); // Once frame is done reset to 0
 		}
 	}
-	ballGen.destroy();
 	graphicsHandler.destroy();
 	MeshGenerator::destroy();
 

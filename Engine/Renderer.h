@@ -15,7 +15,8 @@ protected:
 public:
 	Renderer();
 	virtual ~Renderer();
-
+	
+	virtual void init() = 0;
 	virtual void renderObject() = 0;
 
 	void addView(Transform view);

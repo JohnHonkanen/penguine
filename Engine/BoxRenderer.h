@@ -14,29 +14,27 @@
 #include "MeshGenerator.h"
 #include "Camera.h"
 
-
-using namespace std;
-
-class SpriteRenderer :
-	public Renderer
+struct Material {
+	string texture;
+	string diffuse;
+	string specular;
+	string emission;
+	float shininess;
+};
+class BoxRenderer : public Renderer
 {
 private:
-	string fileLocation;
-	string name;
+	Material material;
 	GLuint VAO; // 2D Mesh for the sprite
 	TextureManager *textureManager;
 	Transform *transform; // Origin of the renderObject
 	Shader *program;
 	Camera *camera2D;
 public:
-	SpriteRenderer(string fileLocation, string name, TextureManager *textureManager, Transform *transform, Shader *program, Camera *camera);
-	virtual ~SpriteRenderer();
+	BoxRenderer(Material material, TextureManager *textureManager, Transform *transform, Shader *program, Camera *camera);
+	virtual ~BoxRenderer();
 
 	void init();
 	void renderObject();
-	void destroy();
-
-
-
 };
 

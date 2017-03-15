@@ -10,5 +10,6 @@ uniform float ourAlpha;
 void main()
 {
     color = texture(ourTexture, TexCoord); // * vec4(ourColor, 1.0f);
+	// color = vec4(1.0f,0.0f,0.0f, 1.0f);
 	color.a *= ourAlpha;
 }
