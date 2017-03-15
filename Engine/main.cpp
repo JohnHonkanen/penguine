@@ -60,6 +60,11 @@ int main(int argc, char *argv[])
 		//End of DeltaTime
 		if (frameClock.alarm()) {
 			// Update Function
+			transform.moveToOrigin();
+			cout << transform.getPosition().x << "||" << transform.getPosition().y << "||" << transform.getPosition().z << endl;
+			transform.rotate(45.0f, vec3(0, 1, 1), false);
+			transform.returnToPosition();
+			transform.translate(vec3(0,100*dt,0));
 			// End of Update
 			previousTime = currentTime;
 			graphicsHandler.start();  // Sets up Rendering Loop

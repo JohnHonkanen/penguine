@@ -46,14 +46,6 @@ void SpriteRenderer::renderObject()
 	mat4 projection = camera2D->getProjection();
 	mat4 model = transform->get();
 	
-	vec3 position = transform->getPosition();
-	vec3 rotation = transform->getRotation();
-	position.z = -2.0f;
-	model = translate(model, position);
-	model = rotate(model, rotation.x, vec3(1, 0, 0));
-	model = rotate(model, rotation.y, vec3(0, 1, 0));
-	model = rotate(model, rotation.z, vec3(0, 0, 1));
-
 	//Get matrix's uniform location, get and set matrix
 	GLuint modelLoc = glGetUniformLocation(SpriteRenderer::program->Program, "model");
 	GLuint viewLoc = glGetUniformLocation(SpriteRenderer::program->Program, "view");

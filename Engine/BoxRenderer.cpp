@@ -115,14 +115,6 @@ void BoxRenderer::renderObject()
 	mat4 projection = camera2D->getProjection();
 	mat4 model = transform->get();
 
-	vec3 position = transform->getPosition();
-	vec3 rotation = transform->getRotation();
-	position.z = -2.0f;
-	model = translate(model, position);
-	model = rotate(model, rotation.x, vec3(1, 0, 0));
-	model = rotate(model, float(radians(45.0f) * glfwGetTime()), vec3(0, 1, 0));
-	model = rotate(model, rotation.z, vec3(0, 0, 1));
-
 	//Get matrix's uniform location, get and set matrix
 	GLuint modelLoc = glGetUniformLocation(BoxRenderer::program->Program, "model");
 	GLuint viewLoc = glGetUniformLocation(BoxRenderer::program->Program, "view");

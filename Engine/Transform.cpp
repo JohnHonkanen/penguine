@@ -16,8 +16,8 @@ Sets the position to a specified amount
 */
 void Transform::setPosition(vec3 position)
 {
-	Transform::translate(-Transform::getPosition());
-	Transform::translate(position);
+	
+	Transform::transform[3] = vec4(position, 1.0f);
 }
 /*
 Translates our Matrix
@@ -103,13 +103,17 @@ void Transform::setTransform(mat4 matrix)
 {
 	Transform::transform = matrix;
 }
-
+/*
+Moves our position to origin and store our position
+*/
 void Transform::moveToOrigin()
 {
 	Transform::position = Transform::getPosition();
-	Transform::translate(-position);
+	Transform::setPosition(vec3(0,0,0));
 }
-
+/*
+	Adds back our position
+*/
 void Transform::returnToPosition()
 {
 	Transform::translate(Transform::position);
