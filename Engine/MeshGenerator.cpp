@@ -4,7 +4,7 @@ using namespace std;
 
 map<GLuint, GLuint *> MeshGenerator::VAOMap;
 
-GLuint MeshGenerator::createMesh(GLfloat *data, size_t sizeOfData, GLuint* indices, size_t sizeOfIndices)//, GLuint &VAO, GLuint &VBO, GLuint &EBO)
+GLuint MeshGenerator::createMesh(const GLfloat *data, size_t sizeOfData, const GLuint* indices, size_t sizeOfIndices)//, GLuint &VAO, GLuint &VBO, GLuint &EBO)
 {
 	GLuint VAO; GLuint VBO; GLuint EBO;
 	GLuint* meshBuffers = new GLuint[3];
