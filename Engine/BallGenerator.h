@@ -33,7 +33,7 @@ public:
 	virtual ~BallGenerator();
 	void init();
 	void update(float ts);
-	void render(Renderer *r);
+	void render(GraphicsHandler *r);
 	void destroy();
 
 	void generateBall();

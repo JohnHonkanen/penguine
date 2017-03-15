@@ -17,7 +17,7 @@ public:
 	DynamicEntity(Movement* m);
 	virtual ~DynamicEntity();
 	void init();
-	void render(Renderer *r);
+	void render();
 	void update(float ts);
 	void setMovement(Movement *movement);
 	Physics physics;

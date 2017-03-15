@@ -1,19 +1,19 @@
-#include "openGLRenderer.h"
+#include "openGLHandler.h"
 
 
 
-openGLRenderer::openGLRenderer(Window *window)
+openGLHandler::openGLHandler(Window *window)
 {
-	openGLRenderer::window = window;
-	Renderer::renderingStrategy = nullptr;
+	openGLHandler::window = window;
+	GraphicsHandler::renderingStrategy = nullptr;
 }
 
 
-openGLRenderer::~openGLRenderer()
+openGLHandler::~openGLHandler()
 {
 }
 
-void openGLRenderer::init()
+void openGLHandler::init()
 {
 	window->init();
 	cout << "Window Initialized" << endl;
@@ -32,15 +32,15 @@ void openGLRenderer::init()
 	glm::mat4 projection;
 	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -10.0f)); //Change Z value to move camera closer/further away from screen
 	projection = glm::perspective(glm::radians(45.0f), (GLfloat)window->WIDTH / (GLfloat)window->HEIGHT, 0.1f, 100.0f);
-	openGLRenderer::view.setTransform(view);
-	openGLRenderer::projection.setTransform(projection);
+	openGLHandler::view.setTransform(view);
+	openGLHandler::projection.setTransform(projection);
 
 	// Setup OpenGL options
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
-void openGLRenderer::start()
+void openGLHandler::start()
 {
 
 	//Rendering commands go here
@@ -49,22 +49,22 @@ void openGLRenderer::start()
 	
 }
 
-void openGLRenderer::end()
+void openGLHandler::end()
 {
 	//Swap the buffers
 	window->swapBuffers();
 }
 
-void openGLRenderer::destroy()
+void openGLHandler::destroy()
 {
 	window->destroy();
 }
 
-void openGLRenderer::draw()
+void openGLHandler::draw()
 {
 	if (renderingStrategy != nullptr) {
-		renderingStrategy->addView(openGLRenderer::view);
-		renderingStrategy->addProjection(openGLRenderer::projection);
+		renderingStrategy->addView(openGLHandler::view);
+		renderingStrategy->addProjection(openGLHandler::projection);
 		renderingStrategy->renderObject();
 	}
 }

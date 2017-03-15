@@ -170,7 +170,7 @@
     <ClCompile Include="glfwWindow.cpp" />
     <ClCompile Include="MeshGenerator.cpp" />
     <ClCompile Include="Movement.cpp" />
-    <ClCompile Include="openGLRenderer.cpp" />
+    <ClCompile Include="openGLHandler.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="ParticleDecorator.cpp" />
     <ClCompile Include="Renderable.cpp" />
@@ -179,7 +179,7 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderableDecorator.cpp" />
-    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="GraphicsHandler.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="RenderingStrategy.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -203,7 +203,7 @@
     <ClInclude Include="glfwWindow.h" />
     <ClInclude Include="MeshGenerator.h" />
     <ClInclude Include="Movement.h" />
-    <ClInclude Include="openGLRenderer.h" />
+    <ClInclude Include="openGLHandler.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="ParticleDecorator.h" />
     <ClInclude Include="Renderable.h" />
@@ -211,7 +211,7 @@
     <ClInclude Include="EmptyRenderable.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="RenderableDecorator.h" />
-    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="GraphicsHandler.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="RenderingStrategy.h" />
     <ClInclude Include="Shader.h" />
