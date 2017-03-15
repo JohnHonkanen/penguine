@@ -7,6 +7,7 @@
 #include "openGLHandler.h"
 #include "BallGenerator.h"
 #include "Clock.h"
+#include "MeshGenerator.h"
 #include "Camera.h"
 
 
@@ -43,6 +44,7 @@ int main(int argc, char *argv[])
 	double previousTime = 0.0f;
 	double currentTime = 0.0f;
 	bool flag = true;
+	
 	while(flag) {
 
 		frameClock.updateClock(); // Ticks our Frame Clock
@@ -63,6 +65,7 @@ int main(int argc, char *argv[])
 	}
 	ballGen.destroy();
 	graphicsHandler.destroy();
+	MeshGenerator::destroy();
 
 	return 0;
 }

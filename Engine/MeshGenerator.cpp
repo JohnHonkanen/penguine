@@ -1,10 +1,13 @@
 #include "MeshGenerator.h"
+#include <iostream>
+using namespace std;
 
 map<GLuint, GLuint *> MeshGenerator::VAOMap;
 
-void MeshGenerator::createMesh(const GLfloat *data, const GLuint* indices, GLuint *VAO, GLuint *VBO, GLuint *EBO)
+GLuint MeshGenerator::createMesh(GLfloat *data, size_t sizeOfData, GLuint* indices, size_t sizeOfIndices)//, GLuint &VAO, GLuint &VBO, GLuint &EBO)
 {
-	GLuint *meshBuffers = new GLuint[3];
+	GLuint VAO; GLuint VBO; GLuint EBO;
+	GLuint* meshBuffers = new GLuint[3];
 
 	//VBO = Vertex Buffer Object
 	//VAO = Vertex Array Object
@@ -13,18 +16,17 @@ void MeshGenerator::createMesh(const GLfloat *data, const GLuint* indices, GLuin
 	//specify the order at which we want to draw these vertices in. 
 	//Example: Use 4 vertices to draw a square using 2 triangles instead of 6. 
 
+	glGenVertexArrays(1, &VAO);
+	glGenBuffers(1, &VBO);
+	glGenBuffers(1, &EBO);
 
-	glGenVertexArrays(1, VAO);
-	glGenBuffers(1, VBO);
-	glGenBuffers(1, EBO);
+	glBindVertexArray(VAO);
 
-	glBindVertexArray(*VAO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeOfData, data, GL_STATIC_DRAW);
 
-	glBindBuffer(GL_ARRAY_BUFFER, *VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(data), data, GL_STATIC_DRAW);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, *EBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeOfIndices, indices, GL_STATIC_DRAW);
 
 	// Position attribute
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
@@ -39,13 +41,15 @@ void MeshGenerator::createMesh(const GLfloat *data, const GLuint* indices, GLuin
 	glBindVertexArray(0); // Unbind VAO
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
-	meshBuffers[STORED_VAO] = *VAO;
-	meshBuffers[STORED_VBO] = *VBO;
-	meshBuffers[STORED_EBO] = *EBO;
+	meshBuffers[STORED_VAO] = VAO;
+	meshBuffers[STORED_VBO] = VBO;
+	meshBuffers[STORED_EBO] = EBO;
 
 	// return the identifier needed to draw this mesh
 
-	VAOMap.insert(pair<GLuint, GLuint *>(*VAO, meshBuffers));
+	VAOMap.insert(pair<GLuint, GLuint *>(VAO, meshBuffers));
+
+	return VAO;
 }
 
 void MeshGenerator::updateMesh(const GLuint mesh, const unsigned int bufferType, const GLfloat * data, const GLuint size)

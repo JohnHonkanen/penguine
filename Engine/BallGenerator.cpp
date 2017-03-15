@@ -21,11 +21,11 @@ BallGenerator::~BallGenerator()
 void BallGenerator::init()
 {
 	ParticleDecorator::init();
-	for (int i = 0; i < 30; i++) {
+	for (int i = 0; i < 1; i++) {
 		generateBall();
 	}
 	spawnClock.startClock();
-	spawnClock.setDelay(300);
+	spawnClock.setDelay(30);
 }
 
 void BallGenerator::update(float ts)
@@ -60,7 +60,7 @@ void BallGenerator::update(float ts)
 		
 	}
 	if (spawnClock.alarm()) {
-		for (int i = 0; i < 30; i++) {
+		for (int i = 0; i < 2; i++) {
 			generateBall();
 		}
 		spawnClock.resetClock();

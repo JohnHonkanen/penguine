@@ -21,7 +21,7 @@ void SpriteRenderer::init()
 {
 	//Draw Quad
 
-	GLfloat data[] = {
+	 GLfloat data[] =  {
 		// Positions          // Colors           // Texture Coords
 		0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // Top Right
 		0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // Bottom Right
@@ -41,7 +41,7 @@ void SpriteRenderer::init()
 	//specify the order at which we want to draw these vertices in. 
 	//Example: Use 4 vertices to draw a square using 2 triangles instead of 6. 
 
-
+	/*
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
 	glGenBuffers(1, &EBO);
@@ -53,21 +53,22 @@ void SpriteRenderer::init()
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+	*/
+	//// Position attribute
+	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
+	//glEnableVertexAttribArray(0);
+	//// Color attribute
+	//glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+	//glEnableVertexAttribArray(1);
+	//// TexCoord attribute
+	//glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
+	//glEnableVertexAttribArray(2);
 
-	// Position attribute
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
-	glEnableVertexAttribArray(0);
-	// Color attribute
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
-	glEnableVertexAttribArray(1);
-	// TexCoord attribute
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
-	glEnableVertexAttribArray(2);
-
-	glBindVertexArray(0); // Unbind VAO
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-
-	//MeshGenerator::createMesh(data, indices, &VAO, &VBO, &EBO); //VAO
+	//glBindVertexArray(0); // Unbind VAO
+	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	//cout << VAO << endl;
+	SpriteRenderer::VAO = MeshGenerator::createMesh(data, sizeof(data), indices, sizeof(indices));//, VAO, VBO, EBO); //VAO
+	
 }
 
 void SpriteRenderer::renderObject()
@@ -117,8 +118,8 @@ void SpriteRenderer::destroy() {
 	//so make sure you don't unbind the element array buffer before unbinding your VAO, otherwise it doesn't have an EBO
 	//configured. 
 
-	glDeleteVertexArrays(1, &VAO);
+	/*glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
-	glDeleteBuffers(1, &EBO);
+	glDeleteBuffers(1, &EBO);*/
 	delete this;
 }
