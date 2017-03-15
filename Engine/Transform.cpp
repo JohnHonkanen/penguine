@@ -4,6 +4,7 @@
 
 Transform::Transform()
 {
+	Transform::transform = mat4(1.0f);
 }
 
 
@@ -106,19 +107,18 @@ void Transform::setTransform(mat4 matrix)
 /*
 Moves our position to origin and store our position
 */
-void Transform::moveToOrigin()
+void Transform::moveToOrigin(vec3 offset)
 {
 	Transform::position = Transform::getPosition();
-	Transform::setPosition(vec3(0,0,0));
+	Transform::translate(-position);
 }
 /*
 	Adds back our position
 */
 void Transform::returnToPosition()
 {
-	Transform::translate(Transform::position);
+	Transform::translate(position);
 }
-
 /*
 Gets our mat4 matrix
 */
