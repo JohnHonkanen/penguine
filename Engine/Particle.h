@@ -7,7 +7,7 @@ public:
 	virtual ~Particle();
 	virtual void init() = 0;
 	virtual void update(float ts) = 0;
-	virtual void render(GraphicsHandler *r) = 0;
+	virtual void render() = 0;
 	virtual void destroy() = 0;
 };
 

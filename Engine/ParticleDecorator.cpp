@@ -19,9 +19,9 @@ void ParticleDecorator::update(float ts)
 	p->update(ts);
 }
 
-void ParticleDecorator::render(Renderer * r)
+void ParticleDecorator::render()
 {
-	p->render(r);
+	p->render();
 }
 
 void ParticleDecorator::destroy()

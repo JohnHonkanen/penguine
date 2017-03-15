@@ -22,7 +22,6 @@ public:
 	void start();
 	void end();
 	void destroy();
-	void draw();
 
 };
 

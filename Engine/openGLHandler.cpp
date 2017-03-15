@@ -5,7 +5,6 @@
 openGLHandler::openGLHandler(Window *window)
 {
 	openGLHandler::window = window;
-	GraphicsHandler::renderingStrategy = nullptr;
 }
 
 
@@ -60,11 +59,3 @@ void openGLHandler::destroy()
 	window->destroy();
 }
 
-void openGLHandler::draw()
-{
-	if (renderingStrategy != nullptr) {
-		renderingStrategy->addView(openGLHandler::view);
-		renderingStrategy->addProjection(openGLHandler::projection);
-		renderingStrategy->renderObject();
-	}
-}
