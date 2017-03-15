@@ -8,7 +8,7 @@ Entity::~Entity()
 {
 }
 
-void Entity::setRenderingStrategy(RenderingStrategy * strategy)
+void Entity::setRenderingStrategy(Renderer * strategy)
 {
 	Entity::strategy = strategy;
 }

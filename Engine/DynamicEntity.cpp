@@ -37,7 +37,7 @@ void DynamicEntity::init()
 
 void DynamicEntity::render()
 {
-	
+	Entity::strategy->renderObject();
 }
 
 void DynamicEntity::update(float ts)

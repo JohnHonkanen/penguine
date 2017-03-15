@@ -19,7 +19,7 @@ void StaticEntity::init()
 
 void StaticEntity::render()
 {
-
+	Entity::strategy->renderObject();
 }
 
 void StaticEntity::update(float ts)

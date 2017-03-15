@@ -4,7 +4,7 @@
 #include "Shader.h"
 #include "Window.h"
 #include "glfwWindow.h"
-#include "openGLRenderer.h"
+#include "openGLHandler.h"
 #include "BallGenerator.h"
 #include "Clock.h"
 
@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 {
 
 	Window *window = new glfwWindow(800, 600);
-	openGLRenderer renderer(window);
+	openGLHandler renderer(window);
 	renderer.init(); // Initialize Rendering Library
 
 	TextureManager textureManager;

@@ -2,7 +2,7 @@
 #include "Entity.h"
 #include "Transform.h"
 #include "Physics.h"
-#include "RenderingStrategy.h"
+#include "Renderer.h"
 #include "Movement.h"
 #include "Clock.h"
 #include <iostream>
