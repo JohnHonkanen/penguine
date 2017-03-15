@@ -7,6 +7,7 @@
 #include "openGLHandler.h"
 #include "BallGenerator.h"
 #include "Clock.h"
+#include "Camera.h"
 
 
 using namespace std;
@@ -15,8 +16,13 @@ using namespace glm;
 int main(int argc, char *argv[])
 {
 
-	Window *window = new glfwWindow(800, 600);
+	vec2 windowSize(800,600);
+	Window *window = new glfwWindow(windowSize.x, windowSize.y);
 	openGLHandler graphicsHandler(window);
+	Camera Camera2D;
+	Camera2D.setPerspectiveProjection(radians(45.0f), float(windowSize.x)/float(windowSize.y), 0.1f, 100.0f); // Set Projection
+	Camera2D.setView(vec3(0.0f, 0.0f, -10.0f)); // Adjusts our Camera Back
+
 	graphicsHandler.init(); // Initialize Rendering Library
 
 	TextureManager textureManager;
@@ -25,7 +31,7 @@ int main(int argc, char *argv[])
 
 	Shader shaderProgram("minimal.vert", "single.frag"); // Initialize Shader Programs
 
-	BallGenerator ballGen(vec3(0.0f,0.0f,-10.0f), vec3(0.0f, 150.0f, 0.0f), &textureManager, &shaderProgram);
+	BallGenerator ballGen(vec3(0.0f,0.0f,-10.0f), vec3(0.0f, 5.0f, 0.0f), &textureManager, &shaderProgram, &Camera2D);
 	ballGen.init();
 
 	Clock appClock;
@@ -44,6 +50,7 @@ int main(int argc, char *argv[])
 		// Calculates Delta Time
 		currentTime = appClock.getMilliseconds();
 		double dt = (currentTime - previousTime) * 0.00001f; //Convert DT to seconds
+
 		//End of DeltaTime
 		if (frameClock.alarm()) {
 			ballGen.update(dt); //updates balls

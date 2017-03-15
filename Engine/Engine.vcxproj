@@ -164,6 +164,7 @@
   <ItemGroup>
     <ClCompile Include="BallGenerator.cpp" />
     <ClCompile Include="BaseParticle.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CircularSpawn.cpp" />
     <ClCompile Include="Clock.cpp" />
     <ClCompile Include="ConeSpawn.cpp" />
@@ -193,6 +194,7 @@
   <ItemGroup>
     <ClInclude Include="BallGenerator.h" />
     <ClInclude Include="BaseParticle.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="CircularSpawn.h" />
     <ClInclude Include="Clock.h" />
     <ClInclude Include="ConeSpawn.h" />

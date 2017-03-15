@@ -24,9 +24,11 @@ public:
 
 	mat4 get();
 	vec3 getPosition();
+	vec3 getRotation();
 	void reset();
 private:
 	vec4 position;
 	mat4 transformMatrix;
+	vec3 rotation;
 };
 

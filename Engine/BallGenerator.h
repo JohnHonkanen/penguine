@@ -13,6 +13,7 @@
 #include "ConeSpawn.h"
 #include "Shoot.h"
 #include "Clock.h"
+#include "Camera.h"
 
 using namespace std;
 class BallGenerator :
@@ -25,10 +26,12 @@ private:
 	Spawn *spawn;
 	TextureManager *textureManager;
 	Shader *program;
+	Camera *camera2D;
+	
 	vec3 force;
 	Clock spawnClock;
 public:
-	BallGenerator(vec3 loc, vec3 force, TextureManager *textureManager, Shader *program);
+	BallGenerator(vec3 loc, vec3 force, TextureManager *textureManager, Shader *program, Camera *camara);
 	virtual ~BallGenerator();
 	void init();
 	void update(float ts);

@@ -46,6 +46,10 @@ void DynamicEntity::update(float ts)
 	this->physics.update(ts);
 	this->transform.translate(this->physics.getAcceleration()); // Updates our Entity
 
+	//vec3 position = this->transform.getPosition();
+	//position += this->physics.getAcceleration(); // Updates our Entity
+	//this->transform.setPosition(position);
+
 	if (lifeTime != 0) {
 		clock.updateClock();
 	}

@@ -12,6 +12,7 @@
 #include "Transform.h"
 #include "Shader.h"
 #include "MeshGenerator.h"
+#include "Camera.h"
 
 
 using namespace std;
@@ -26,8 +27,9 @@ private:
 	TextureManager *textureManager;
 	Transform *transform; // Origin of the renderObject
 	Shader *program;
+	Camera *camera2D;
 public:
-	SpriteRenderer(string fileLocation, string name, TextureManager *textureManager, Transform *transform, Shader *program);
+	SpriteRenderer(string fileLocation, string name, TextureManager *textureManager, Transform *transform, Shader *program, Camera *camera);
 	virtual ~SpriteRenderer();
 
 	void init();

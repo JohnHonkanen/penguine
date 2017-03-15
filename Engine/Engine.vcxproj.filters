@@ -31,12 +31,6 @@
     <Filter Include="Header Files\Renderer">
       <UniqueIdentifier>{eca16bc7-4839-49c3-b44c-71dadbcd077f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Renderables">
-      <UniqueIdentifier>{011fb918-0e89-4684-a84f-38b4a26f8660}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Renderables">
-      <UniqueIdentifier>{1c3da640-ebae-422a-937d-79dc267d345f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Physics">
       <UniqueIdentifier>{e2c4fe3f-7a32-4217-af50-16937fbc820d}</UniqueIdentifier>
     </Filter>
@@ -189,6 +183,9 @@
     <ClCompile Include="Renderer.cpp">
       <Filter>Source Files\Behaviours\RenderingStrategy</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -268,6 +265,9 @@
     </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>Header Files\Behaviours\RenderingStrategy</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

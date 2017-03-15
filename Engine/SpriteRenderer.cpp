@@ -2,13 +2,14 @@
 
 
 
-SpriteRenderer::SpriteRenderer(string fileLocation, string name, TextureManager *textureManager, Transform *transform, Shader *program)
+SpriteRenderer::SpriteRenderer(string fileLocation, string name, TextureManager *textureManager, Transform *transform, Shader *program, Camera *camera)
 {
 	SpriteRenderer::fileLocation = fileLocation;
 	SpriteRenderer::name = name;
 	SpriteRenderer::textureManager = textureManager;
 	SpriteRenderer::transform = transform;
 	SpriteRenderer::program = program;
+	SpriteRenderer::camera2D = camera;
 
 }
 
@@ -73,13 +74,23 @@ void SpriteRenderer::renderObject()
 {
 	SpriteRenderer::program->Use();
 
+	mat4 view = camera2D->getView();
+	mat4 projection = camera2D->getProjection();
+	mat4 model = transform->get();
+	
+	vec3 position = transform->getPosition();
+	vec3 rotation = transform->getRotation();
+	position.z = -2.0f;
+	model = translate(model, position);
+	model = rotate(model, rotation.x, vec3(1, 0, 0));
+	model = rotate(model, rotation.y, vec3(0, 1, 0));
+	model = rotate(model, rotation.z, vec3(0, 0, 1));
+
 	//Get matrix's uniform location, get and set matrix
 	GLuint modelLoc = glGetUniformLocation(SpriteRenderer::program->Program, "model");
 	GLuint viewLoc = glGetUniformLocation(SpriteRenderer::program->Program, "view");
 	GLuint projectionLoc = glGetUniformLocation(SpriteRenderer::program->Program, "projection");
 	GLuint alphaLoc = glGetUniformLocation(SpriteRenderer::program->Program, "ourAlpha");
-
-	//glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform->get()));
 	
 	//glBindTexture call will bind that texture to the currently active texture unit.
 	glBindTexture(GL_TEXTURE_2D, textureManager->getTexture(name));
@@ -90,9 +101,9 @@ void SpriteRenderer::renderObject()
 	glBindVertexArray(VAO); 
 	
 	//Pass to Shader
-	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(transform->get()));
-	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(Renderer::view.get()));
-	glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(Renderer::projection.get()));
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+	glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
 	glUniform1f(alphaLoc, Renderer::alpha);
 
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

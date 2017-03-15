@@ -17,10 +17,5 @@ void Shoot::init()
 
 void Shoot::update(float ts)
 {
-	vec3 pos = entity->transform.getPosition();
-	
-	entity->transform.translate(pos);
-	entity->transform.rotate(-0.01f, vec3(0, 0, 1));
-	entity->transform.translate(-pos);
-
+	entity->transform.rotate(radians(45.0f)*ts, vec3(0,0,1));
 }

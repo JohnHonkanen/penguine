@@ -2,7 +2,7 @@
 
 
 
-BallGenerator::BallGenerator(vec3 loc, vec3 force, TextureManager *textureManager, Shader *program):ParticleDecorator(new BaseParticle(nullptr))
+BallGenerator::BallGenerator(vec3 loc, vec3 force, TextureManager *textureManager, Shader *program, Camera *camera):ParticleDecorator(new BaseParticle(nullptr))
 {
 	BallGenerator::emitter = new StaticEntity();
 	BallGenerator::emitter->transform.setPosition(loc);
@@ -10,6 +10,7 @@ BallGenerator::BallGenerator(vec3 loc, vec3 force, TextureManager *textureManage
 	BallGenerator::program = program;
 	BallGenerator::force = force;
 	BallGenerator::spawn = new ConeSpawn(emitter, vec3(0,10,0), 1.0f);
+	BallGenerator::camera2D = camera;
 }
 
 
@@ -92,7 +93,7 @@ void BallGenerator::generateBall()
 	BallGenerator::spawn->setEntity(dynamicEntity);
 	BallGenerator::spawn->init();
 	vec3 at = vec3(0,10.0f,-10.0f);
-	vec3 shootForce = at - dynamicEntity->transform.getPosition();
+	vec3 shootForce = normalize((at - dynamicEntity->transform.getPosition())) * dot(force, force);
 	shootForce *= (rand() % 100) * 0.1f + 10.0f;
 	dynamicEntity->setMovement(new Shoot(dynamicEntity, shootForce));
 	dynamicEntity->transform.scale((rand() % 100) *0.01f + 0.3f);
@@ -100,7 +101,7 @@ void BallGenerator::generateBall()
 	
 	string type = "smoke";
 	
-	SpriteRenderer *sprite = new SpriteRenderer("smoke.png", type, textureManager, &dynamicEntity->transform, program); // Set-up Sprite GraphicsHandler
+	SpriteRenderer *sprite = new SpriteRenderer("smoke.png", type, textureManager, &dynamicEntity->transform, program, BallGenerator::camera2D); // Set-up Sprite GraphicsHandler
 	sprite->init(); // Initialize Sprite GraphicsHandler
 
 	dynamicEntity->setRenderingStrategy(sprite);
