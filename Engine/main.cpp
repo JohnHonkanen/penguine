@@ -60,15 +60,10 @@ int main(int argc, char *argv[])
 		//End of DeltaTime
 		if (frameClock.alarm()) {
 			// Update Function
-			vec3 position = transform.getPosition();
-			
-			//Rotating, Move Back and then rotate.
-			transform.translate(position);
-			transform.rotate(45.0f*dt, vec3(0, 0, 1), false);
-			transform.translate(-position);
-			printf("%f, %f, %f\n", transform.getPosition().x, transform.getPosition().y, transform.getPosition().z);
 			
 			transform.translate(vec3(0,1*dt,0));
+			transform.rotate(45.0f*dt, vec3(0, 1, 1), false);
+			mat4 model = transform.calculateModelMatrix();
 
 
 			// End of Update

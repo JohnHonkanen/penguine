@@ -22,12 +22,13 @@ public:
 	void scale(float scaleX, float scaleY, float scaleZ);
 	void scale(vec3 scale);
 	void setTransform(mat4 matrix);
-	void moveToOrigin(vec3 offset = vec3(0));
-	void returnToPosition();
+	mat4 calculateModelMatrix();
 	mat4 get();
 	vec3 getPosition();
 	void reset();
 private:
-	mat4 transform;
-	vec3 position;
+	mat4 model;
+	mat4 translationMatrix;
+	mat4 rotationMatrix;
+	mat4 scaleMatrix;
 };
