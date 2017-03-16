@@ -41,6 +41,7 @@ int main(int argc, char *argv[])
 
 	Clock appClock;
 	appClock.startClock();
+	appClock.setDelay(1000);
 	Clock frameClock;
 	frameClock.startClock();
 	frameClock.setDelay(1000.0f/60); // 60FPS
@@ -48,31 +49,31 @@ int main(int argc, char *argv[])
 	double previousTime = 0.0f;
 	double currentTime = 0.0f;
 	bool flag = true;
-	
 	while(flag) {
 
 		frameClock.updateClock(); // Ticks our Frame Clock
 		appClock.updateClock(); //Ticks App Clock
 		// Calculates Delta Time
 		currentTime = appClock.getMilliseconds();
-		double dt = (currentTime - previousTime) * 0.00001f; //Convert DT to seconds
-
+		double dt = (currentTime - previousTime)*0.001f; //Convert DT to seconds
+		
 		//End of DeltaTime
 		if (frameClock.alarm()) {
 			// Update Function
-			transform.moveToOrigin();
-			cout << transform.getPosition().x << "||" << transform.getPosition().y << "||" << transform.getPosition().z << endl;
-			transform.rotate(45.0f, vec3(0, 1, 1), false);
-			transform.returnToPosition();
-			transform.translate(vec3(0,100*dt,0));
+			
+			transform.translate(vec3(0,1*dt,0));
+			transform.rotate(45.0f*dt, vec3(0, 1, 1), false);
+			mat4 model = transform.calculateModelMatrix();
+
+
 			// End of Update
-			previousTime = currentTime;
 			graphicsHandler.start();  // Sets up Rendering Loop
 			// Render Function
 			boxRenderer.renderObject();
 			// End of Render
 			graphicsHandler.end(); //Swap Buffers
 			frameClock.resetClock(); // Once frame is done reset to 0
+			previousTime = currentTime;
 		}
 	}
 	graphicsHandler.destroy();

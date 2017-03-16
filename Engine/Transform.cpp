@@ -4,6 +4,7 @@
 
 Transform::Transform()
 {
+	Transform::model = mat4(1.0f);
 }
 
 
@@ -17,7 +18,7 @@ Sets the position to a specified amount
 void Transform::setPosition(vec3 position)
 {
 	
-	Transform::transform[3] = vec4(position, 1.0f);
+	Transform::model[3] = vec4(position, 1.0f);
 }
 /*
 Translates our Matrix
@@ -36,7 +37,7 @@ Translates our Matrix
 */
 void Transform::translate(vec3 translation)
 {
-	Transform::transform = glm::translate(Transform::transform, translation);
+	Transform::translationMatrix = glm::translate(Transform::translationMatrix, translation);
 }
 
 /*
@@ -51,7 +52,7 @@ void Transform::rotate(float angle, vec3 axis, bool inRadians)
 		angle *= DEG_TO_RAD;
 	}
 
-	Transform::transform = glm::rotate(Transform::transform, angle, axis);
+	Transform::rotationMatrix = glm::rotate(Transform::rotationMatrix, angle, axis);
 
 }
 /*
@@ -96,45 +97,34 @@ Scales our Matrix
 */
 void Transform::scale(vec3 scale)
 {
-	Transform::transform = glm::scale(Transform::transform, scale);
+	Transform::scaleMatrix = glm::scale(Transform::scaleMatrix, scale);
 }
 
 void Transform::setTransform(mat4 matrix)
 {
-	Transform::transform = matrix;
+	Transform::model = matrix;
 }
-/*
-Moves our position to origin and store our position
-*/
-void Transform::moveToOrigin()
+mat4 Transform::calculateModelMatrix()
 {
-	Transform::position = Transform::getPosition();
-	Transform::setPosition(vec3(0,0,0));
+	Transform::model = Transform::translationMatrix * Transform::rotationMatrix * Transform::scaleMatrix;
+	return Transform::model;
 }
-/*
-	Adds back our position
-*/
-void Transform::returnToPosition()
-{
-	Transform::translate(Transform::position);
-}
-
 /*
 Gets our mat4 matrix
 */
 mat4 Transform::get()
 {
-	return Transform::transform;
+	return Transform::model;
 }
 vec3 Transform::getPosition()
 {
-	return Transform::transform[3];
+	return Transform::translationMatrix[3];
 }
 /*
 Resets to identity matrix
 */
 void Transform::reset()
 {
-	Transform::transform = mat4();
+	Transform::model = mat4();
 }
 
