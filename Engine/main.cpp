@@ -9,6 +9,8 @@
 #include "MeshGenerator.h"
 #include "Camera.h"
 #include "BoxRenderer.h"
+#include "Sprite.h"
+#include "SpriteRenderer.h"
 
 using namespace std;
 using namespace glm;
@@ -35,9 +37,14 @@ int main(int argc, char *argv[])
 	Transform transform;
 	Material material;
 	material.texture = "lava";
+
+	Sprite *sprite = new Sprite("fire", &textureManager);
+	Sprite *sprite = new Sprite("lava", &textureManager);
 	
+	SpriteRenderer spriteRenderer(&transform, &shaderProgram, &Camera2D);
+	spriteRenderer.setShape(sprite);
+
 	BoxRenderer boxRenderer(material, &textureManager, &transform, &shaderProgram, &Camera2D);
-	boxRenderer.init();
 
 	Clock appClock;
 	appClock.startClock();
@@ -61,15 +68,15 @@ int main(int argc, char *argv[])
 		if (frameClock.alarm()) {
 			// Update Function
 			
-			transform.translate(vec3(0,1*dt,0));
-			transform.rotate(45.0f*dt, vec3(0, 1, 1), false);
+			//transform.translate(vec3(0,1*dt,0));
+			transform.rotate(45.0f*dt, vec3(0, 0, 1), false);
 			mat4 model = transform.calculateModelMatrix();
 
 
 			// End of Update
 			graphicsHandler.start();  // Sets up Rendering Loop
 			// Render Function
-			boxRenderer.renderObject();
+			spriteRenderer.renderObject();
 			// End of Render
 			graphicsHandler.end(); //Swap Buffers
 			frameClock.resetClock(); // Once frame is done reset to 0

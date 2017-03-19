@@ -100,6 +100,9 @@
     <Filter Include="Header Files\OpenGL\Texture">
       <UniqueIdentifier>{06cbfe8a-ea83-4784-8e1a-fd614aebc356}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\OpenGL\Shapes">
+      <UniqueIdentifier>{e7bb8d27-1bce-4dfa-9b08-a2088d3a8c94}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -140,9 +143,6 @@
     </ClCompile>
     <ClCompile Include="SingleSpawn.cpp">
       <Filter>Source Files\Behaviours\Spawn</Filter>
-    </ClCompile>
-    <ClCompile Include="BallGenerator.cpp">
-      <Filter>Source Files\Particle</Filter>
     </ClCompile>
     <ClCompile Include="MeshGenerator.cpp">
       <Filter>Source Files\OpenGL</Filter>
@@ -189,6 +189,18 @@
     <ClCompile Include="BoxRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicMesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Shapes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -226,9 +238,6 @@
     </ClInclude>
     <ClInclude Include="SingleSpawn.h">
       <Filter>Header Files\Behaviours\Spawn</Filter>
-    </ClInclude>
-    <ClInclude Include="BallGenerator.h">
-      <Filter>Header Files\Particle</Filter>
     </ClInclude>
     <ClInclude Include="SpriteRenderer.h">
       <Filter>Header Files\Behaviours\RenderingStrategy</Filter>
@@ -274,6 +283,18 @@
     </ClInclude>
     <ClInclude Include="BoxRenderer.h">
       <Filter>Header Files\Behaviours\RenderingStrategy</Filter>
+    </ClInclude>
+    <ClInclude Include="Shapes.h">
+      <Filter>Header Files\OpenGL\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files\OpenGL\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicMesh.h">
+      <Filter>Header Files\OpenGL\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Header Files\OpenGL\Shapes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -162,14 +162,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BallGenerator.cpp" />
     <ClCompile Include="BaseParticle.cpp" />
+    <ClCompile Include="BasicMesh.cpp" />
     <ClCompile Include="BoxRenderer.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CircularSpawn.cpp" />
     <ClCompile Include="Clock.cpp" />
     <ClCompile Include="ConeSpawn.cpp" />
     <ClCompile Include="glfwWindow.cpp" />
+    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MeshGenerator.cpp" />
     <ClCompile Include="Movement.cpp" />
     <ClCompile Include="openGLHandler.cpp" />
@@ -182,9 +183,11 @@
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Shapes.cpp" />
     <ClCompile Include="Shoot.cpp" />
     <ClCompile Include="SingleSpawn.cpp" />
     <ClCompile Include="Spawn.cpp" />
+    <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="StaticEntity.cpp" />
     <ClCompile Include="TextureGenerator.cpp" />
@@ -193,14 +196,16 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BallGenerator.h" />
     <ClInclude Include="BaseParticle.h" />
+    <ClInclude Include="BasicMesh.h" />
     <ClInclude Include="BoxRenderer.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CircularSpawn.h" />
     <ClInclude Include="Clock.h" />
     <ClInclude Include="ConeSpawn.h" />
     <ClInclude Include="glfwWindow.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Shapes.h" />
     <ClInclude Include="MeshGenerator.h" />
     <ClInclude Include="Movement.h" />
     <ClInclude Include="openGLHandler.h" />
@@ -215,6 +220,7 @@
     <ClInclude Include="Shoot.h" />
     <ClInclude Include="SingleSpawn.h" />
     <ClInclude Include="Spawn.h" />
+    <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteRenderer.h" />
     <ClInclude Include="StaticEntity.h" />
     <ClInclude Include="TextureGenerator.h" />

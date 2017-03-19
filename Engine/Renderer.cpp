@@ -31,3 +31,8 @@ float Renderer::getAlpha()
 {
 	return Renderer::alpha;
 }
+
+void Renderer::setShape(Shapes * shape)
+{
+	Renderer::shape = shape;
+}

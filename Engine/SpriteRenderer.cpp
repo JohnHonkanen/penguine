@@ -2,11 +2,8 @@
 
 
 
-SpriteRenderer::SpriteRenderer(string fileLocation, string name, TextureManager *textureManager, Transform *transform, Shader *program, Camera *camera)
+SpriteRenderer::SpriteRenderer(Transform *transform, Shader *program, Camera *camera)
 {
-	SpriteRenderer::fileLocation = fileLocation;
-	SpriteRenderer::name = name;
-	SpriteRenderer::textureManager = textureManager;
 	SpriteRenderer::transform = transform;
 	SpriteRenderer::program = program;
 	SpriteRenderer::camera2D = camera;
@@ -16,30 +13,12 @@ SpriteRenderer::SpriteRenderer(string fileLocation, string name, TextureManager 
 SpriteRenderer::~SpriteRenderer()
 {
 }
-
-void SpriteRenderer::init()
-{
-	//Draw Quad
-
-	 GLfloat data[] =  {
-		// Positions          // Colors           // Texture Coords
-		0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // Top Right
-		0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // Bottom Right
-		-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // Bottom Left
-		-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // Top Left 
-	};
-
-	GLuint indices[] = {  // Note that we start from 0!
-		0, 1, 3, // First Triangle
-		1, 2, 3  // Second Triangle
-	};
-
-	SpriteRenderer::VAO = MeshGenerator::createMesh(data, sizeof(data), indices, sizeof(indices));//, VAO, VBO, EBO); //VAO
-	
-}
-
 void SpriteRenderer::renderObject()
 {
+	GLuint VAO, textureID;
+
+	shape->getMesh()->getRenderInfo(VAO, textureID);
+
 	SpriteRenderer::program->Use();
 
 	mat4 view = camera2D->getView();
@@ -53,12 +32,10 @@ void SpriteRenderer::renderObject()
 	GLuint alphaLoc = glGetUniformLocation(SpriteRenderer::program->Program, "ourAlpha");
 	
 	//glBindTexture call will bind that texture to the currently active texture unit.
-	glBindTexture(GL_TEXTURE_2D, textureManager->getTexture(name));
+	glBindTexture(GL_TEXTURE_2D, textureID);
 	//By setting them via glUniform1i we make sure each uniform sampler corresponds to the proper texture unit.
 	glUniform1i(glGetUniformLocation(program->Program, "ourTexture"), 0);
 
-	//Draw Container
-	glBindVertexArray(VAO); 
 	
 	//Pass to Shader
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
@@ -66,8 +43,8 @@ void SpriteRenderer::renderObject()
 	glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
 	glUniform1f(alphaLoc, Renderer::alpha);
 
-	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-	glBindVertexArray(0);
+	shape->render();
+
 }
 
 void SpriteRenderer::destroy() {

@@ -1,44 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="DynamicEntity">
-    <Position X="9" Y="4.75" Width="1.5" />
+    <Position X="10.25" Y="4.75" Width="1.5" />
     <InheritanceLine Type="Entity" ManuallyRouted="true">
       <Path>
-        <Point X="12" Y="2.312" />
-        <Point X="12" Y="2.693" />
-        <Point X="9.75" Y="2.693" />
-        <Point X="9.75" Y="4.75" />
+        <Point X="13.25" Y="2.312" />
+        <Point X="13.25" Y="2.693" />
+        <Point X="11" Y="2.693" />
+        <Point X="11" Y="4.75" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAEAgAEAAAAAAAAAAAGAAAAABAAAAAUAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAEAgBAAAAAAAAAAAACAAIAABAAAAAUAAA=</HashCode>
       <FileName>DynamicEntity.h</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="transform" />
-      <Field Name="renderable" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Entity" Collapsed="true">
-    <Position X="11.25" Y="1.75" Width="1.5" />
+    <Position X="12.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAUAAA=</HashCode>
+      <HashCode>EAAAAAAAAAAAQAAAAAACAAAAACAEAAIAAAASAAAUAAA=</HashCode>
       <FileName>Entity.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StaticEntity">
     <Position X="13.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAAAEAAAEAAAAAAAAAAAEAAAAQAAAAAAUAAA=</HashCode>
+      <HashCode>AAAAAAABAAAEAAAAAAAAAAAAAAAAAAIAQAAAAAAUAAA=</HashCode>
       <FileName>StaticEntity.h</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="transform" />
-      <Field Name="renderable" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Renderable">
-    <Position X="11" Y="7" Width="1.5" />
+    <Position X="15.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAQAAQAAA=</HashCode>
       <FileName>Renderable.h</FileName>
@@ -52,39 +44,242 @@
     </TypeIdentifier>
   </Class>
   <Class Name="RenderableDecorator">
-    <Position X="9.25" Y="9.5" Width="1.5" />
+    <Position X="8.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAAEAAAAAAAAAAAAAAAAAAQAAAAQAAA=</HashCode>
       <FileName>RenderableDecorator.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sprite">
-    <Position X="9.25" Y="12.25" Width="1.5" />
+    <Position X="11.75" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAABAEAAAQAAAAAAAQAAA=</HashCode>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAI=</HashCode>
       <FileName>Sprite.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Transform" Collapsed="true">
-    <Position X="11.5" Y="3.75" Width="1.5" />
+    <Position X="11.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAEAAAAAAAAAAAQQAQCAAAEAAAAAAAAAAAABIA=</HashCode>
+      <HashCode>AAAAIAgEAAAAAAAAAAAQQAQCACAAAAgABAAAAAAIRIA=</HashCode>
       <FileName>Transform.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Physics">
     <Position X="5.25" Y="5.25" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>BIhAAQAAAACAAAAAAAIAAAAAAAAAAAQAAAAAAAAEAAA=</HashCode>
+      <HashCode>BIhAAQAAAACAAAAAAAIAAAAAAAAAAAQIAAAAAAAEAAA=</HashCode>
       <FileName>Physics.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Renderer" Collapsed="true">
     <Position X="16" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAACAAAAAAAgAAAAAEBAAAAAAAIAAQCAAAAAAAA=</HashCode>
+      <HashCode>ABAgAAAQCIABAAAAAAAAAAAAAAAAAAIAAQCQAAAACAA=</HashCode>
       <FileName>Renderer.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Camera" Collapsed="true">
+    <Position X="28.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAAAAAAEAAAAAQAAAAAAAABAAAAEAAQAACAAAAIA=</HashCode>
+      <FileName>Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Window" Collapsed="true">
+    <Position X="11.75" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAQQAAAIAAAAgCABAAAA=</HashCode>
+      <FileName>Window.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="glfwWindow" Collapsed="true">
+    <Position X="11.75" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAgIIAAAgAABAAAA=</HashCode>
+      <FileName>glfwWindow.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BallGenerator" Collapsed="true">
+    <Position X="8.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAABAAAAAEBCAAAAAEAEQBAAIAAAIgAAABAAAUAAE=</HashCode>
+      <FileName>BallGenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseParticle" Collapsed="true">
+    <Position X="10.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABCAAAAAAAAAAAAAAEABAAAAAAIAAAAAEAAUAAA=</HashCode>
+      <FileName>BaseParticle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Particle" Collapsed="true">
+    <Position X="11" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAACAAAAAAAAEAAAAAAAAIAAAAAAAAUAAA=</HashCode>
+      <FileName>Particle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ParticleDecorator" Collapsed="true">
+    <Position X="8.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAEAAAAAAAAIAAEAAAAAUCAA=</HashCode>
+      <FileName>ParticleDecorator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CircularSpawn" Collapsed="true">
+    <Position X="8.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAACAAAAEAAAAAEAAAAEAAgAIIAAAAAAABEAAA=</HashCode>
+      <FileName>CircularSpawn.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConeSpawn" Collapsed="true">
+    <Position X="10.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAACAIAgAEAAABEAAA=</HashCode>
+      <FileName>ConeSpawn.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SingleSpawn" Collapsed="true">
+    <Position X="15" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAEAAAAAAAAAAIAAAAAAAAEIAA=</HashCode>
+      <FileName>SingleSpawn.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spawn" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAEAAAIAABAAAAIAAAAAAAAEAAA=</HashCode>
+      <FileName>Spawn.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Movement" Collapsed="true">
+    <Position X="8.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAIAAAAAAAAEgAA=</HashCode>
+      <FileName>Movement.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shoot" Collapsed="true">
+    <Position X="8.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIgAABAAAAAABAAAAAAAAAAAAAAAAAIAAAAAAAAEAAA=</HashCode>
+      <FileName>Shoot.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BoxRenderer" Collapsed="true">
+    <Position X="23.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAEACAAAAAAAAAQAAAEAAIAAAAAAABACCE=</HashCode>
+      <FileName>BoxRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpriteRenderer" Collapsed="true">
+    <Position X="25.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAgAAAAAEACQAAAAAAEAAAAAEAAIAAAAAAAAAKAE=</HashCode>
+      <FileName>SpriteRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="openGLHandler" Collapsed="true">
+    <Position X="19.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBAAAAACAAAAAAAgAAAAAEAIAAAAAAIIAQAAAAAAAAA=</HashCode>
+      <FileName>openGLHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphicsHandler" Collapsed="true">
+    <Position X="19.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAggAAAAEAAAAAAAAIAAAAAgAAAAAA=</HashCode>
+      <FileName>GraphicsHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shader" Collapsed="true">
+    <Position X="28.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAQAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MeshGenerator" Collapsed="true">
+    <Position X="31.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAEAAAAAAAAABAAAAAAACAAA=</HashCode>
+      <FileName>MeshGenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mesh" Collapsed="true">
+    <Position X="8.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgQgAAAAAAABCAAQAAAAIAAAAQABEAAAAAAABAAgA=</HashCode>
+      <FileName>Mesh.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BasicMesh" Collapsed="true">
+    <Position X="8.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>BasicMesh.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextureGenerator" Collapsed="true">
+    <Position X="30" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>TextureGenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextureManager" Collapsed="true">
+    <Position X="31.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAEAAAgAABAAAAEAABAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TextureManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shapes" Collapsed="true">
+    <Position X="13.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Shapes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Circle" Collapsed="true">
+    <Position X="13.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAQABA=</HashCode>
+      <FileName>Circle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clock" Collapsed="true">
+    <Position X="30" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwAIAAAgAAAAAQAAgiAAAAAAAAAEAAEAAAAAIACgA=</HashCode>
+      <FileName>Clock.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Material" Collapsed="true">
+    <Position X="28.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAIAAAAAAIAAAAAAgAAAAAAAABAAAA=</HashCode>
+      <FileName>BoxRenderer.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="MeshData" Collapsed="true">
+    <Position X="31.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAABCAAQAAAAAAAAAQAAGAAAAAAAAAAgA=</HashCode>
+      <FileName>MeshGenerator.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Materials" Collapsed="true">
+    <Position X="30" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAABAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Mesh.h</FileName>
+    </TypeIdentifier>
+  </Struct>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
