@@ -31,8 +31,3 @@ void Sprite::createMesh()
 
 	Shapes::mesh = new BasicMesh(vertices, 4, uv, indices, 6, textureManager->getTexture(Shapes::textureName));
 }
-
-void Sprite::render()
-{
-	Shapes::mesh->drawMesh();
-}

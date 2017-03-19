@@ -1,4 +1,5 @@
 #pragma once
+#include "Shapes.h"
 #include "Transform.h"
 #include "Clock.h"
 #include "Renderer.h"

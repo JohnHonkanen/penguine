@@ -11,18 +11,11 @@
 #include "Shader.h"
 #include "Camera.h"
 
-
-using namespace std;
-
 class SpriteRenderer :
 	public Renderer
 {
-private:
-	Transform *transform; // Origin of the renderObject
-	Shader *program;
-	Camera *camera2D;
 public:
-	SpriteRenderer(Transform *transform, Shader *program, Camera *camera);
+	SpriteRenderer(Camera *camera);
 	virtual ~SpriteRenderer();
 
 	void renderObject();

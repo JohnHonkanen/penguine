@@ -12,8 +12,12 @@ Mesh::~Mesh()
 	delete normals;
 }
 
-void Mesh::getRenderInfo(GLuint & VAO, GLuint & textureID)
+void Mesh::updateModelMatrix(glm::mat4 modelMatrix)
 {
-	VAO = Mesh::VAO;
-	textureID = Mesh::textureID;
+	Mesh::modelMatrix = modelMatrix;
+}
+
+glm::mat4 Mesh::getModelMatrix()
+{
+	return Mesh::modelMatrix;
 }
