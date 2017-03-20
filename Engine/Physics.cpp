@@ -1,10 +1,10 @@
 #include "Physics.h"
-
+#include <iostream>
 
 
 Physics::Physics()
 {
-	grav = false;
+	grav = true;
 }
 
 
@@ -16,36 +16,29 @@ Physics::~Physics()
 */
 void Physics::update(float ts)
 {
-	if (grav)
-		addForce(0, -GRAVITY, 0);
+	mat4 gravityForce(1.0f);
+	gravityForce =  translate(gravityForce, vec3(0, -GRAVITY, 0));
 
-	this->acceleration += this->force * ts;
+	if (grav)
+		addForce(gravityForce);
+
+	Physics::acceleration += Physics::force[3] * ts;
 	resetForce();
 }
 /*
 	Add force
-	@param vec3 vector force
+	@param mat4 vector force
 */
-void Physics::addForce(vec3 f)
+void Physics::addForce(mat4 f)
 {
-	this->force += f;
-}
-/*
-	Add force
-	@param x scalar force in x direction
-	@param y scalar force in y direction
-	@param z scalar force in z direction
-*/
-void Physics::addForce(float x, float y, float z)
-{
-	addForce(vec3(x, y, z));
+	Physics::force += f;
 }
 /*
 	Resets Force
 */
 void Physics::resetForce()
 {
-	this->force = vec3(0.0f);
+	Physics::force = mat4(0.0f);
 }
 void Physics::setGravity(bool grav)
 {
@@ -54,7 +47,7 @@ void Physics::setGravity(bool grav)
 /*
 	Gets acceleration
 */
-vec3 Physics::getAcceleration()
+vec4 Physics::getAcceleration()
 {
-	return this->acceleration;
+	return Physics::acceleration;
 }

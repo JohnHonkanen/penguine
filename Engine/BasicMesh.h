@@ -1,13 +1,11 @@
 #pragma once
-#include "Mesh.h"
+#include "GLMesh.h"
 class BasicMesh :
-	public Mesh
+	public GLMesh
 {
 public:
 	BasicMesh(GLfloat *vertices, GLuint vertexCount, GLfloat *uv, GLuint *indices, GLuint indexCount, GLuint textureID);
-	virtual ~BasicMesh();
 	void setupMesh();
 	void drawMesh();
-	
 };
 

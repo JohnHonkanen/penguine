@@ -6,10 +6,11 @@ Mesh::Mesh()
 
 Mesh::~Mesh()
 {
-	delete vertices;
-	delete indices;
-	delete uv;
-	delete normals;
+	destroy();
+}
+
+void Mesh::destroy()
+{
 }
 
 void Mesh::updateModelMatrix(glm::mat4 modelMatrix)

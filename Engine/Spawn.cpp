@@ -11,7 +11,7 @@ Spawn::~Spawn()
 {
 }
 
-void Spawn::setEntity(Entity * entity)
+void Spawn::setEmitter(Entity * entity)
 {
-	Spawn::entity = entity;
+	Spawn::emitter = entity;
 }

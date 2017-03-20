@@ -6,11 +6,11 @@ class ParticleDecorator :
 private:
 	Particle* p;
 public:
-	ParticleDecorator(Particle *p);
+	ParticleDecorator(Particle *p, Entity *emitter);
 	virtual ~ParticleDecorator();
-	void init();
-	void update(float ts);
-	void render();
-	void destroy();
+	virtual void init();
+	virtual void update(float ts);
+	virtual void render(Renderer *renderer);
+	virtual void destroy();
 };
 

@@ -1,14 +1,17 @@
 #pragma once
-class Entity;
+#include <glm\glm.hpp>
+#include "Entity.h"
+
+using namespace glm;
 class Spawn
 {
 protected:
-	Entity *entity;
+	Entity *emitter;
 public:
 	Spawn();
 	virtual ~Spawn();
-	virtual void init() = 0;
-	virtual void update(float ts) = 0;
-	virtual void setEntity(Entity *entity);
+	virtual mat4 init() = 0;
+	virtual mat4 update(float ts) = 0;
+	void setEmitter(Entity *entity);
 };
 

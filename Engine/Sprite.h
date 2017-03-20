@@ -8,6 +8,6 @@ private:
 	void createMesh();
 public:
 	Sprite(std::string spriteName, TextureManager *textureManager);
-
+	Shapes* instantiate();
 };
 

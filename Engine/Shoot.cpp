@@ -1,8 +1,7 @@
 #include "Shoot.h"
 
-Shoot::Shoot(DynamicEntity * entity, vec3 force)
+Shoot::Shoot(vec3 force)
 {
-	this->entity = entity;
 	this->force = force;
 }
 
@@ -10,12 +9,17 @@ Shoot::~Shoot()
 {
 }
 
-void Shoot::init()
+
+mat4 Shoot::init()
 {
-	entity->physics.addForce(force);
+	mat4 matrixTrans(1.0f);
+	matrixTrans = translate(matrixTrans, force);
+
+	return matrixTrans;
 }
 
-void Shoot::update(float ts)
+mat4 Shoot::update(float ts)
 {
-	entity->transform.rotate(radians(45.0f)*ts, vec3(0,0,1));
+	mat4 matrixTrans(1.0f);
+	return matrixTrans;
 }

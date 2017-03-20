@@ -15,11 +15,10 @@ GLRenderer::~GLRenderer()
 void GLRenderer::renderObject(Shapes * shape)
 {
 	GLuint VAO, textureID;
-
-
 	GLRenderer::program->Use();
 
 	Mesh *mesh = shape->getMesh();
+	textureID = dynamic_cast<GLMesh*>(mesh)->getTextureID();
 	mat4 view = camera->getView();
 	mat4 projection = camera->getProjection();
 	mat4 model = mesh->getModelMatrix();

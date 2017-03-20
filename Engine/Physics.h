@@ -1,6 +1,7 @@
 #pragma once
 #include <glm\glm.hpp>
-#define GRAVITY 15
+#include <glm\gtc\matrix_transform.hpp>
+#define GRAVITY 10
 
 using namespace glm;
 class Physics
@@ -9,16 +10,15 @@ public:
 	Physics();
 	virtual ~Physics();
 	void update(float ts);
-	void addForce(vec3 f);
-	void addForce(float x, float y, float z);
+	void addForce(mat4 f);
 	void resetForce();
 	void setGravity(bool);
 
-	vec3 getAcceleration();
+	vec4 getAcceleration();
 private:
-	bool grav = false;
-	vec3 force = vec3(0.0f);
-	vec3 acceleration = vec3(0.0f);
+	bool grav = true;
+	mat4 force = mat4(1.0f);
+	vec4 acceleration = vec4(0.0f);
 	float mass = 1;
 };
 

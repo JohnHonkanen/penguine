@@ -8,6 +8,12 @@ Sprite::Sprite(std::string spriteName, TextureManager *textureManager): Shapes(t
 	createMesh();
 }
 
+Shapes * Sprite::instantiate()
+{
+	Shapes *shape = new Sprite(Shapes::textureName, Shapes::textureManager);
+	return shape;
+}
+
 void Sprite::createMesh()
 {
 	GLuint indices[] = {  // Note that we start from 0!

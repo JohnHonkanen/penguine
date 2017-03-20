@@ -4,42 +4,36 @@
 
 BasicMesh::BasicMesh(GLfloat *vertices, GLuint vertexCount, GLfloat *uv, GLuint *indices, GLuint indexCount, GLuint textureID)
 {
-	Mesh::vertices = vertices;
-	Mesh::uv = uv;
-	Mesh::indices = indices;
-	Mesh::vertexCount = vertexCount;
-	Mesh::indexCount = indexCount;
-	Mesh::mode = GL_TRIANGLES;
+	GLMesh::vertices = vertices;
+	GLMesh::uv = uv;
+	GLMesh::indices = indices;
+	GLMesh::vertexCount = vertexCount;
+	GLMesh::indexCount = indexCount;
+	GLMesh::mode = GL_TRIANGLES;
 
-	Mesh::textureID = textureID;
+	GLMesh::textureID = textureID;
 	setupMesh();
-}
-
-
-BasicMesh::~BasicMesh()
-{
 }
 
 void BasicMesh::setupMesh()
 {
 	MeshData data = {
-		Mesh::vertices,
+		GLMesh::vertices,
 		nullptr,
 		nullptr,
-		Mesh::uv,
-		Mesh::indices,
-		Mesh::vertexCount,
-		Mesh::indexCount,
-		Mesh::mode
+		GLMesh::uv,
+		GLMesh::indices,
+		GLMesh::vertexCount,
+		GLMesh::indexCount,
+		GLMesh::mode
 	};
 
-	Mesh::VAO = MeshGenerator::createMesh(data);
+	GLMesh::VAO = MeshGenerator::createMesh(data);
 }
 
 void BasicMesh::drawMesh(){
-
-	glBindVertexArray(Mesh::VAO);
-	glDrawElements(Mesh::mode, Mesh::indexCount, GL_UNSIGNED_INT, 0);
+	glBindVertexArray(GLMesh::VAO);
+	glDrawElements(GLMesh::mode, GLMesh::indexCount, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
 }
 

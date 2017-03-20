@@ -4,14 +4,10 @@
 
 DynamicEntity::DynamicEntity()
 {
-	DynamicEntity::strategy = nullptr;
-	DynamicEntity::lifeTime = 0.0f;
 }
 
-DynamicEntity::DynamicEntity(float lifeTime)
+DynamicEntity::DynamicEntity(Shapes *shape, float lifeTime):Entity(shape, lifeTime)
 {
-	DynamicEntity::strategy = nullptr;
-	DynamicEntity::lifeTime = lifeTime;
 }
 
 DynamicEntity::DynamicEntity(Movement* m)
@@ -22,40 +18,24 @@ DynamicEntity::DynamicEntity(Movement* m)
 
 DynamicEntity::~DynamicEntity()
 {
-	delete strategy;
 }
 
 void DynamicEntity::init()
 {
-	this->movement->init();
-	if (lifeTime != 0) {
-		clock.startClock();
-		clock.setDelay(lifeTime);
-	}
-	
+	DynamicEntity::physics.addForce(Entity::movement->init());
+	lifeClock.startClock();
 }
 
-void DynamicEntity::render()
+void DynamicEntity::render(Renderer * renderer)
 {
-	Entity::strategy->renderObject();
 }
 
 void DynamicEntity::update(float ts)
 {
-	this->movement->update(ts);
-	this->physics.update(ts);
-	this->transform.translate(this->physics.getAcceleration()); // Updates our Entity
-
-	//vec3 position = this->transform.getPosition();
-	//position += this->physics.getAcceleration(); // Updates our Entity
-	//this->transform.setPosition(position);
-
-	if (lifeTime != 0) {
-		clock.updateClock();
-	}
-}
-
-void DynamicEntity::setMovement(Movement * movement)
-{
-	this->movement = movement;
+	lifeClock.updateClock();
+	DynamicEntity::physics.addForce(Entity::movement->update(ts));
+	DynamicEntity::physics.update(ts);
+	Entity::transform.translate(DynamicEntity::physics.getAcceleration()); // Updates our Entity
+	//Update Model Matrix in Mesh, delegated to Entity
+	Entity::update(ts);
 }

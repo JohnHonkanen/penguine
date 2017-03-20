@@ -1,8 +1,8 @@
 #include "ParticleDecorator.h"
 
-ParticleDecorator::ParticleDecorator(Particle * p)
+ParticleDecorator::ParticleDecorator(Particle * p, Entity * emitter): Particle(emitter)
 {
-	this->p = p;
+	ParticleDecorator::p = p;
 }
 
 ParticleDecorator::~ParticleDecorator()
@@ -11,17 +11,20 @@ ParticleDecorator::~ParticleDecorator()
 
 void ParticleDecorator::init()
 {
-	p->init();
+	if(p != nullptr)
+		p->init();
 }
 
 void ParticleDecorator::update(float ts)
 {
-	p->update(ts);
+	if (p != nullptr)
+		p->update(ts);
 }
 
-void ParticleDecorator::render()
+void ParticleDecorator::render(Renderer * renderer)
 {
-	p->render();
+	if (p != nullptr)
+		p->render(renderer);
 }
 
 void ParticleDecorator::destroy()

@@ -3,7 +3,6 @@
 #include "Transform.h"
 #include "Physics.h"
 #include "Renderer.h"
-#include "Movement.h"
 #include "Clock.h"
 #include <iostream>
 
@@ -13,15 +12,13 @@ class DynamicEntity :
 {
 public:
 	DynamicEntity();
-	DynamicEntity(float lifeTime);
+	DynamicEntity(Shapes *shape, float lifeTime);
 	DynamicEntity(Movement* m);
 	virtual ~DynamicEntity();
 	void init();
-	void render();
+	void render(Renderer *renderer);
 	void update(float ts);
-	void setMovement(Movement *movement);
 	Physics physics;
-	Movement *movement;
 
 };
 

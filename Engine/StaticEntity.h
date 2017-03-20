@@ -9,8 +9,7 @@ public:
 	StaticEntity();
 	virtual ~StaticEntity();
 	void init();
-	void render();
+	void render(Renderer *renderer);
 	void update(float ts);
-	Movement *movement;
 };
 

@@ -5,12 +5,11 @@ class Shoot :
 	public Movement
 {
 private:
-	DynamicEntity *entity;
 	vec3 force;
 public:
-	Shoot(DynamicEntity *entity, vec3 force);
+	Shoot(vec3 force);
 	virtual ~Shoot();
-	void init();
-	void update(float ts);
+	mat4 init();
+	mat4 update(float ts);
 };
 

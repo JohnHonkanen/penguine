@@ -3,22 +3,26 @@
 #include "Transform.h"
 #include "Clock.h"
 #include "Renderer.h"
-#include "GraphicsHandler.h"
+#include "Movement.h"
 
 class Entity
 {
 protected:
-	float lifeTime;
+	Shapes *shape; 
+	Clock lifeClock;
+	Movement *movement;
+	float alpha;
 public:
 	Entity();
+	Entity(Shapes *shape, float lifeTime = 0);
 	virtual ~Entity();
 	virtual void init() = 0;
-	virtual void render() = 0;
-	virtual void update(float ts) = 0;
-	void setRenderingStrategy(Renderer *strategy);
-	Clock clock;
+	virtual void render(Renderer *renderer) = 0;
+	virtual void update(float ts);
+	void setMovement(Movement *movement);
+	Shapes *getShape();
+	bool expire();
+
 	Transform transform;
-	Renderer *strategy;
-	float alpha;
 };
 

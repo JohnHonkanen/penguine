@@ -1,25 +1,26 @@
 #include "SingleSpawn.h"
 
-SingleSpawn::SingleSpawn(Entity *emitter, Entity* e)
+SingleSpawn::SingleSpawn()
 {
-	this->emitter = emitter;
-	this->entity = e;
 }
 
 SingleSpawn::~SingleSpawn()
 {
 }
 
-void SingleSpawn::init()
+mat4 SingleSpawn::init()
 {
-	vec3 ePos = emitter->transform.getPosition();
-	this->entity->transform.setPosition(ePos);
-	//vec3 pos = SingleSpawn::entity->transform.getPosition();
+	mat4 matrix(1.0f);
+	vec3 ePos = Spawn::emitter->transform.getPosition();
+	matrix = translate(matrix, ePos);
+	return matrix;
 }
 
-void SingleSpawn::update(float ts)
+mat4 SingleSpawn::update(float ts)
 {
 	/*
 		Do nothing
 	*/
+	mat4 matrix(1.0f);
+	return matrix;
 }

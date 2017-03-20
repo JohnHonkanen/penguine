@@ -3,6 +3,7 @@
 #include <glm\glm.hpp>
 #include "Renderer.h"
 #include "Shader.h"
+#include "GLMesh.h";
 class GLRenderer :
 	public Renderer
 {

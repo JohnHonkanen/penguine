@@ -11,12 +11,10 @@ using namespace glm;
 class SingleSpawn :
 	public Spawn
 {
-private:
-	Entity *emitter;
 public:
-	SingleSpawn(Entity *emitter, Entity* e);
+	SingleSpawn();
 	virtual ~SingleSpawn();
-	void init();
-	void update(float ts);
+	mat4 init();
+	mat4 update(float ts);
 };
 

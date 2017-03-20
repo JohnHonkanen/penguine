@@ -10,7 +10,11 @@
 #include "Camera.h"
 #include "BoxRenderer.h"
 #include "Sprite.h"
-#include "SpriteRenderer.h"
+#include "GLRenderer.h"
+#include "SingleParticle.h"
+#include "StaticEntity.h"
+#include "SingleSpawn.h"
+#include "Shoot.h"
 
 using namespace std;
 using namespace glm;
@@ -23,6 +27,7 @@ int main(int argc, char *argv[])
 	openGLHandler graphicsHandler(window);
 	Camera Camera2D;
 	Camera2D.setPerspectiveProjection(radians(45.0f), float(windowSize.x)/float(windowSize.y), 0.1f, 100.0f); // Set Projection
+	//Camera2D.setOrthoProjection(vec3(-500.0f, -500.0f, 0.1f), vec3(500.0f, 500.0f, 100.0f));
 	Camera2D.setView(vec3(0.0f, 0.0f, -10.0f)); // Adjusts our Camera Back
 
 	graphicsHandler.init(); // Initialize Rendering Library
@@ -39,12 +44,13 @@ int main(int argc, char *argv[])
 	material.texture = "lava";
 
 	Sprite *sprite = new Sprite("fire", &textureManager);
-	Sprite *sprite = new Sprite("lava", &textureManager);
-	
-	SpriteRenderer spriteRenderer(&transform, &shaderProgram, &Camera2D);
-	spriteRenderer.setShape(sprite);
 
-	BoxRenderer boxRenderer(material, &textureManager, &transform, &shaderProgram, &Camera2D);
+	SingleParticle particle(nullptr, new StaticEntity(), sprite, new SingleSpawn(), new Shoot(vec3(0,250,0)));
+	particle.init();
+
+	GLRenderer glRenderer(&shaderProgram);
+	glRenderer.setCamera(&Camera2D);
+
 
 	Clock appClock;
 	appClock.startClock();
@@ -62,21 +68,16 @@ int main(int argc, char *argv[])
 		appClock.updateClock(); //Ticks App Clock
 		// Calculates Delta Time
 		currentTime = appClock.getMilliseconds();
-		double dt = (currentTime - previousTime)*0.001f; //Convert DT to seconds
+		double dt = (currentTime - previousTime)*0.0001f; //Convert DT to seconds
 		
 		//End of DeltaTime
 		if (frameClock.alarm()) {
 			// Update Function
-			
-			//transform.translate(vec3(0,1*dt,0));
-			transform.rotate(45.0f*dt, vec3(0, 0, 1), false);
-			mat4 model = transform.calculateModelMatrix();
-
-
+			particle.update(dt);
 			// End of Update
 			graphicsHandler.start();  // Sets up Rendering Loop
 			// Render Function
-			spriteRenderer.renderObject();
+			particle.render(&glRenderer);
 			// End of Render
 			graphicsHandler.end(); //Swap Buffers
 			frameClock.resetClock(); // Once frame is done reset to 0

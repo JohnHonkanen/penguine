@@ -16,6 +16,6 @@ protected:
 public:
 	Shapes(TextureManager *textureManager);
 	virtual ~Shapes();
+	virtual Shapes* instantiate() = 0;
 	Mesh *getMesh();
-
 };
