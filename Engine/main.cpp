@@ -38,7 +38,8 @@ int main(int argc, char *argv[])
 	textureManager.saveTexture("lava.jpg", "lava");
 	textureManager.saveTexture("particle.png", "particle");
 
-	Shader shaderProgram("minimal.vert", "single.frag"); // Initialize Shader Program
+	Shader minshaderProgram("minimal.vert", "single.frag"); // Minimal Shader Program
+	Shader HSVshaderProgram("HSVVert.shader", "HSVFrag.shader");  // HSV Shader Program
 
 	Transform transform;
 	Material material;
@@ -46,10 +47,10 @@ int main(int argc, char *argv[])
 
 	Sprite *sprite = new Sprite("particle", &textureManager);
 
-	SingleParticle particle(nullptr, new StaticEntity(), sprite, new SingleSpawn(), new Shoot(vec3(0,250,0)));
+	SingleParticle particle(nullptr, new StaticEntity(), sprite, new SingleSpawn(), new Shoot(vec3(0,0,0)));
 	particle.init();
 
-	GLRenderer glRenderer(&shaderProgram);
+	GLRenderer glRenderer(&HSVshaderProgram);
 	glRenderer.setCamera(&Camera2D);
 
 
@@ -78,7 +79,8 @@ int main(int argc, char *argv[])
 			// End of Update
 			graphicsHandler.start();  // Sets up Rendering Loop
 			// Render Function
-			particle.render(&glRenderer);
+			//particle.render(&glRenderer);
+			glRenderer.renderObject(sprite);
 			// End of Render
 			graphicsHandler.end(); //Swap Buffers
 			frameClock.resetClock(); // Once frame is done reset to 0

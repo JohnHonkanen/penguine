@@ -230,6 +230,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="HSVFrag.shader" />
+    <None Include="HSVVert.shader" />
     <None Include="minimal.frag" />
     <None Include="minimal.vert" />
     <None Include="single.frag" />

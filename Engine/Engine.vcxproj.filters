@@ -106,6 +106,18 @@
     <Filter Include="Header Files\Mesh">
       <UniqueIdentifier>{511cfa0a-69ac-46fc-bf9d-502ef76ffb0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Shaders">
+      <UniqueIdentifier>{a493671a-9347-40cd-baa5-2170c9c885db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\ClassDiagram">
+      <UniqueIdentifier>{0b8c6df3-d0bd-41bd-99ea-e4ea2dffa7d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Minimal">
+      <UniqueIdentifier>{7a7c5083-c84b-44bb-9458-6e9ead509d56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\HSV">
+      <UniqueIdentifier>{cff86997-c893-4f55-b49d-bef7b6f3e5eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -301,17 +313,23 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="minimal.frag">
-      <Filter>Resource Files</Filter>
+    <None Include="ClassDiagram.cd">
+      <Filter>Resource Files\ClassDiagram</Filter>
     </None>
     <None Include="minimal.vert">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Shaders\Minimal</Filter>
     </None>
     <None Include="single.frag">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Shaders\Minimal</Filter>
     </None>
-    <None Include="ClassDiagram.cd">
-      <Filter>Resource Files</Filter>
+    <None Include="minimal.frag">
+      <Filter>Resource Files\Shaders\Minimal</Filter>
+    </None>
+    <None Include="HSVFrag.shader">
+      <Filter>Resource Files\Shaders\HSV</Filter>
+    </None>
+    <None Include="HSVVert.shader">
+      <Filter>Resource Files\Shaders\HSV</Filter>
     </None>
   </ItemGroup>
 </Project>
