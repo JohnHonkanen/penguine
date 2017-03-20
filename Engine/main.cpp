@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
 	textureManager.saveTexture("smoke.png", "smoke");
 	textureManager.saveTexture("fire.png", "fire");
 	textureManager.saveTexture("lava.jpg", "lava");
+	textureManager.saveTexture("particle.png", "particle");
 
 	Shader shaderProgram("minimal.vert", "single.frag"); // Initialize Shader Program
 
@@ -43,7 +44,7 @@ int main(int argc, char *argv[])
 	Material material;
 	material.texture = "lava";
 
-	Sprite *sprite = new Sprite("fire", &textureManager);
+	Sprite *sprite = new Sprite("particle", &textureManager);
 
 	SingleParticle particle(nullptr, new StaticEntity(), sprite, new SingleSpawn(), new Shoot(vec3(0,250,0)));
 	particle.init();
