@@ -185,7 +185,7 @@
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Shapes.cpp" />
     <ClCompile Include="Shoot.cpp" />
-    <ClCompile Include="SingleParticle.cpp" />
+    <ClCompile Include="BasicParticle.cpp" />
     <ClCompile Include="SingleSpawn.cpp" />
     <ClCompile Include="Spawn.cpp" />
     <ClCompile Include="Sprite.cpp" />
@@ -198,6 +198,7 @@
   <ItemGroup>
     <ClInclude Include="BaseParticle.h" />
     <ClInclude Include="BasicMesh.h" />
+    <ClInclude Include="BasicParticle.h" />
     <ClInclude Include="BoxRenderer.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Clock.h" />
@@ -218,7 +219,6 @@
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Shoot.h" />
-    <ClInclude Include="SingleParticle.h" />
     <ClInclude Include="SingleSpawn.h" />
     <ClInclude Include="Spawn.h" />
     <ClInclude Include="Sprite.h" />

@@ -9,7 +9,7 @@ class Entity
 {
 protected:
 	Shapes *shape; 
-	Clock lifeClock;
+	
 	Movement *movement;
 	float alpha;
 public:
@@ -22,7 +22,7 @@ public:
 	void setMovement(Movement *movement);
 	Shapes *getShape();
 	bool expire();
-
+	Clock lifeClock;
 	Transform transform;
 };
 

@@ -23,7 +23,6 @@ DynamicEntity::~DynamicEntity()
 void DynamicEntity::init()
 {
 	DynamicEntity::physics.addForce(Entity::movement->init());
-	lifeClock.startClock();
 }
 
 void DynamicEntity::render(Renderer * renderer)
@@ -32,7 +31,6 @@ void DynamicEntity::render(Renderer * renderer)
 
 void DynamicEntity::update(float ts)
 {
-	lifeClock.updateClock();
 	DynamicEntity::physics.addForce(Entity::movement->update(ts));
 	DynamicEntity::physics.update(ts);
 	Entity::transform.translate(DynamicEntity::physics.getAcceleration()); // Updates our Entity

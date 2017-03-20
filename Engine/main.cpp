@@ -11,7 +11,7 @@
 #include "BoxRenderer.h"
 #include "Sprite.h"
 #include "GLRenderer.h"
-#include "SingleParticle.h"
+#include "BasicParticle.h"
 #include "StaticEntity.h"
 #include "SingleSpawn.h"
 #include "Shoot.h"
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 
 	Sprite *sprite = new Sprite("particle", &textureManager);
 
-	SingleParticle particle(nullptr, new StaticEntity(), sprite, new SingleSpawn(), new Shoot(vec3(0,250,0)));
+	BasicParticle particle(nullptr, new StaticEntity(), sprite, new SingleSpawn(), new Shoot(vec3(0,250,0)), 0, 100);
 	particle.init();
 
 	GLRenderer glRenderer(&shaderProgram);

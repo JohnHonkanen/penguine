@@ -7,10 +7,10 @@ Entity::Entity()
 Entity::Entity(Shapes *shape, float lifeTime)
 {
 	Entity::shape = shape;
-
 	if (lifeTime != 0) {
 		lifeClock.setDelay(lifeTime);
 	}
+	lifeClock.startClock();
 }
 
 Entity::~Entity()
@@ -19,6 +19,7 @@ Entity::~Entity()
 
 void Entity::update(float ts)
 {
+	Entity::lifeClock.updateClock();
 	Entity::shape->getMesh()->updateModelMatrix(Entity::transform.calculateModelMatrix());
 }
 

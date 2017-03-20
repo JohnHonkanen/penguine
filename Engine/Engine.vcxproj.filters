@@ -201,7 +201,7 @@
     <ClCompile Include="GLMesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SingleParticle.cpp">
+    <ClCompile Include="BasicParticle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -296,7 +296,7 @@
     <ClInclude Include="GLMesh.h">
       <Filter>Header Files\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="SingleParticle.h">
+    <ClInclude Include="BasicParticle.h">
       <Filter>Header Files\Particle</Filter>
     </ClInclude>
   </ItemGroup>

@@ -3,7 +3,7 @@
 #include "Spawn.h"
 #include "DynamicEntity.h"
 #include "Shapes.h"
-class SingleParticle :
+class BasicParticle :
 	public ParticleDecorator
 {
 private:
@@ -11,12 +11,13 @@ private:
 	Shapes *particleShape;
 	Spawn *spawn;
 	Movement *particleMovement;
+	int minLife;
+	int maxLife;
 public:
-	SingleParticle(Particle *p, Entity *emitter, Shapes *shape, Spawn *spawn, Movement *movement);
-	~SingleParticle();
+	BasicParticle(Particle *p, Entity *emitter, Shapes *shape, Spawn *spawn, Movement *movement, int minParticleLifeTimeMS = 0, int maxParticleLifeTimeMS = 0);
+	~BasicParticle();
 	void init();
 	void update(float ts);
 	void render(Renderer *renderer);
 	void destroy();
 };
-
