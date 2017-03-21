@@ -204,6 +204,15 @@
     <ClCompile Include="BasicParticle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AbstractSpawner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SpawnerDecorator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NullSpawner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -229,9 +238,6 @@
     </ClInclude>
     <ClInclude Include="BaseParticle.h">
       <Filter>Header Files\Particle</Filter>
-    </ClInclude>
-    <ClInclude Include="Spawn.h">
-      <Filter>Header Files\Behaviours\Spawn</Filter>
     </ClInclude>
     <ClInclude Include="ParticleDecorator.h">
       <Filter>Header Files\Particle</Filter>
@@ -298,6 +304,15 @@
     </ClInclude>
     <ClInclude Include="BasicParticle.h">
       <Filter>Header Files\Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractSpawner.h">
+      <Filter>Header Files\Behaviours\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="SpawnerDecorator.h">
+      <Filter>Header Files\Behaviours\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="NullSpawner.h">
+      <Filter>Header Files\Behaviours\Spawn</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,17 @@ Spawn::~Spawn()
 {
 }
 
-void Spawn::setEmitter(Entity * entity)
+mat4 Spawn::init()
 {
-	Spawn::emitter = entity;
+	return mat4();
+}
+
+mat4 Spawn::update(float ts)
+{
+	return mat4();
+}
+
+bool Spawn::spawn()
+{
+	return false;
 }
