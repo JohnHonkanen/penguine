@@ -37,3 +37,10 @@ void DynamicEntity::update(float ts)
 	//Update Model Matrix in Mesh, delegated to Entity
 	Entity::update(ts);
 }
+
+Entity * DynamicEntity::instantiate()
+{
+	DynamicEntity *entity = new DynamicEntity(shape->instantiate(), 0);
+	entity->setMovement(movement);
+	return entity;
+}

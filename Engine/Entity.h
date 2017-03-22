@@ -19,6 +19,7 @@ public:
 	virtual void init() = 0;
 	virtual void render(Renderer *renderer) = 0;
 	virtual void update(float ts);
+	virtual Entity* instantiate() = 0;
 	void setMovement(Movement *movement);
 	Shapes *getShape();
 	bool expire();

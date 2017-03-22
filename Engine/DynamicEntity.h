@@ -18,6 +18,7 @@ public:
 	void init();
 	void render(Renderer *renderer);
 	void update(float ts);
+	Entity* instantiate();
 	Physics physics;
 
 };

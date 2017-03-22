@@ -1,6 +1,6 @@
 #pragma once
 #include "ParticleDecorator.h"
-#include "Spawn.h"
+#include "Spawner.h"
 #include "DynamicEntity.h"
 #include "Shapes.h"
 class BasicParticle :
@@ -9,12 +9,12 @@ class BasicParticle :
 private:
 	Entity *particle;
 	Shapes *particleShape;
-	Spawn *spawn;
+	Spawner *spawn;
 	Movement *particleMovement;
 	int minLife;
 	int maxLife;
 public:
-	BasicParticle(Particle *p, Entity *emitter, Shapes *shape, Spawn *spawn, Movement *movement, int minParticleLifeTimeMS = 0, int maxParticleLifeTimeMS = 0);
+	BasicParticle(Particle *p, Entity *emitter, Shapes *shape, Spawner *spawn, Movement *movement, int minParticleLifeTimeMS = 0, int maxParticleLifeTimeMS = 0);
 	~BasicParticle();
 	void init();
 	void update(float ts);

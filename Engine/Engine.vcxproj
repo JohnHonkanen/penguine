@@ -162,19 +162,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AbstractSpawner.cpp" />
+    <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="BaseParticle.cpp" />
     <ClCompile Include="BasicMesh.cpp" />
     <ClCompile Include="BoxRenderer.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Clock.cpp" />
+    <ClCompile Include="LocationSpawnStrategy.cpp" />
     <ClCompile Include="glfwWindow.cpp" />
     <ClCompile Include="GLMesh.cpp" />
     <ClCompile Include="GLRenderer.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MeshGenerator.cpp" />
     <ClCompile Include="Movement.cpp" />
-    <ClCompile Include="NullSpawner.cpp" />
     <ClCompile Include="openGLHandler.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="ParticleDecorator.cpp" />
@@ -188,9 +188,7 @@
     <ClCompile Include="Shapes.cpp" />
     <ClCompile Include="Shoot.cpp" />
     <ClCompile Include="BasicParticle.cpp" />
-    <ClCompile Include="SingleSpawn.cpp" />
-    <ClCompile Include="Spawn.cpp" />
-    <ClCompile Include="SpawnerDecorator.cpp" />
+    <ClCompile Include="SpawnStrategyDecorator.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="StaticEntity.cpp" />
     <ClCompile Include="TextureGenerator.cpp" />
@@ -199,13 +197,15 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AbstractSpawner.h" />
+    <ClInclude Include="Spawner.h" />
+    <ClInclude Include="AbstractSpawnStrategy.h" />
     <ClInclude Include="BaseParticle.h" />
     <ClInclude Include="BasicMesh.h" />
     <ClInclude Include="BasicParticle.h" />
     <ClInclude Include="BoxRenderer.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Clock.h" />
+    <ClInclude Include="LocationSpawnStrategy.h" />
     <ClInclude Include="glfwWindow.h" />
     <ClInclude Include="GLMesh.h" />
     <ClInclude Include="GLRenderer.h" />
@@ -223,9 +223,7 @@
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Shoot.h" />
-    <ClInclude Include="SingleSpawn.h" />
-    <ClInclude Include="NullSpawner.h" />
-    <ClInclude Include="SpawnerDecorator.h" />
+    <ClInclude Include="SpawnStrategyDecorator.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="StaticEntity.h" />
     <ClInclude Include="TextureGenerator.h" />

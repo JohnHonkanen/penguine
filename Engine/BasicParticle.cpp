@@ -1,7 +1,7 @@
 #include "BasicParticle.h"
 
 
-BasicParticle::BasicParticle(Particle * p, Entity * emitter, Shapes *shape, Spawn *spawn, Movement *movement, int minLifeTime, int maxLifeTime):ParticleDecorator(p, emitter)
+BasicParticle::BasicParticle(Particle * p, Entity * emitter, Shapes *shape, Spawner *spawn, Movement *movement, int minLifeTime, int maxLifeTime):ParticleDecorator(p, emitter)
 {
 	BasicParticle::particleShape = shape;
 	BasicParticle::spawn = spawn;
@@ -25,11 +25,9 @@ void BasicParticle::init()
 	else {
 		particleLifeTime = 0;
 	}
-
 	particle = new DynamicEntity(particleShape->instantiate(), particleLifeTime);
-	BasicParticle::spawn->setEmitter(Particle::emitter);
-	particle->setMovement(BasicParticle::particleMovement);
-	particle->transform.translate(BasicParticle::spawn->init()[3]);
+	particle->setMovement(particleMovement);
+	particle->transform.translate(spawn->spawnLocation(emitter->transform.getPosition()));
 	particle->init();
 	ParticleDecorator::init();
 }
@@ -46,7 +44,6 @@ void BasicParticle::update(float ts)
 			ParticleDecorator::update(ts);
 		}
 	}
-	
 }
 
 void BasicParticle::render(Renderer * renderer)

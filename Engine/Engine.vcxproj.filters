@@ -106,6 +106,12 @@
     <Filter Include="Header Files\Mesh">
       <UniqueIdentifier>{511cfa0a-69ac-46fc-bf9d-502ef76ffb0b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Behaviours\Spawn\Strategies">
+      <UniqueIdentifier>{d20da638-fb64-48c2-8924-778f6e5420db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Behaviours\Spawn\Strategies\Location">
+      <UniqueIdentifier>{064514c2-0391-412b-9ae4-b8d187fc0d67}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -135,17 +141,11 @@
     <ClCompile Include="Movement.cpp">
       <Filter>Source Files\Behaviours\Movement</Filter>
     </ClCompile>
-    <ClCompile Include="Spawn.cpp">
-      <Filter>Source Files\Behaviours\Spawn</Filter>
-    </ClCompile>
     <ClCompile Include="ParticleDecorator.cpp">
       <Filter>Source Files\Particle</Filter>
     </ClCompile>
     <ClCompile Include="Shoot.cpp">
       <Filter>Source Files\Behaviours\Movement</Filter>
-    </ClCompile>
-    <ClCompile Include="SingleSpawn.cpp">
-      <Filter>Source Files\Behaviours\Spawn</Filter>
     </ClCompile>
     <ClCompile Include="MeshGenerator.cpp">
       <Filter>Source Files\OpenGL</Filter>
@@ -204,13 +204,13 @@
     <ClCompile Include="BasicParticle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AbstractSpawner.cpp">
+    <ClCompile Include="SpawnStrategyDecorator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SpawnerDecorator.cpp">
+    <ClCompile Include="Spawner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NullSpawner.cpp">
+    <ClCompile Include="LocationSpawnStrategy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -244,9 +244,6 @@
     </ClInclude>
     <ClInclude Include="Shoot.h">
       <Filter>Header Files\Behaviours\Movement</Filter>
-    </ClInclude>
-    <ClInclude Include="SingleSpawn.h">
-      <Filter>Header Files\Behaviours\Spawn</Filter>
     </ClInclude>
     <ClInclude Include="Window.h">
       <Filter>Header Files\Windows</Filter>
@@ -305,14 +302,17 @@
     <ClInclude Include="BasicParticle.h">
       <Filter>Header Files\Particle</Filter>
     </ClInclude>
-    <ClInclude Include="AbstractSpawner.h">
+    <ClInclude Include="AbstractSpawnStrategy.h">
+      <Filter>Header Files\Behaviours\Spawn\Strategies\Location</Filter>
+    </ClInclude>
+    <ClInclude Include="SpawnStrategyDecorator.h">
+      <Filter>Header Files\Behaviours\Spawn\Strategies\Location</Filter>
+    </ClInclude>
+    <ClInclude Include="Spawner.h">
       <Filter>Header Files\Behaviours\Spawn</Filter>
     </ClInclude>
-    <ClInclude Include="SpawnerDecorator.h">
-      <Filter>Header Files\Behaviours\Spawn</Filter>
-    </ClInclude>
-    <ClInclude Include="NullSpawner.h">
-      <Filter>Header Files\Behaviours\Spawn</Filter>
+    <ClInclude Include="LocationSpawnStrategy.h">
+      <Filter>Header Files\Behaviours\Spawn\Strategies\Location</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

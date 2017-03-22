@@ -10,6 +10,7 @@ public:
 	virtual ~StaticEntity();
 	void init();
 	void render(Renderer *renderer);
+	Entity* instantiate();
 	void update(float ts);
 };
 

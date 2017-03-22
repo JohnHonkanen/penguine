@@ -13,8 +13,9 @@
 #include "GLRenderer.h"
 #include "BasicParticle.h"
 #include "StaticEntity.h"
-#include "SingleSpawn.h"
+#include "Spawner.h"
 #include "Shoot.h"
+#include "LocationSpawnStrategy.h"
 
 using namespace std;
 using namespace glm;
@@ -44,9 +45,12 @@ int main(int argc, char *argv[])
 	Material material;
 	material.texture = "lava";
 
-	Sprite *sprite = new Sprite("particle", &textureManager);
-
-	BasicParticle particle(nullptr, new StaticEntity(), sprite, new SingleSpawn(), new Shoot(vec3(0,250,0)), 0, 100);
+	Sprite sprite = Sprite("particle", &textureManager);
+	Spawner spawn;
+	spawn.setSpawnStrategy(new LocationSpawnStrategy());
+	StaticEntity emitter = StaticEntity();
+	emitter.transform.translate(0, 0, -50);
+	BasicParticle particle(nullptr, &emitter, &sprite, &spawn, new Shoot(vec3(0,250,0)), 1000, 1500);
 	particle.init();
 
 	GLRenderer glRenderer(&shaderProgram);
