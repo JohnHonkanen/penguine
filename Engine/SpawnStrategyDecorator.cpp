@@ -1,11 +1,10 @@
 #include "SpawnStrategyDecorator.h"
 
 
-
-SpawnStrategyDecorator::SpawnStrategyDecorator()
+SpawnStrategyDecorator::SpawnStrategyDecorator(AbstractSpawnStrategy * in_spawnStrategy)
 {
+	spawnStratgy = in_spawnStrategy;
 }
-
 
 SpawnStrategyDecorator::~SpawnStrategyDecorator()
 {

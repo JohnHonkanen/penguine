@@ -213,6 +213,9 @@
     <ClCompile Include="LocationSpawnStrategy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EntitySpawnStrategy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -312,6 +315,9 @@
       <Filter>Header Files\Behaviours\Spawn</Filter>
     </ClInclude>
     <ClInclude Include="LocationSpawnStrategy.h">
+      <Filter>Header Files\Behaviours\Spawn\Strategies\Location</Filter>
+    </ClInclude>
+    <ClInclude Include="EntitySpawnStrategy.h">
       <Filter>Header Files\Behaviours\Spawn\Strategies\Location</Filter>
     </ClInclude>
   </ItemGroup>

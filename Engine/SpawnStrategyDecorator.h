@@ -6,8 +6,8 @@ class SpawnStrategyDecorator :
 private:
 	AbstractSpawnStrategy *spawnStratgy;
 public:
-	SpawnStrategyDecorator();
+	SpawnStrategyDecorator(AbstractSpawnStrategy *spawnStrategy);
 	virtual ~SpawnStrategyDecorator();
-	void configureParticle(Entity &entity);
+	virtual void configureParticle(Entity &entity);
 };
 

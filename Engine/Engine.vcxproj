@@ -162,6 +162,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EntitySpawnStrategy.cpp" />
     <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="BaseParticle.cpp" />
     <ClCompile Include="BasicMesh.cpp" />
@@ -197,6 +198,7 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EntitySpawnStrategy.h" />
     <ClInclude Include="Spawner.h" />
     <ClInclude Include="AbstractSpawnStrategy.h" />
     <ClInclude Include="BaseParticle.h" />

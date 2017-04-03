@@ -16,6 +16,7 @@
 #include "Spawner.h"
 #include "Shoot.h"
 #include "LocationSpawnStrategy.h"
+#include "EntitySpawnStrategy.h"
 
 using namespace std;
 using namespace glm;
@@ -47,10 +48,12 @@ int main(int argc, char *argv[])
 
 	Sprite sprite = Sprite("particle", &textureManager);
 	StaticEntity emitter = StaticEntity();
-	emitter.transform.translate(0, -15, -50);
+	emitter.transform.translate(10, -0, -0);
 
+	AbstractSpawnStrategy *locStrat = new LocationSpawnStrategy(vec3(0, -0, -50));
+	EntitySpawnStrategy spawnStrat(locStrat, &emitter);
 	Spawner spawn(1000, 0);
-	spawn.setSpawnStrategy(new LocationSpawnStrategy(vec3(0, -15, -40)));
+	spawn.setSpawnStrategy(&spawnStrat);
 	spawn.setSpawnEntity(new DynamicEntity(&sprite));
 	spawn.setEmitterEntity(&emitter);
 	spawn.setMovementStrategy(new Shoot(vec3(0, 500, 0)));
