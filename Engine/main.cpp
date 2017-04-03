@@ -46,11 +46,16 @@ int main(int argc, char *argv[])
 	material.texture = "lava";
 
 	Sprite sprite = Sprite("particle", &textureManager);
-	Spawner spawn;
-	spawn.setSpawnStrategy(new LocationSpawnStrategy());
 	StaticEntity emitter = StaticEntity();
 	emitter.transform.translate(0, 0, -50);
-	BasicParticle particle(nullptr, &emitter, &sprite, &spawn, new Shoot(vec3(0,250,0)), 1000, 1500);
+
+	Spawner spawn(1000, 0);
+	spawn.setSpawnStrategy(new LocationSpawnStrategy());
+	spawn.setSpawnEntity(new DynamicEntity(&sprite));
+	spawn.setEmitterEntity(&emitter);
+	
+	
+	BasicParticle particle(nullptr, &emitter, &sprite, &spawn, new Shoot(vec3(0,250,0)));
 	particle.init();
 
 	GLRenderer glRenderer(&shaderProgram);

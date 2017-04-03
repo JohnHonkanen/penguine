@@ -28,6 +28,14 @@ void Entity::setMovement(Movement * movement)
 	Entity::movement = movement;
 }
 
+void Entity::setLifeTime(float lifeTime)
+{
+	if (lifeTime != 0) {
+		lifeClock.setDelay(lifeTime);
+	}
+	lifeClock.startClock();
+}
+
 Shapes * Entity::getShape()
 {
 	return shape;

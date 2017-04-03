@@ -1,14 +1,11 @@
 #include "BasicParticle.h"
 
 
-BasicParticle::BasicParticle(Particle * p, Entity * emitter, Shapes *shape, Spawner *spawn, Movement *movement, int minLifeTime, int maxLifeTime):ParticleDecorator(p, emitter)
+BasicParticle::BasicParticle(Particle * p, Entity * emitter, Shapes *shape, Spawner *spawn, Movement *movement):ParticleDecorator(p, emitter)
 {
 	BasicParticle::particleShape = shape;
 	BasicParticle::spawn = spawn;
 	BasicParticle::particleMovement = movement;
-	Particle::emitter = emitter;
-	BasicParticle::minLife = minLifeTime;
-	BasicParticle::maxLife = maxLifeTime;
 }
 
 BasicParticle::~BasicParticle()
@@ -18,31 +15,18 @@ BasicParticle::~BasicParticle()
 
 void BasicParticle::init()
 {
-	int particleLifeTime;
-	if (BasicParticle::maxLife != 0) {
-		particleLifeTime = rand() % BasicParticle::maxLife + BasicParticle::minLife;
-	}
-	else {
-		particleLifeTime = 0;
-	}
-	particle = new DynamicEntity(particleShape->instantiate(), particleLifeTime);
+
+	particle = spawn->createEntity();
 	particle->setMovement(particleMovement);
-	particle->transform.translate(spawn->spawnLocation(emitter->transform.getPosition()));
 	particle->init();
 	ParticleDecorator::init();
 }
 
 void BasicParticle::update(float ts)
 {
-	if (BasicParticle::maxLife == 0) {
+	if (!BasicParticle::particle->expire()) {
 		particle->update(ts);
 		ParticleDecorator::update(ts);
-	}
-	else {
-		if (!BasicParticle::particle->expire()) {
-			particle->update(ts);
-			ParticleDecorator::update(ts);
-		}
 	}
 }
 

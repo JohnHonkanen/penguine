@@ -6,7 +6,7 @@ DynamicEntity::DynamicEntity()
 {
 }
 
-DynamicEntity::DynamicEntity(Shapes *shape, float lifeTime):Entity(shape, lifeTime)
+DynamicEntity::DynamicEntity(Shapes *shape):Entity(shape)
 {
 }
 
@@ -40,7 +40,7 @@ void DynamicEntity::update(float ts)
 
 Entity * DynamicEntity::instantiate()
 {
-	DynamicEntity *entity = new DynamicEntity(shape->instantiate(), 0);
+	DynamicEntity *entity = new DynamicEntity(shape->instantiate());
 	entity->setMovement(movement);
 	return entity;
 }

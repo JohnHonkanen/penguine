@@ -21,6 +21,7 @@ public:
 	virtual void update(float ts);
 	virtual Entity* instantiate() = 0;
 	void setMovement(Movement *movement);
+	void setLifeTime(float lifeTime);
 	Shapes *getShape();
 	bool expire();
 	Clock lifeClock;
