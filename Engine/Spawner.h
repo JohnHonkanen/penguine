@@ -13,7 +13,6 @@ protected:
 public:
 	Spawner(int minLifeTime = 0, int maxLifeTime = 0);
 	virtual ~Spawner();
-	virtual vec3 spawnLocation(vec3 initialLoc);
 	virtual Entity *createEntity();
 	void setSpawnStrategy(AbstractSpawnStrategy *strategy);
 	void setSpawnEntity(Entity *spawnEntity);

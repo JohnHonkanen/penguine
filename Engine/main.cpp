@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 	emitter.transform.translate(0, -15, -50);
 
 	Spawner spawn(1000, 0);
-	spawn.setSpawnStrategy(new LocationSpawnStrategy());
+	spawn.setSpawnStrategy(new LocationSpawnStrategy(vec3(0, -15, -40)));
 	spawn.setSpawnEntity(new DynamicEntity(&sprite));
 	spawn.setEmitterEntity(&emitter);
 	spawn.setMovementStrategy(new Shoot(vec3(0, 500, 0)));

@@ -4,9 +4,11 @@
 class LocationSpawnStrategy :
 	public AbstractSpawnStrategy
 {
+private:
+	vec3 location;
 public:
-	LocationSpawnStrategy();
+	LocationSpawnStrategy(vec3 location = vec3(0));
 	virtual ~LocationSpawnStrategy();
-	vec3 spawnLocation(vec3 location);
+	void configureParticle(Entity &entity);
 };
 

@@ -8,6 +8,6 @@ private:
 public:
 	SpawnStrategyDecorator();
 	virtual ~SpawnStrategyDecorator();
-	virtual vec3 spawnLocation(vec3 location);
+	void configureParticle(Entity &entity);
 };
 

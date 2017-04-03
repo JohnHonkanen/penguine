@@ -13,14 +13,10 @@ Spawner::~Spawner()
 {
 }
 
-vec3 Spawner::spawnLocation(vec3 initialLoc)
-{
-	return strategy->spawnLocation(initialLoc);
-}
-
 Entity * Spawner::createEntity()
 {
 	Entity* entity = spawnEntity->instantiate();
+	strategy->configureParticle(*entity);
 	int particleLifeTime;
 	if (maxLifeTime != 0) {
 		particleLifeTime = rand() % maxLifeTime + minLifeTime;
@@ -29,7 +25,6 @@ Entity * Spawner::createEntity()
 		particleLifeTime = minLifeTime;
 	}
 	entity->setLifeTime(particleLifeTime);
-	entity->transform.translate(spawnLocation(emitter->transform.getPosition()));
 	entity->setMovement(movement);
 	entity->init();
 	return entity;

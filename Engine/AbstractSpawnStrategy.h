@@ -1,9 +1,10 @@
 #pragma once
 #include <glm\glm.hpp>
+#include "Entity.h"
 
 using namespace glm;
 class AbstractSpawnStrategy
 {
 public:
-	virtual vec3 spawnLocation(vec3 location) = 0;
+	virtual void configureParticle(Entity &entity) = 0;
 };

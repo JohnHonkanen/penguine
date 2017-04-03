@@ -1,14 +1,15 @@
 #include "LocationSpawnStrategy.h"
 
-LocationSpawnStrategy::LocationSpawnStrategy()
+LocationSpawnStrategy::LocationSpawnStrategy(vec3 in_location)
 {
+	location = in_location;
 }
 
 LocationSpawnStrategy::~LocationSpawnStrategy()
 {
 }
 
-vec3 LocationSpawnStrategy::spawnLocation(vec3 location)
+void LocationSpawnStrategy::configureParticle(Entity &entity)
 {
-	return location;
+	entity.transform.translate(location);
 }

@@ -11,7 +11,7 @@ SpawnStrategyDecorator::~SpawnStrategyDecorator()
 {
 }
 
-vec3 SpawnStrategyDecorator::spawnLocation(vec3 location)
+void SpawnStrategyDecorator::configureParticle(Entity & entity)
 {
-	return spawnStratgy->spawnLocation(location);
+	spawnStratgy->configureParticle(entity);
 }
