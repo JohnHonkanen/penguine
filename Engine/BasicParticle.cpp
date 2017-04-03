@@ -1,11 +1,10 @@
 #include "BasicParticle.h"
 
 
-BasicParticle::BasicParticle(Particle * p, Entity * emitter, Shapes *shape, Spawner *spawn, Movement *movement):ParticleDecorator(p, emitter)
+BasicParticle::BasicParticle(Particle * p, Entity * emitter, Shapes *shape, Spawner *spawn):ParticleDecorator(p, emitter)
 {
 	BasicParticle::particleShape = shape;
 	BasicParticle::spawn = spawn;
-	BasicParticle::particleMovement = movement;
 }
 
 BasicParticle::~BasicParticle()
@@ -17,8 +16,6 @@ void BasicParticle::init()
 {
 
 	particle = spawn->createEntity();
-	particle->setMovement(particleMovement);
-	particle->init();
 	ParticleDecorator::init();
 }
 

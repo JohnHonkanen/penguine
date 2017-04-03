@@ -14,7 +14,7 @@ private:
 	int minLife;
 	int maxLife;
 public:
-	BasicParticle(Particle *p, Entity *emitter, Shapes *shape, Spawner *spawn, Movement *movement);
+	BasicParticle(Particle *p, Entity *emitter, Shapes *shape, Spawner *spawn);
 	~BasicParticle();
 	void init();
 	void update(float ts);

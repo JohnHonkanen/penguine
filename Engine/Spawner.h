@@ -5,6 +5,7 @@ class Spawner
 {
 protected:
 	AbstractSpawnStrategy *strategy;
+	Movement *movement;
 	Entity *spawnEntity;
 	Entity *emitter;
 	int minLifeTime;
@@ -17,5 +18,6 @@ public:
 	void setSpawnStrategy(AbstractSpawnStrategy *strategy);
 	void setSpawnEntity(Entity *spawnEntity);
 	void setEmitterEntity(Entity *emitter);
+	void setMovementStrategy(Movement *movement);
 };
 

@@ -30,6 +30,8 @@ Entity * Spawner::createEntity()
 	}
 	entity->setLifeTime(particleLifeTime);
 	entity->transform.translate(spawnLocation(emitter->transform.getPosition()));
+	entity->setMovement(movement);
+	entity->init();
 	return entity;
 }
 
@@ -46,4 +48,9 @@ void Spawner::setSpawnEntity(Entity * spawnEntity)
 void Spawner::setEmitterEntity(Entity * in_emitter)
 {
 	emitter = in_emitter;
+}
+
+void Spawner::setMovementStrategy(Movement * in_movement)
+{
+	movement = in_movement;
 }

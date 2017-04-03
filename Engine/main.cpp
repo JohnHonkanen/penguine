@@ -47,15 +47,16 @@ int main(int argc, char *argv[])
 
 	Sprite sprite = Sprite("particle", &textureManager);
 	StaticEntity emitter = StaticEntity();
-	emitter.transform.translate(0, 0, -50);
+	emitter.transform.translate(0, -15, -50);
 
 	Spawner spawn(1000, 0);
 	spawn.setSpawnStrategy(new LocationSpawnStrategy());
 	spawn.setSpawnEntity(new DynamicEntity(&sprite));
 	spawn.setEmitterEntity(&emitter);
+	spawn.setMovementStrategy(new Shoot(vec3(0, 500, 0)));
 	
 	
-	BasicParticle particle(nullptr, &emitter, &sprite, &spawn, new Shoot(vec3(0,250,0)));
+	BasicParticle particle(nullptr, &emitter, &sprite, &spawn);
 	particle.init();
 
 	GLRenderer glRenderer(&shaderProgram);
