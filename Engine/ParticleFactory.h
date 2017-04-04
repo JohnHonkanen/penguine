@@ -1,10 +1,9 @@
 #pragma once
 
+#include "Particle.h"
 #include "Sprite.h"
 #include "TextureManager.h"
-#include "SingleParticle.h"
 #include "Shoot.h"
-#include "SingleSpawn.h"
 #include "StaticEntity.h"
 
 class ParticleFactory

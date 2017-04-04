@@ -99,10 +99,10 @@ int main(int argc, char *argv[])
 	double previousTime = 0.0f;
 	double currentTime = 0.0f;
 
-	Particle *particle = nullptr;
+	/*Particle *particle = nullptr;
 	InputHandler inputHandler("");
 	Command command(factory, &ParticleFactory::createSingle);
-	inputHandler.setCommand(command);
+	inputHandler.setCommand(command);*/
 
 	bool running = true;
 	while(running) {

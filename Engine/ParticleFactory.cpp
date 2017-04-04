@@ -21,10 +21,10 @@ Particle * ParticleFactory::createSingle()
 
 	Sprite *sprite = new Sprite("particle", textureManager);
 
-	SingleParticle *particle = new SingleParticle(nullptr, new StaticEntity(), sprite, new SingleSpawn(), new Shoot(vec3(0, 0, 0)));
-	particle->init();
+	/*SingleParticle *particle = new SingleParticle(nullptr, new StaticEntity(), sprite, new SingleSpawn(), new Shoot(vec3(0, 0, 0)));
+	particle->init();*/
 
-	return particle;
+	return nullptr;
 }
 
 void ParticleFactory::setTextureManager(TextureManager * textureManager)
