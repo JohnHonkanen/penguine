@@ -11,7 +11,7 @@ protected:
 	int minLifeTime;
 	int maxLifeTime;
 public:
-	Spawner(int minLifeTime = 0, int maxLifeTime = 0);
+	Spawner();
 	virtual ~Spawner();
 	virtual Entity *createEntity();
 	void setSpawnStrategy(AbstractSpawnStrategy *strategy);

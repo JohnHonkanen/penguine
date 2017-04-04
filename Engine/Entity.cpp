@@ -4,6 +4,7 @@ Entity::Entity()
 {
 	alive = false;
 	delayStarted = false;
+	doesNotExpire = true;
 	delayClock.setDelay(100);
 }
 
@@ -13,6 +14,7 @@ Entity::Entity(Shapes *shape, float lifeTime)
 	alive = false;
 	delayStarted = false;
 	delayClock.setDelay(1);
+	doesNotExpire = true;
 }
 
 Entity::~Entity()
@@ -50,6 +52,7 @@ void Entity::setLifeTime(float lifeTime)
 	if (lifeTime != 0) {
 		lifeClock.setDelay(lifeTime);
 	}
+	doesNotExpire = false;
 }
 
 void Entity::setDelayTime(float delayTime)
@@ -66,6 +69,9 @@ Shapes * Entity::getShape()
 
 bool Entity::expire()
 {
+	if (doesNotExpire)
+		return false;
+	else
 	return lifeClock.alarm();
 }
 

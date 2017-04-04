@@ -18,6 +18,8 @@
 #include "LocationSpawnStrategy.h"
 #include "EntitySpawnStrategy.h"
 #include "DelayedSpawn.h"
+#include "LifeTimeSpawn.h"
+#include "ParticleManager.h"
 
 using namespace std;
 using namespace glm;
@@ -53,16 +55,21 @@ int main(int argc, char *argv[])
 
 	AbstractSpawnStrategy *locStrat = new LocationSpawnStrategy(vec3(0, -0, -50));
 	EntitySpawnStrategy spawnStrat(locStrat, &emitter);
-	DelayedSpawn delay(&spawnStrat, 1000);
-	Spawner spawn(1000000, 0);
-	spawn.setSpawnStrategy(&delay);
+	DelayedSpawn delay(&spawnStrat, 2000);
+	LifeTimeSpawn life(&delay, 100);
+
+	Spawner spawn;
+	spawn.setSpawnStrategy(&life);
 	spawn.setSpawnEntity(new DynamicEntity(&sprite));
 	spawn.setEmitterEntity(&emitter);
 	spawn.setMovementStrategy(new Shoot(vec3(0, 100, 0)));
 	
+	ParticleManager *pManager = ParticleManager::getManager();
 	
 	BasicParticle particle(nullptr, &emitter, &sprite, &spawn);
 	particle.init();
+
+	pManager->addParticle(&particle);
 
 	GLRenderer glRenderer(&shaderProgram);
 	glRenderer.setCamera(&Camera2D);
@@ -90,11 +97,11 @@ int main(int argc, char *argv[])
 		//End of DeltaTime
 		if (frameClock.alarm()) {
 			// Update Function
-			particle.update(dt);
+			pManager->update(dt);
 			// End of Update
 			graphicsHandler.start();  // Sets up Rendering Loop
 			// Render Function
-			particle.render(&glRenderer);
+			pManager->render(&glRenderer);
 			// End of Render
 			graphicsHandler.end(); //Swap Buffers
 			frameClock.resetClock(); // Once frame is done reset to 0

@@ -109,6 +109,9 @@
     <Filter Include="Header Files\Behaviours\Spawn\Strategies">
       <UniqueIdentifier>{d20da638-fb64-48c2-8924-778f6e5420db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Particle\Manager">
+      <UniqueIdentifier>{5a020fb9-afa9-4243-aaed-e9258e67b7ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -214,6 +217,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DelayedSpawn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LifeTimeSpawn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Firework.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -322,6 +334,15 @@
     </ClInclude>
     <ClInclude Include="DelayedSpawn.h">
       <Filter>Header Files\Behaviours\Spawn\Strategies</Filter>
+    </ClInclude>
+    <ClInclude Include="LifeTimeSpawn.h">
+      <Filter>Header Files\Behaviours\Spawn\Strategies</Filter>
+    </ClInclude>
+    <ClInclude Include="Firework.h">
+      <Filter>Header Files\Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleManager.h">
+      <Filter>Header Files\Particle\Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

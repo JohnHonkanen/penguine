@@ -164,6 +164,9 @@
   <ItemGroup>
     <ClCompile Include="DelayedSpawn.cpp" />
     <ClCompile Include="EntitySpawnStrategy.cpp" />
+    <ClCompile Include="Firework.cpp" />
+    <ClCompile Include="LifeTimeSpawn.cpp" />
+    <ClCompile Include="ParticleManager.cpp" />
     <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="BaseParticle.cpp" />
     <ClCompile Include="BasicMesh.cpp" />
@@ -201,6 +204,9 @@
   <ItemGroup>
     <ClInclude Include="DelayedSpawn.h" />
     <ClInclude Include="EntitySpawnStrategy.h" />
+    <ClInclude Include="Firework.h" />
+    <ClInclude Include="LifeTimeSpawn.h" />
+    <ClInclude Include="ParticleManager.h" />
     <ClInclude Include="Spawner.h" />
     <ClInclude Include="AbstractSpawnStrategy.h" />
     <ClInclude Include="BaseParticle.h" />

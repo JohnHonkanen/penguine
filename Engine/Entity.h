@@ -10,6 +10,7 @@ class Entity
 protected:
 	bool delayStarted;
 	bool alive;
+	bool doesNotExpire;
 	Shapes *shape; 
 	Clock delayClock;
 	Clock lifeClock;
