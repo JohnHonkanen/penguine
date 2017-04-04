@@ -109,7 +109,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\dev\SDL2-2.0.5\include;C:\dev\glew-2.0.0\include;C:\dev\glm-0.9.8.3\glm;C:\dev\glfw-3.2.1.bin.WIN64\include\GLFW;C:\dev\DevIL Windows SDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\dev\SDL2-2.0.5\include;C:\dev\glew-2.0.0\include;C:\dev\glm-0.9.8.3\glm;C:\dev\DevIL Windows SDK\include;C:\dev\glfw-3.2.1.bin.WIN64\include\GLFW;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -150,7 +150,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\dev\SDL2-2.0.5\include;C:\dev\glew-2.0.0\include;C:\dev\glm-0.9.8.3\glm;C:\dev\glfw-3.2.1.bin.WIN64\include\GLFW;C:\dev\DevIL Windows SDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\dev\SDL2-2.0.5\include;C:\dev\glew-2.0.0\include;C:\dev\glm-0.9.8.3\glm;C:\dev\DevIL Windows SDK\include;C:\dev\glfw-3.2.1.bin.WIN64\include\GLFW;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -165,11 +165,13 @@
     <ClCompile Include="BaseParticle.cpp" />
     <ClCompile Include="BasicMesh.cpp" />
     <ClCompile Include="BoxRenderer.cpp" />
+    <ClCompile Include="Command.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Clock.cpp" />
     <ClCompile Include="glfwWindow.cpp" />
     <ClCompile Include="GLMesh.cpp" />
     <ClCompile Include="GLRenderer.cpp" />
+    <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MeshGenerator.cpp" />
     <ClCompile Include="Movement.cpp" />
@@ -199,11 +201,13 @@
     <ClInclude Include="BaseParticle.h" />
     <ClInclude Include="BasicMesh.h" />
     <ClInclude Include="BoxRenderer.h" />
+    <ClInclude Include="Command.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Clock.h" />
     <ClInclude Include="glfwWindow.h" />
     <ClInclude Include="GLMesh.h" />
     <ClInclude Include="GLRenderer.h" />
+    <ClInclude Include="InputHandler.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Shapes.h" />
     <ClInclude Include="MeshGenerator.h" />

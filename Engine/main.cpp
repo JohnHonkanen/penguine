@@ -15,6 +15,7 @@
 #include "StaticEntity.h"
 #include "SingleSpawn.h"
 #include "Shoot.h"
+#include "InputHandler.h"
 
 using namespace std;
 using namespace glm;
@@ -63,8 +64,20 @@ int main(int argc, char *argv[])
 	
 	double previousTime = 0.0f;
 	double currentTime = 0.0f;
+
+	Command command;
+	InputHandler inputHandler("name", command);
+
 	bool flag = true;
 	while(flag) {
+
+		SDL_Event sldEvent;
+		while (SDL_PollEvent(&sldEvent)) {
+			if (sldEvent.type == SDL_QUIT) {
+				flag = false;
+			}
+		}
+		inputHandler.update();
 
 		frameClock.updateClock(); // Ticks our Frame Clock
 		appClock.updateClock(); //Ticks App Clock

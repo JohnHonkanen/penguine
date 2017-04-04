@@ -118,6 +118,9 @@
     <Filter Include="Resource Files\Shaders\HSV">
       <UniqueIdentifier>{cff86997-c893-4f55-b49d-bef7b6f3e5eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Inputs">
+      <UniqueIdentifier>{d47757bc-db93-4f79-8d50-a8675bd71f32}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -216,6 +219,12 @@
     <ClCompile Include="SingleParticle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Command.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InputHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -310,6 +319,12 @@
     </ClInclude>
     <ClInclude Include="SingleParticle.h">
       <Filter>Header Files\Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Header Files\Inputs</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHandler.h">
+      <Filter>Header Files\Inputs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
