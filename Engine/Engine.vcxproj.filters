@@ -225,6 +225,9 @@
     <ClCompile Include="InputHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SDLWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -325,6 +328,9 @@
     </ClInclude>
     <ClInclude Include="InputHandler.h">
       <Filter>Header Files\Inputs</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLWindow.h">
+      <Filter>Header Files\Windows\SDL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

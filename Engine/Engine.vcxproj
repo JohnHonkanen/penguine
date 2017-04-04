@@ -184,6 +184,7 @@
     <ClCompile Include="GraphicsHandler.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="SDLWindow.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Shapes.cpp" />
     <ClCompile Include="Shoot.cpp" />
@@ -209,6 +210,7 @@
     <ClInclude Include="GLRenderer.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="SDLWindow.h" />
     <ClInclude Include="Shapes.h" />
     <ClInclude Include="MeshGenerator.h" />
     <ClInclude Include="Movement.h" />
