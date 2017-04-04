@@ -3,17 +3,19 @@
 #include <iostream>
 #include <string>
 
+#include "ParticleFactory.h"
+
 using namespace std;
 
-class Keyboard;
+class ParticleFactory;
 class Command
 {
 private:
-	Keyboard *object;
-	void(Keyboard:: *method)();
+	ParticleFactory *object;
+	Particle*(ParticleFactory:: *method)();
 public:
-	Command(Keyboard *obj = 0, void(Keyboard:: *meth)() = 0);
+	Command(ParticleFactory *obj = 0, Particle*(ParticleFactory:: *meth)() = 0);
 
-	void execute();
+	Particle *execute();
 };
 

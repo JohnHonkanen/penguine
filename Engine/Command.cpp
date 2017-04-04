@@ -1,12 +1,12 @@
 #include "Command.h"
 
-Command::Command(Keyboard * obj, void(Keyboard::* meth)())
+Command::Command(ParticleFactory * obj, Particle*(ParticleFactory::* meth)())
 {
 	object = obj; //arguments name is "meth"
 	method = meth;
 }
 
-void Command::execute()
+Particle *Command::execute()
 {
-	(object->*method)(); // invoke the method on the object
+	return (object->*method)(); // invoke the method on the object
 }

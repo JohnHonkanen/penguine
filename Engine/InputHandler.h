@@ -10,13 +10,16 @@ private:
 
 	// cmd is a "black box", it is a method invocation promoted to "full object status"
 	Command cmd;
-
 	const Uint8 *keys;
 public:
-	InputHandler(string name, Command c);
+	InputHandler(string name);
+	void setCommand(Command c);
 	virtual ~InputHandler();
 
-	void update();
+	void update(bool &running, Particle *particle);
+
+	void spawnParticles();
+
 
 
 };

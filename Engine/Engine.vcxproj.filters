@@ -228,6 +228,9 @@
     <ClCompile Include="SDLWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ParticleFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -331,6 +334,9 @@
     </ClInclude>
     <ClInclude Include="SDLWindow.h">
       <Filter>Header Files\Windows\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleFactory.h">
+      <Filter>Header Files\Particle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
