@@ -109,9 +109,6 @@
     <Filter Include="Header Files\Behaviours\Spawn\Strategies">
       <UniqueIdentifier>{d20da638-fb64-48c2-8924-778f6e5420db}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Behaviours\Spawn\Strategies\Location">
-      <UniqueIdentifier>{064514c2-0391-412b-9ae4-b8d187fc0d67}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -216,6 +213,9 @@
     <ClCompile Include="EntitySpawnStrategy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DelayedSpawn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -305,20 +305,23 @@
     <ClInclude Include="BasicParticle.h">
       <Filter>Header Files\Particle</Filter>
     </ClInclude>
-    <ClInclude Include="AbstractSpawnStrategy.h">
-      <Filter>Header Files\Behaviours\Spawn\Strategies\Location</Filter>
-    </ClInclude>
-    <ClInclude Include="SpawnStrategyDecorator.h">
-      <Filter>Header Files\Behaviours\Spawn\Strategies\Location</Filter>
-    </ClInclude>
     <ClInclude Include="Spawner.h">
       <Filter>Header Files\Behaviours\Spawn</Filter>
     </ClInclude>
-    <ClInclude Include="LocationSpawnStrategy.h">
-      <Filter>Header Files\Behaviours\Spawn\Strategies\Location</Filter>
+    <ClInclude Include="AbstractSpawnStrategy.h">
+      <Filter>Header Files\Behaviours\Spawn\Strategies</Filter>
     </ClInclude>
     <ClInclude Include="EntitySpawnStrategy.h">
-      <Filter>Header Files\Behaviours\Spawn\Strategies\Location</Filter>
+      <Filter>Header Files\Behaviours\Spawn\Strategies</Filter>
+    </ClInclude>
+    <ClInclude Include="LocationSpawnStrategy.h">
+      <Filter>Header Files\Behaviours\Spawn\Strategies</Filter>
+    </ClInclude>
+    <ClInclude Include="SpawnStrategyDecorator.h">
+      <Filter>Header Files\Behaviours\Spawn\Strategies</Filter>
+    </ClInclude>
+    <ClInclude Include="DelayedSpawn.h">
+      <Filter>Header Files\Behaviours\Spawn\Strategies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

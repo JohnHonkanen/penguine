@@ -9,7 +9,7 @@ private:
 public:
 	Shoot(vec3 force);
 	virtual ~Shoot();
-	mat4 init();
-	mat4 update(float ts);
+	vec3 init();
+	vec3 update(float ts);
 };
 

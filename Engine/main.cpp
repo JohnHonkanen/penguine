@@ -17,6 +17,7 @@
 #include "Shoot.h"
 #include "LocationSpawnStrategy.h"
 #include "EntitySpawnStrategy.h"
+#include "DelayedSpawn.h"
 
 using namespace std;
 using namespace glm;
@@ -48,15 +49,16 @@ int main(int argc, char *argv[])
 
 	Sprite sprite = Sprite("particle", &textureManager);
 	StaticEntity emitter = StaticEntity();
-	emitter.transform.translate(10, -0, -0);
+	emitter.transform.translate(0, -0, -0);
 
 	AbstractSpawnStrategy *locStrat = new LocationSpawnStrategy(vec3(0, -0, -50));
 	EntitySpawnStrategy spawnStrat(locStrat, &emitter);
-	Spawner spawn(1000, 0);
-	spawn.setSpawnStrategy(&spawnStrat);
+	DelayedSpawn delay(&spawnStrat, 1000);
+	Spawner spawn(1000000, 0);
+	spawn.setSpawnStrategy(&delay);
 	spawn.setSpawnEntity(new DynamicEntity(&sprite));
 	spawn.setEmitterEntity(&emitter);
-	spawn.setMovementStrategy(new Shoot(vec3(0, 500, 0)));
+	spawn.setMovementStrategy(new Shoot(vec3(0, 100, 0)));
 	
 	
 	BasicParticle particle(nullptr, &emitter, &sprite, &spawn);
@@ -81,9 +83,10 @@ int main(int argc, char *argv[])
 		frameClock.updateClock(); // Ticks our Frame Clock
 		appClock.updateClock(); //Ticks App Clock
 		// Calculates Delta Time
-		currentTime = appClock.getMilliseconds();
-		double dt = (currentTime - previousTime)*0.0001f; //Convert DT to seconds
 		
+		currentTime = appClock.getMilliseconds();
+		float dt = (currentTime - previousTime) *0.001f; //Convert DT to seconds
+				
 		//End of DeltaTime
 		if (frameClock.alarm()) {
 			// Update Function

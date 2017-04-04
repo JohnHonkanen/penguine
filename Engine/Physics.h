@@ -10,15 +10,15 @@ public:
 	Physics();
 	virtual ~Physics();
 	void update(float ts);
-	void addForce(mat4 f);
+	void addForce(vec3 f);
 	void resetForce();
 	void setGravity(bool);
 
-	vec4 getAcceleration();
+	vec3 getAcceleration();
 private:
 	bool grav = true;
-	mat4 force = mat4(1.0f);
-	vec4 acceleration = vec4(0.0f);
+	vec3 force = vec4(0.0f);
+	vec3 acceleration = vec4(0.0f);
 	float mass = 1;
 };
 

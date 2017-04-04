@@ -8,8 +8,11 @@
 class Entity
 {
 protected:
+	bool delayStarted;
+	bool alive;
 	Shapes *shape; 
-	
+	Clock delayClock;
+	Clock lifeClock;
 	Movement *movement;
 	float alpha;
 public:
@@ -22,9 +25,10 @@ public:
 	virtual Entity* instantiate() = 0;
 	void setMovement(Movement *movement);
 	void setLifeTime(float lifeTime);
+	void setDelayTime(float delayTime);
 	Shapes *getShape();
 	bool expire();
-	Clock lifeClock;
+	bool start();
 	Transform transform;
 };
 

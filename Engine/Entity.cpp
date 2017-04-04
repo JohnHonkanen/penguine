@@ -2,15 +2,17 @@
 
 Entity::Entity()
 {
+	alive = false;
+	delayStarted = false;
+	delayClock.setDelay(100);
 }
 
 Entity::Entity(Shapes *shape, float lifeTime)
 {
 	Entity::shape = shape;
-	if (lifeTime != 0) {
-		lifeClock.setDelay(lifeTime);
-	}
-	lifeClock.startClock();
+	alive = false;
+	delayStarted = false;
+	delayClock.setDelay(1);
 }
 
 Entity::~Entity()
@@ -19,7 +21,22 @@ Entity::~Entity()
 
 void Entity::update(float ts)
 {
-	Entity::lifeClock.updateClock();
+	if (!delayStarted)
+	{
+		delayClock.startClock();
+		delayStarted = true;
+	}
+
+	if (Entity::delayClock.alarm() && !alive) {
+		alive = true;
+		lifeClock.startClock();
+	}
+
+	if(alive)
+		Entity::lifeClock.updateClock();
+	else {
+		Entity::delayClock.updateClock();
+	}
 	Entity::shape->getMesh()->updateModelMatrix(Entity::transform.calculateModelMatrix());
 }
 
@@ -33,7 +50,13 @@ void Entity::setLifeTime(float lifeTime)
 	if (lifeTime != 0) {
 		lifeClock.setDelay(lifeTime);
 	}
-	lifeClock.startClock();
+}
+
+void Entity::setDelayTime(float delayTime)
+{
+	if (delayTime != 0) {
+		delayClock.setDelay(delayTime);
+	}
 }
 
 Shapes * Entity::getShape()
@@ -44,4 +67,9 @@ Shapes * Entity::getShape()
 bool Entity::expire()
 {
 	return lifeClock.alarm();
+}
+
+bool Entity::start()
+{
+	return alive;
 }

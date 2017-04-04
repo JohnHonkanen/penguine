@@ -25,12 +25,16 @@ void BasicParticle::update(float ts)
 		particle->update(ts);
 		ParticleDecorator::update(ts);
 	}
+
 }
 
 void BasicParticle::render(Renderer * renderer)
 {
-	renderer->renderObject(particle->getShape());
-	ParticleDecorator::render(renderer);
+	if (particle->start()) {
+		renderer->renderObject(particle->getShape());
+		ParticleDecorator::render(renderer);
+	}
+	
 }
 
 void BasicParticle::destroy()
