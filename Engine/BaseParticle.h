@@ -1,7 +1,7 @@
 #pragma once
 #include "Particle.h"
 #include "Entity.h"
-#include "Spawn.h"
+#include "Spawner.h"
 class BaseParticle :
 	public Particle
 {
@@ -13,6 +13,6 @@ public:
 	void update(float ts);
 	void destroy();
 	Entity *entity;
-	Spawn *spawn;
+	Spawner *spawn;
 };
 

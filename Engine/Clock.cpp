@@ -18,7 +18,7 @@ void Clock::startClock()
 
 void Clock::updateClock()
 {
-	Clock::millisecondPassed = (clock() - Clock::startTime); // 
+	Clock::millisecondPassed = (clock() - Clock::startTime);
 }
 
 double Clock::getMilliseconds()

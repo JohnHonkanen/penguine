@@ -5,6 +5,7 @@
 Physics::Physics()
 {
 	grav = true;
+	acceleration = vec4(0.0f);
 }
 
 
@@ -16,20 +17,20 @@ Physics::~Physics()
 */
 void Physics::update(float ts)
 {
-	mat4 gravityForce(1.0f);
-	gravityForce =  translate(gravityForce, vec3(0, -GRAVITY, 0));
+	vec3 gravityForce(0.0f);
+	gravityForce = vec3(0, -GRAVITY, 0);
 
 	if (grav)
 		addForce(gravityForce);
 
-	Physics::acceleration += Physics::force[3] * ts;
+	Physics::acceleration += Physics::force * ts;
 	resetForce();
 }
 /*
 	Add force
 	@param mat4 vector force
 */
-void Physics::addForce(mat4 f)
+void Physics::addForce(vec3 f)
 {
 	Physics::force += f;
 }
@@ -38,7 +39,7 @@ void Physics::addForce(mat4 f)
 */
 void Physics::resetForce()
 {
-	Physics::force = mat4(0.0f);
+	Physics::force = vec4(0.0f);
 }
 void Physics::setGravity(bool grav)
 {
@@ -47,7 +48,7 @@ void Physics::setGravity(bool grav)
 /*
 	Gets acceleration
 */
-vec4 Physics::getAcceleration()
+vec3 Physics::getAcceleration()
 {
 	return Physics::acceleration;
 }

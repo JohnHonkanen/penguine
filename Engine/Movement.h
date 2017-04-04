@@ -8,7 +8,7 @@ class Movement
 public:
 	Movement();
 	virtual ~Movement();
-	virtual mat4 init() = 0;
-	virtual mat4 update(float ts) = 0;
+	virtual vec3 init() = 0;
+	virtual vec3 update(float ts) = 0;
 };
 

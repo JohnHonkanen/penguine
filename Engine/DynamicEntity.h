@@ -12,12 +12,13 @@ class DynamicEntity :
 {
 public:
 	DynamicEntity();
-	DynamicEntity(Shapes *shape, float lifeTime);
+	DynamicEntity(Shapes *shape);
 	DynamicEntity(Movement* m);
 	virtual ~DynamicEntity();
 	void init();
 	void render(Renderer *renderer);
 	void update(float ts);
+	Entity* instantiate();
 	Physics physics;
 
 };

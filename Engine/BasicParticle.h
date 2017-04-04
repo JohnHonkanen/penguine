@@ -1,22 +1,23 @@
 #pragma once
 #include "ParticleDecorator.h"
-#include "Spawn.h"
+#include "Spawner.h"
 #include "DynamicEntity.h"
 #include "Shapes.h"
-class SingleParticle :
+class BasicParticle :
 	public ParticleDecorator
 {
 private:
 	Entity *particle;
 	Shapes *particleShape;
-	Spawn *spawn;
+	Spawner *spawn;
 	Movement *particleMovement;
+	int minLife;
+	int maxLife;
 public:
-	SingleParticle(Particle *p, Entity *emitter, Shapes *shape, Spawn *spawn, Movement *movement);
-	~SingleParticle();
+	BasicParticle(Particle *p, Entity *emitter, Shapes *shape, Spawner *spawn);
+	~BasicParticle();
 	void init();
 	void update(float ts);
 	void render(Renderer *renderer);
 	void destroy();
 };
-

@@ -11,13 +11,19 @@
 #include "BoxRenderer.h"
 #include "Sprite.h"
 #include "GLRenderer.h"
-#include "SingleParticle.h"
+#include "BasicParticle.h"
 #include "StaticEntity.h"
-#include "SingleSpawn.h"
+#include "Spawner.h"
 #include "Shoot.h"
 #include "InputHandler.h"
 #include "SDLWindow.h"
 #include "ParticleFactory.h"
+#include "LocationSpawnStrategy.h"
+#include "EntitySpawnStrategy.h"
+#include "DelayedSpawn.h"
+#include "LifeTimeSpawn.h"
+#include "ParticleManager.h"
+
 
 using namespace std;
 using namespace glm;
@@ -50,13 +56,36 @@ int main(int argc, char *argv[])
 	Material material;
 	material.texture = "lava";
 	
-	Sprite *sprite = new Sprite("particle", &textureManager);
 	ParticleFactory *factory = new ParticleFactory();
 	factory->setTextureManager(&textureManager);
 
 	//Particle *particle = ParticleFactory::makeParticle(1, &textureManager);
 
 	GLRenderer glRenderer(&HSVshaderProgram);
+
+
+	Sprite sprite = Sprite("particle", &textureManager);
+	StaticEntity emitter = StaticEntity();
+	emitter.transform.translate(0, -0, -0);
+
+	AbstractSpawnStrategy *locStrat = new LocationSpawnStrategy(vec3(0, -0, -50));
+	EntitySpawnStrategy spawnStrat(locStrat, &emitter);
+	DelayedSpawn delay(&spawnStrat, 2000);
+	LifeTimeSpawn life(&delay, 100);
+
+	Spawner spawn;
+	spawn.setSpawnStrategy(&life);
+	spawn.setSpawnEntity(new DynamicEntity(&sprite));
+	spawn.setEmitterEntity(&emitter);
+	spawn.setMovementStrategy(new Shoot(vec3(0, 100, 0)));
+	
+	ParticleManager *pManager = ParticleManager::getManager();
+	
+	BasicParticle particle(nullptr, &emitter, &sprite, &spawn);
+	particle.init();
+
+	pManager->addParticle(&particle);
+
 	glRenderer.setCamera(&Camera2D);
 
 
@@ -81,30 +110,30 @@ int main(int argc, char *argv[])
 		frameClock.updateClock(); // Ticks our Frame Clock
 		appClock.updateClock(); //Ticks App Clock
 		// Calculates Delta Time
-		currentTime = appClock.getMilliseconds();
-		double dt = (currentTime - previousTime)*0.0001f; //Convert DT to seconds
 		
+		currentTime = appClock.getMilliseconds();
+		float dt = (currentTime - previousTime) *0.001f; //Convert DT to seconds
+				
 		//End of DeltaTime
 		if (frameClock.alarm()) {
-			if (particle != nullptr) {
-				// Update Function
-				particle->update(dt);
-			}
-			
+
+	
 			// End of Update
 			graphicsHandler.start();  // Sets up Rendering Loop
 			// Render Function
 
-			if (particle != nullptr) {
-				//particle.render(&glRenderer);
-				glRenderer.renderObject(sprite);
-			}
+			// Update Function
+			pManager->update(dt);
+			// End of Update
+			graphicsHandler.start();  // Sets up Rendering Loop
+			// Render Function
+			pManager->render(&glRenderer);
+
 			// End of Render
 			graphicsHandler.end(); //Swap Buffers
 			frameClock.resetClock(); // Once frame is done reset to 0
 			previousTime = currentTime;
 
-			inputHandler.update(running, particle);
 		}
 	}
 	graphicsHandler.destroy();

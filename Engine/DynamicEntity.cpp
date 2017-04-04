@@ -6,7 +6,7 @@ DynamicEntity::DynamicEntity()
 {
 }
 
-DynamicEntity::DynamicEntity(Shapes *shape, float lifeTime):Entity(shape, lifeTime)
+DynamicEntity::DynamicEntity(Shapes *shape):Entity(shape)
 {
 }
 
@@ -23,7 +23,6 @@ DynamicEntity::~DynamicEntity()
 void DynamicEntity::init()
 {
 	DynamicEntity::physics.addForce(Entity::movement->init());
-	lifeClock.startClock();
 }
 
 void DynamicEntity::render(Renderer * renderer)
@@ -32,10 +31,18 @@ void DynamicEntity::render(Renderer * renderer)
 
 void DynamicEntity::update(float ts)
 {
-	lifeClock.updateClock();
-	DynamicEntity::physics.addForce(Entity::movement->update(ts));
-	DynamicEntity::physics.update(ts);
-	Entity::transform.translate(DynamicEntity::physics.getAcceleration()); // Updates our Entity
+	if (alive) {
+		DynamicEntity::physics.addForce(Entity::movement->update(ts));
+		DynamicEntity::physics.update(ts);
+		Entity::transform.translate(DynamicEntity::physics.getAcceleration()); // Updates our Entity
+	}
 	//Update Model Matrix in Mesh, delegated to Entity
 	Entity::update(ts);
+}
+
+Entity * DynamicEntity::instantiate()
+{
+	DynamicEntity *entity = new DynamicEntity(shape->instantiate());
+	entity->setMovement(movement);
+	return entity;
 }

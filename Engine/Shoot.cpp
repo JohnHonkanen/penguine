@@ -10,16 +10,13 @@ Shoot::~Shoot()
 }
 
 
-mat4 Shoot::init()
+vec3 Shoot::init()
 {
-	mat4 matrixTrans(1.0f);
-	matrixTrans = translate(matrixTrans, force);
-
-	return matrixTrans;
+	//Impulse
+	return force;
 }
 
-mat4 Shoot::update(float ts)
+vec3 Shoot::update(float ts)
 {
-	mat4 matrixTrans(1.0f);
-	return matrixTrans;
+	return vec3(0.0f);
 }

@@ -162,12 +162,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DelayedSpawn.cpp" />
+    <ClCompile Include="EntitySpawnStrategy.cpp" />
+    <ClCompile Include="Firework.cpp" />
+    <ClCompile Include="LifeTimeSpawn.cpp" />
+    <ClCompile Include="ParticleManager.cpp" />
+    <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="BaseParticle.cpp" />
     <ClCompile Include="BasicMesh.cpp" />
     <ClCompile Include="BoxRenderer.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Clock.cpp" />
+    <ClCompile Include="LocationSpawnStrategy.cpp" />
     <ClCompile Include="glfwWindow.cpp" />
     <ClCompile Include="GLMesh.cpp" />
     <ClCompile Include="GLRenderer.cpp" />
@@ -189,9 +196,8 @@
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Shapes.cpp" />
     <ClCompile Include="Shoot.cpp" />
-    <ClCompile Include="SingleParticle.cpp" />
-    <ClCompile Include="SingleSpawn.cpp" />
-    <ClCompile Include="Spawn.cpp" />
+    <ClCompile Include="BasicParticle.cpp" />
+    <ClCompile Include="SpawnStrategyDecorator.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="StaticEntity.cpp" />
     <ClCompile Include="TextureGenerator.cpp" />
@@ -200,12 +206,21 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DelayedSpawn.h" />
+    <ClInclude Include="EntitySpawnStrategy.h" />
+    <ClInclude Include="Firework.h" />
+    <ClInclude Include="LifeTimeSpawn.h" />
+    <ClInclude Include="ParticleManager.h" />
+    <ClInclude Include="Spawner.h" />
+    <ClInclude Include="AbstractSpawnStrategy.h" />
     <ClInclude Include="BaseParticle.h" />
     <ClInclude Include="BasicMesh.h" />
+    <ClInclude Include="BasicParticle.h" />
     <ClInclude Include="BoxRenderer.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Clock.h" />
+    <ClInclude Include="LocationSpawnStrategy.h" />
     <ClInclude Include="glfwWindow.h" />
     <ClInclude Include="GLMesh.h" />
     <ClInclude Include="GLRenderer.h" />
@@ -226,9 +241,7 @@
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Shoot.h" />
-    <ClInclude Include="SingleParticle.h" />
-    <ClInclude Include="SingleSpawn.h" />
-    <ClInclude Include="Spawn.h" />
+    <ClInclude Include="SpawnStrategyDecorator.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="StaticEntity.h" />
     <ClInclude Include="TextureGenerator.h" />

@@ -19,6 +19,11 @@ void StaticEntity::render(Renderer * renderer)
 {
 }
 
+Entity * StaticEntity::instantiate()
+{
+	return new StaticEntity();
+}
+
 void StaticEntity::update(float ts)
 {
 }
