@@ -121,6 +121,9 @@
     <Filter Include="Header Files\Inputs">
       <UniqueIdentifier>{d47757bc-db93-4f79-8d50-a8675bd71f32}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Collision">
+      <UniqueIdentifier>{f977917a-7e7a-4051-8955-fe3825174dee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
