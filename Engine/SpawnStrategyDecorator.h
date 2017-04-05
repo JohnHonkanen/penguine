@@ -3,7 +3,7 @@
 class SpawnStrategyDecorator :
 	public AbstractSpawnStrategy
 {
-private:
+protected:
 	AbstractSpawnStrategy *spawnStratgy;
 public:
 	SpawnStrategyDecorator(AbstractSpawnStrategy *spawnStrategy);

@@ -22,12 +22,12 @@ void Firework::shootRocket()
 	float xPos = rand() % 60 - 30;
 	float zPos = rand() %  30 + 40;
 	AbstractSpawnStrategy *locStrat = new LocationSpawnStrategy(vec3(xPos, -30, -zPos));
-	EntitySpawnStrategy spawnStrat(locStrat, emitter);
-	DelayedSpawn delay(&spawnStrat, 100);
-	LifeTimeSpawn life(&delay, 1000, 2000);
+	EntitySpawnStrategy *spawnStrat = new EntitySpawnStrategy(locStrat, emitter);
+	DelayedSpawn *delay = new DelayedSpawn(spawnStrat, 100);
+	LifeTimeSpawn *life = new LifeTimeSpawn(delay, 1000, 2000);
 
 	Spawner spawn;
-	spawn.setSpawnStrategy(&life);
+	spawn.setSpawnStrategy(life);
 	spawn.setSpawnEntity(new DynamicEntity(&sprite));
 	spawn.setEmitterEntity(emitter);
 
@@ -35,9 +35,9 @@ void Firework::shootRocket()
 	float up = rand() % 50 + 40;
 
 	spawn.setMovementStrategy(new Shoot(vec3(angle, up, 0)));
-	rocket = new BasicParticle(nullptr, emitter, &sprite, &spawn);
+	rocket = BasicParticle(nullptr, emitter, &sprite, &spawn);
 
-	rocket->init();
+	rocket.init();
 }
 
 void Firework::explodeRocket()
@@ -50,12 +50,12 @@ void Firework::explodeRocket()
 		Sprite sprite = Sprite("particle", TextureManager::getManager());
 
 		AbstractSpawnStrategy *locStrat = new LocationSpawnStrategy(vec3(0, 0, -10));
-		EntitySpawnStrategy spawnStrat(locStrat, rocket->particle);
-		DelayedSpawn delay(&spawnStrat, 1);
-		LifeTimeSpawn life(&delay, 1000);
+		EntitySpawnStrategy *spawnStrat = new EntitySpawnStrategy(locStrat, rocket.particle);
+		DelayedSpawn *delay = new DelayedSpawn(spawnStrat, 1);
+		LifeTimeSpawn *life = new LifeTimeSpawn(delay, 1000);
 
 		Spawner spawn;
-		spawn.setSpawnStrategy(&life);
+		spawn.setSpawnStrategy(life);
 		spawn.setSpawnEntity(new DynamicEntity(&sprite));
 		spawn.setEmitterEntity(emitter);
 
@@ -78,14 +78,14 @@ void Firework::init()
 
 void Firework::update(float ts)
 {
-	if (rocket->particle->expire() && !exploded) {
+	if (rocket.particle->expire() && !exploded) {
 		explodeRocket();
 		exploded = true;
 	}
 
 	if (!exploded) {
 		//Do rocket update
-		rocket->update(ts);
+		rocket.update(ts);
 	}
 	else {
 		//Do explosion update
@@ -99,7 +99,7 @@ void Firework::render(Renderer * renderer)
 {
 	if (!exploded) {
 		//Do rocket render
-		rocket->render(renderer);
+		rocket.render(renderer);
 	}
 	else {
 		//Do explosion render

@@ -8,6 +8,7 @@ SpawnStrategyDecorator::SpawnStrategyDecorator(AbstractSpawnStrategy * in_spawnS
 
 SpawnStrategyDecorator::~SpawnStrategyDecorator()
 {
+	delete spawnStratgy;
 }
 
 void SpawnStrategyDecorator::configureParticle(Entity & entity)

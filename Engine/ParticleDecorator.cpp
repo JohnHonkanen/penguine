@@ -7,6 +7,7 @@ ParticleDecorator::ParticleDecorator(Particle * p, Entity * emitter): Particle(e
 
 ParticleDecorator::~ParticleDecorator()
 {
+	delete p;
 }
 
 void ParticleDecorator::init()
@@ -29,5 +30,4 @@ void ParticleDecorator::render(Renderer * renderer)
 
 void ParticleDecorator::destroy()
 {
-	delete p;
 }

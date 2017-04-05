@@ -12,6 +12,7 @@ private:
 	Spawner *spawn;
 	Movement *particleMovement;
 public:
+	BasicParticle();
 	BasicParticle(Particle *p, Entity *emitter, Shapes *shape, Spawner *spawn);
 	~BasicParticle();
 	void init();

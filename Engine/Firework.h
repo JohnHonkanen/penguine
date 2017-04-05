@@ -8,7 +8,7 @@ class Firework :
 	public Particle
 {
 private:
-	BasicParticle *rocket;
+	BasicParticle rocket;
 	vector<BasicParticle> explosion;
 	bool exploded = false;
 	vec3 rocketForce;

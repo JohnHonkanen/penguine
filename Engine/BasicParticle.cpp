@@ -1,6 +1,10 @@
 #include "BasicParticle.h"
 
 
+BasicParticle::BasicParticle() :ParticleDecorator(nullptr, nullptr)
+{
+}
+
 BasicParticle::BasicParticle(Particle * p, Entity * emitter, Shapes *shape, Spawner *spawn):ParticleDecorator(p, emitter)
 {
 	BasicParticle::particleShape = shape;
@@ -9,7 +13,6 @@ BasicParticle::BasicParticle(Particle * p, Entity * emitter, Shapes *shape, Spaw
 
 BasicParticle::~BasicParticle()
 {
-	ParticleDecorator::destroy();
 }
 
 void BasicParticle::init()
@@ -39,7 +42,6 @@ void BasicParticle::render(Renderer * renderer)
 
 void BasicParticle::destroy()
 {
-	delete particle;
 	delete spawn;
 	delete particleMovement;
 	delete this;
