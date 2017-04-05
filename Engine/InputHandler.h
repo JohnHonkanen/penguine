@@ -1,19 +1,22 @@
 #pragma once
 
 #include <SDL.h>
+#include <map>
 #include "Command.h"
 
-class InputHandler : Command
+class InputHandler
 {
 private:
 	string name;
 
 	// cmd is a "black box", it is a method invocation promoted to "full object status"
-	Command cmd;
+	//map<string, Command*> commandList;
+	Command *KEY_SPACE;
+	Command *KEY_S;
 	const Uint8 *keys;
 public:
 	InputHandler(string name);
-	void setCommand(Command c);
+	void setCommand(int key, Command *c);
 	virtual ~InputHandler();
 
 	void update(bool &running);

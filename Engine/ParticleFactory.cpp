@@ -18,9 +18,9 @@ void ParticleFactory::makeParticle(int choice)
 void ParticleFactory::createFireWork()
 {
 
-	StaticEntity emitter = StaticEntity();
-	emitter.transform.translate(0, -0, -0);
-	FireworkDisplay *firework = new FireworkDisplay(&emitter);
+	StaticEntity *emitter =  new StaticEntity();
+	//emitter.transform.translate(0, -0, -0);
+	FireworkDisplay *firework = new FireworkDisplay(emitter);
 	firework->init();
 	ParticleManager::getManager()->addParticle(firework);
 }

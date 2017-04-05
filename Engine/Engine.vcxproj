@@ -167,7 +167,9 @@
     <ClCompile Include="Firework.cpp" />
     <ClCompile Include="FireworkDisplay.cpp" />
     <ClCompile Include="LifeTimeSpawn.cpp" />
+    <ClCompile Include="ParticleFactoryCommand.cpp" />
     <ClCompile Include="ParticleManager.cpp" />
+    <ClCompile Include="ParticleManagerCommand.cpp" />
     <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="BaseParticle.cpp" />
     <ClCompile Include="BasicMesh.cpp" />
@@ -212,7 +214,9 @@
     <ClInclude Include="Firework.h" />
     <ClInclude Include="FireworkDisplay.h" />
     <ClInclude Include="LifeTimeSpawn.h" />
+    <ClInclude Include="ParticleFactoryCommand.h" />
     <ClInclude Include="ParticleManager.h" />
+    <ClInclude Include="ParticleManagerCommand.h" />
     <ClInclude Include="Spawner.h" />
     <ClInclude Include="AbstractSpawnStrategy.h" />
     <ClInclude Include="BaseParticle.h" />

@@ -49,7 +49,6 @@ GLuint MeshGenerator::createMesh(MeshData data)//, GLuint &VAO, GLuint &VBO, GLu
 
 	// TexCoord attribute
 	if (data.uv != nullptr) {
-		printf("have uv \n");
 		glGenBuffers(1, &uvBuffer);
 		glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
 		glBufferData(GL_ARRAY_BUFFER, 2 * data.vertexCount * sizeof(GLfloat), data.uv, GL_STATIC_DRAW);

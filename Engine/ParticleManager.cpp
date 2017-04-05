@@ -27,9 +27,12 @@ vector<Particle*> ParticleManager::getParticles()
 void ParticleManager::update(double dt)
 {
 	//Update
-	for (int i = 0; i < particles.size(); i++) {
-		particles[i]->update(dt);
+	if (run) {
+		for (int i = 0; i < particles.size(); i++) {
+			particles[i]->update(dt);
+		}
 	}
+	
 }
 
 void ParticleManager::render(Renderer *renderer)
@@ -38,6 +41,11 @@ void ParticleManager::render(Renderer *renderer)
 	for (int i = 0; i < particles.size(); i++) {
 		particles[i]->render(renderer);
 	}
+}
+
+void ParticleManager::toggleRun()
+{
+	run = !run;
 }
 
 

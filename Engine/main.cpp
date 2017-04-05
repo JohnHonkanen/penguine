@@ -20,6 +20,8 @@
 #include "ParticleFactory.h"
 #include "ParticleManager.h"
 #include "FireworkDisplay.h"
+#include "ParticleFactoryCommand.h"
+#include "ParticleManagerCommand.h"
 
 
 using namespace std;
@@ -58,8 +60,14 @@ int main(int argc, char *argv[])
 
 
 	GLRenderer glRenderer(&HSVshaderProgram);
-
 	glRenderer.setCamera(&Camera2D);
+
+	//StaticEntity emitter = StaticEntity();
+	//emitter.transform.translate(0, -0, -0);
+	//FireworkDisplay firework(&emitter);
+	//firework.init();
+	//ParticleManager::getManager()->addParticle(&firework);
+
 
 	Clock appClock;
 	appClock.startClock();
@@ -72,8 +80,10 @@ int main(int argc, char *argv[])
 	double currentTime = 0.0f;
 
 	InputHandler inputHandler("");
-	Command command(factory, &ParticleFactory::createFireWork);
-	inputHandler.setCommand(command);
+	ParticleFactoryCommand *createFirework = new ParticleFactoryCommand(factory, &ParticleFactory::createFireWork);
+	ParticleManagerCommand *stopUpdate = new ParticleManagerCommand(&ParticleManager::toggleRun);
+	inputHandler.setCommand(0, createFirework);
+	inputHandler.setCommand(1, stopUpdate);
 
 	bool running = true;
 	while(running) {
@@ -108,7 +118,7 @@ int main(int argc, char *argv[])
 		}
 	}
 	graphicsHandler.destroy();
-	MeshGenerator::destroy();
+	//MeshGenerator::destroy();
 
 	return 0;
 }

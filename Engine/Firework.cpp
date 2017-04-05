@@ -17,25 +17,25 @@ Firework::~Firework()
 
 void Firework::shootRocket()
 {
-	Sprite sprite = Sprite("particle", TextureManager::getManager());
+	Sprite *sprite = new Sprite("particle", TextureManager::getManager());
 
 	float xPos = rand() % 60 - 30;
 	float zPos = rand() %  30 + 40;
-	AbstractSpawnStrategy *locStrat = new LocationSpawnStrategy(vec3(xPos, -30, -zPos));
+	AbstractSpawnStrategy *locStrat = new LocationSpawnStrategy(vec3(0, -30, -50));
 	EntitySpawnStrategy *spawnStrat = new EntitySpawnStrategy(locStrat, emitter);
 	DelayedSpawn *delay = new DelayedSpawn(spawnStrat, 100);
 	LifeTimeSpawn *life = new LifeTimeSpawn(delay, 1000, 2000);
 
 	Spawner spawn;
 	spawn.setSpawnStrategy(life);
-	spawn.setSpawnEntity(new DynamicEntity(&sprite));
+	spawn.setSpawnEntity(new DynamicEntity(sprite));
 	spawn.setEmitterEntity(emitter);
 
 	float angle = rand() % 50 - 25;
 	float up = rand() % 50 + 40;
 
 	spawn.setMovementStrategy(new Shoot(vec3(angle, up, 0)));
-	rocket = BasicParticle(nullptr, emitter, &sprite, &spawn);
+	rocket = BasicParticle(nullptr, emitter, sprite, &spawn);
 
 	rocket.init();
 }

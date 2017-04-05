@@ -5,9 +5,17 @@ InputHandler::InputHandler(string n)
 	name = n;
 }
 
-void InputHandler::setCommand(Command c)
+void InputHandler::setCommand(int key, Command * c)
 {
-	cmd = c;
+	switch (key)
+	{
+	case 0:
+		KEY_SPACE = c;
+	case 1:
+		KEY_S = c;
+	default:
+		break;
+	}
 }
 
 InputHandler::~InputHandler()
@@ -35,13 +43,14 @@ void InputHandler::update(bool &running)
 					break;
 				case SDLK_s:
 					cout << "s pressed" << endl;
+					KEY_S->execute();
 					break;
 				case SDLK_d:
 					cout << "d pressed" << endl;
 					break;
 				case SDLK_SPACE:
 					cout << "spawned a particle" << endl;
-					cmd.execute();
+					KEY_SPACE->execute();
 					break;
 				default:
 					cout << "default called" << endl;
