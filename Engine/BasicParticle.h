@@ -7,12 +7,10 @@ class BasicParticle :
 	public ParticleDecorator
 {
 private:
-	Entity *particle;
+	
 	Shapes *particleShape;
 	Spawner *spawn;
 	Movement *particleMovement;
-	int minLife;
-	int maxLife;
 public:
 	BasicParticle(Particle *p, Entity *emitter, Shapes *shape, Spawner *spawn);
 	~BasicParticle();
@@ -20,4 +18,6 @@ public:
 	void update(float ts);
 	void render(Renderer *renderer);
 	void destroy();
+
+	Entity *particle;
 };

@@ -18,11 +18,8 @@
 #include "InputHandler.h"
 #include "SDLWindow.h"
 #include "ParticleFactory.h"
-#include "LocationSpawnStrategy.h"
-#include "EntitySpawnStrategy.h"
-#include "DelayedSpawn.h"
-#include "LifeTimeSpawn.h"
 #include "ParticleManager.h"
+#include "FireworkDisplay.h"
 
 
 using namespace std;
@@ -30,7 +27,7 @@ using namespace glm;
 
 int main(int argc, char *argv[])
 {
-
+	srand(time(NULL));
 	vec2 windowSize(800,600);
 	//Window *window = new glfwWindow(windowSize.x, windowSize.y);
 	Window *window = new SDLWindow(windowSize.x, windowSize.y);
@@ -43,11 +40,11 @@ int main(int argc, char *argv[])
 
 	graphicsHandler.init(); // Initialize Rendering Library
 
-	TextureManager textureManager;
-	textureManager.saveTexture("smoke.png", "smoke");
-	textureManager.saveTexture("fire.png", "fire");
-	textureManager.saveTexture("lava.jpg", "lava");
-	textureManager.saveTexture("particle.png", "particle");
+	TextureManager *textureManager = TextureManager::getManager();
+	textureManager->saveTexture("smoke.png", "smoke");
+	textureManager->saveTexture("fire.png", "fire");
+	textureManager->saveTexture("lava.jpg", "lava");
+	textureManager->saveTexture("particle.png", "particle");
 
 	Shader minshaderProgram("minimal.vert", "single.frag"); // Minimal Shader Program
 	Shader HSVshaderProgram("HSVVert.shader", "HSVFrag.shader");  // HSV Shader Program
@@ -57,34 +54,17 @@ int main(int argc, char *argv[])
 	material.texture = "lava";
 	
 	ParticleFactory *factory = new ParticleFactory();
-	factory->setTextureManager(&textureManager);
+	factory->setTextureManager(textureManager);
 
-	//Particle *particle = ParticleFactory::makeParticle(1, &textureManager);
 
 	GLRenderer glRenderer(&HSVshaderProgram);
 
 
-	Sprite sprite = Sprite("particle", &textureManager);
 	StaticEntity emitter = StaticEntity();
 	emitter.transform.translate(0, -0, -0);
-
-	AbstractSpawnStrategy *locStrat = new LocationSpawnStrategy(vec3(0, -0, -50));
-	EntitySpawnStrategy spawnStrat(locStrat, &emitter);
-	DelayedSpawn delay(&spawnStrat, 2000);
-	LifeTimeSpawn life(&delay, 100);
-
-	Spawner spawn;
-	spawn.setSpawnStrategy(&life);
-	spawn.setSpawnEntity(new DynamicEntity(&sprite));
-	spawn.setEmitterEntity(&emitter);
-	spawn.setMovementStrategy(new Shoot(vec3(0, 100, 0)));
-	
-	ParticleManager *pManager = ParticleManager::getManager();
-	
-	BasicParticle particle(nullptr, &emitter, &sprite, &spawn);
-	particle.init();
-
-	pManager->addParticle(&particle);
+	FireworkDisplay firework(&emitter);
+	firework.init();
+	ParticleManager::getManager()->addParticle(&firework);
 
 	glRenderer.setCamera(&Camera2D);
 
@@ -123,17 +103,16 @@ int main(int argc, char *argv[])
 			// Render Function
 
 			// Update Function
-			pManager->update(dt);
+			ParticleManager::getManager()->update(dt);
 			// End of Update
 			graphicsHandler.start();  // Sets up Rendering Loop
 			// Render Function
-			pManager->render(&glRenderer);
+			ParticleManager::getManager()->render(&glRenderer);
 
 			// End of Render
 			graphicsHandler.end(); //Swap Buffers
 			frameClock.resetClock(); // Once frame is done reset to 0
 			previousTime = currentTime;
-
 		}
 	}
 	graphicsHandler.destroy();

@@ -1,15 +1,17 @@
 #pragma once
 #include <vector>
 #include "Particle.h"
+#include "BasicParticle.h"
 
 using namespace std;
 class Firework :
 	public Particle
 {
 private:
-	vector<Entity*> explosion;
-	Entity* rocket;
+	BasicParticle *rocket;
+	vector<BasicParticle> explosion;
 	bool exploded = false;
+	vec3 rocketForce;
 public:
 	Firework(Entity *emitter);
 	~Firework();

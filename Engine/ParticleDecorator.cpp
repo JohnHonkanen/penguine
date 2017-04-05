@@ -30,5 +30,4 @@ void ParticleDecorator::render(Renderer * renderer)
 void ParticleDecorator::destroy()
 {
 	delete p;
-	delete this;
 }

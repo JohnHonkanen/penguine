@@ -12,11 +12,12 @@ class TextureManager
 {
 private:
 	map<string, GLuint> textures;
-
-public:
 	TextureManager();
 	virtual ~TextureManager();
 
+	static TextureManager *inst;
+public:
+	static TextureManager *getManager();
 	void saveTexture(const string fileLocation, const string textureName);
 	void deleteTexture(const string textureName);
 	void destroy();

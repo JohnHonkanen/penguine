@@ -1,7 +1,7 @@
 #pragma once
 #include <glm\glm.hpp>
 #include <glm\gtc\matrix_transform.hpp>
-#define GRAVITY 10
+#define GRAVITY 1
 
 using namespace glm;
 class Physics

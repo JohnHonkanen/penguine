@@ -150,17 +150,11 @@
     <ClCompile Include="Movement.cpp">
       <Filter>Source Files\Behaviours\Movement</Filter>
     </ClCompile>
-    <ClCompile Include="Spawn.cpp">
-      <Filter>Source Files\Behaviours\Spawn</Filter>
-    </ClCompile>
     <ClCompile Include="ParticleDecorator.cpp">
       <Filter>Source Files\Particle</Filter>
     </ClCompile>
     <ClCompile Include="Shoot.cpp">
       <Filter>Source Files\Behaviours\Movement</Filter>
-    </ClCompile>
-    <ClCompile Include="SingleSpawn.cpp">
-      <Filter>Source Files\Behaviours\Spawn</Filter>
     </ClCompile>
     <ClCompile Include="MeshGenerator.cpp">
       <Filter>Source Files\OpenGL</Filter>
@@ -216,9 +210,6 @@
     <ClCompile Include="GLMesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SingleParticle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Command.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -229,6 +220,36 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ParticleFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DelayedSpawn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EntitySpawnStrategy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Firework.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LifeTimeSpawn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Spawner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LocationSpawnStrategy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicParticle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SpawnStrategyDecorator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FireworkDisplay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -257,17 +278,11 @@
     <ClInclude Include="BaseParticle.h">
       <Filter>Header Files\Particle</Filter>
     </ClInclude>
-    <ClInclude Include="Spawn.h">
-      <Filter>Header Files\Behaviours\Spawn</Filter>
-    </ClInclude>
     <ClInclude Include="ParticleDecorator.h">
       <Filter>Header Files\Particle</Filter>
     </ClInclude>
     <ClInclude Include="Shoot.h">
       <Filter>Header Files\Behaviours\Movement</Filter>
-    </ClInclude>
-    <ClInclude Include="SingleSpawn.h">
-      <Filter>Header Files\Behaviours\Spawn</Filter>
     </ClInclude>
     <ClInclude Include="Window.h">
       <Filter>Header Files\Windows</Filter>
@@ -323,9 +338,6 @@
     <ClInclude Include="GLMesh.h">
       <Filter>Header Files\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="SingleParticle.h">
-      <Filter>Header Files\Particle</Filter>
-    </ClInclude>
     <ClInclude Include="Command.h">
       <Filter>Header Files\Inputs</Filter>
     </ClInclude>
@@ -337,6 +349,39 @@
     </ClInclude>
     <ClInclude Include="ParticleFactory.h">
       <Filter>Header Files\Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="DelayedSpawn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EntitySpawnStrategy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Firework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LifeTimeSpawn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Spawner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractSpawnStrategy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicParticle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LocationSpawnStrategy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpawnStrategyDecorator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FireworkDisplay.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

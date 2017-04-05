@@ -1,5 +1,7 @@
 #include "TextureManager.h"
 
+TextureManager *TextureManager::inst = nullptr;
+
 TextureManager::TextureManager()
 {
 }
@@ -7,6 +9,14 @@ TextureManager::TextureManager()
 
 TextureManager::~TextureManager()
 {
+}
+
+TextureManager * TextureManager::getManager()
+{
+	if (inst == nullptr)
+		inst = new TextureManager();
+
+	return inst;
 }
 
 void TextureManager::saveTexture(const string fileLocation, const string textureName)
