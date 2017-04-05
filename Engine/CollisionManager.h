@@ -11,16 +11,18 @@ class CollisionAABB;
 class CollisionManager
 {
 private:
-	vector<CollisionAABB*> colObjects;
+	vector<CollisionObjects*> colObjects;
 	static CollisionManager *manager;
 public:
 	CollisionManager();
 	~CollisionManager();
 
 	static CollisionManager *getManager();
-	void addCollisionObjects(CollisionAABB *colObject);
-	bool checkCollision(CollisionAABB a, CollisionAABB b);
-	void handleCollision(CollisionAABB *a, CollisionAABB *b);
+	void addCollisionObjects(CollisionObjects *colObject);
+	bool checkCollision(CollisionObjects *a, CollisionObjects *b);
+	bool AABBCollision(CollisionAABB *a, CollisionAABB *b);
+	void handleCollision(CollisionObjects *a, CollisionObjects *b);
+	void handleAABBCollision(CollisionAABB *a, CollisionAABB *b);
 	void update();
 };
 

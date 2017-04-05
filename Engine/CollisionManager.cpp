@@ -22,24 +22,31 @@ CollisionManager * CollisionManager::getManager()
 	return CollisionManager::manager;
 }
 
-void CollisionManager::addCollisionObjects(CollisionAABB * colObject)
+void CollisionManager::addCollisionObjects(CollisionObjects * colObject)
 {
 	colObjects.push_back(colObject);
 }
 
-bool CollisionManager::checkCollision(CollisionAABB a, CollisionAABB b)
+bool CollisionManager::checkCollision(CollisionObjects *a, CollisionObjects *b)
 {
-	vec3 box1Min = a.position - a.halfExtents;
-	vec3 box1Max = a.position + a.halfExtents;
+	bool collided = false;
 
-	vec3 box2Min = b.position - b.halfExtents;
-	vec3 box2Max = b.position + b.halfExtents;
+	if (dynamic_cast<CollisionAABB*>(a) != nullptr && dynamic_cast<CollisionAABB*>(b) != nullptr) {
+		collided = AABBCollision(dynamic_cast<CollisionAABB*>(a), dynamic_cast<CollisionAABB*>(b));
+	}
 
-	return (box1Min.x <= box2Max.x && box1Max.x >= box2Min.x) &&
-		(box1Min.y <= box2Max.y && box1Max.y >= box2Min.y);
+	return collided;
 }
 
-void CollisionManager::handleCollision(CollisionAABB * a, CollisionAABB * b)
+void CollisionManager::handleCollision(CollisionObjects * a, CollisionObjects * b)
+{
+	if (dynamic_cast<CollisionAABB*>(a) != nullptr && dynamic_cast<CollisionAABB*>(b) != nullptr) {
+		handleAABBCollision(dynamic_cast<CollisionAABB*>(a), dynamic_cast<CollisionAABB*>(b));
+	}
+	
+}
+
+void CollisionManager::handleAABBCollision(CollisionAABB * a, CollisionAABB * b)
 {
 	a->colliding = true;
 	b->colliding = true;
@@ -55,7 +62,18 @@ void CollisionManager::handleCollision(CollisionAABB * a, CollisionAABB * b)
 	a->contactNormal = normal;
 	b->contactNormal = -normal;
 	vec3 norm = normal;
-	
+}
+
+bool CollisionManager::AABBCollision(CollisionAABB *a, CollisionAABB *b)
+{
+	vec3 box1Min = a->position - a->halfExtents;
+	vec3 box1Max = a->position + a->halfExtents;
+
+	vec3 box2Min = b->position - b->halfExtents;
+	vec3 box2Max = b->position + b->halfExtents;
+
+	return (box1Min.x <= box2Max.x && box1Max.x >= box2Min.x) &&
+		(box1Min.y <= box2Max.y && box1Max.y >= box2Min.y);
 }
 
 void CollisionManager::update()

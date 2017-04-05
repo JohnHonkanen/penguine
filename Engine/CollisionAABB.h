@@ -1,7 +1,7 @@
 #pragma once
 #include "CollisionObjects.h"
 
-class CollisionAABB : CollisionObjects
+class CollisionAABB : public CollisionObjects
 {
 public:
 	CollisionAABB();
@@ -9,12 +9,7 @@ public:
 	~CollisionAABB();
 
 	vec3 position;
-	ContactManifold manifold;
 	vec3 halfExtents;
-	bool colliding = false;
-	vec3 contactNormal;
-	vec3 offset;
-	bool isStatic;
-	CollisionObjects *collidingObjects;
+	
 };
 
