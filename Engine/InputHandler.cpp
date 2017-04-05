@@ -33,6 +33,12 @@ void InputHandler::update(bool &running)
 				case SDLK_a:
 					cout << "a pressed" << endl;
 					break;
+				case SDLK_s:
+					cout << "s pressed" << endl;
+					break;
+				case SDLK_d:
+					cout << "d pressed" << endl;
+					break;
 				case SDLK_SPACE:
 					cout << "spawned a particle" << endl;
 					cmd.execute();

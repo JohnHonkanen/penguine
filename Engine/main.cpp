@@ -61,7 +61,6 @@ int main(int argc, char *argv[])
 
 	glRenderer.setCamera(&Camera2D);
 
-
 	Clock appClock;
 	appClock.startClock();
 	appClock.setDelay(1000);
