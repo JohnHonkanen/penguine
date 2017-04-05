@@ -59,15 +59,7 @@ int main(int argc, char *argv[])
 
 	GLRenderer glRenderer(&HSVshaderProgram);
 
-
-	StaticEntity emitter = StaticEntity();
-	emitter.transform.translate(0, -0, -0);
-	FireworkDisplay firework(&emitter);
-	firework.init();
-	ParticleManager::getManager()->addParticle(&firework);
-
 	glRenderer.setCamera(&Camera2D);
-
 
 	Clock appClock;
 	appClock.startClock();
@@ -79,10 +71,9 @@ int main(int argc, char *argv[])
 	double previousTime = 0.0f;
 	double currentTime = 0.0f;
 
-	/*Particle *particle = nullptr;
 	InputHandler inputHandler("");
-	Command command(factory, &ParticleFactory::createSingle);
-	inputHandler.setCommand(command);*/
+	Command command(factory, &ParticleFactory::createFireWork);
+	inputHandler.setCommand(command);
 
 	bool running = true;
 	while(running) {
@@ -97,7 +88,8 @@ int main(int argc, char *argv[])
 		//End of DeltaTime
 		if (frameClock.alarm()) {
 
-	
+			inputHandler.update(running);
+
 			// End of Update
 			graphicsHandler.start();  // Sets up Rendering Loop
 			// Render Function

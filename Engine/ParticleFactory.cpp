@@ -4,27 +4,25 @@ ParticleFactory::ParticleFactory()
 {
 }
 
-Particle * ParticleFactory::makeParticle(int choice)
+void ParticleFactory::makeParticle(int choice)
 {
 	if (choice == 1) {
-		return createSingle(); //choice 1 particle;
+		createFireWork(); //choice 1 particle;
 	}
 	
 	if (choice == 2) {
-		return 0; //choice 2particle;
+		//return 0; //choice 2particle;
 	}
 }
 
-Particle * ParticleFactory::createSingle()
+void ParticleFactory::createFireWork()
 {
-	cout << "particle 1 selected" << endl;
 
-	Sprite *sprite = new Sprite("particle", textureManager);
-
-	/*SingleParticle *particle = new SingleParticle(nullptr, new StaticEntity(), sprite, new SingleSpawn(), new Shoot(vec3(0, 0, 0)));
-	particle->init();*/
-
-	return nullptr;
+	StaticEntity emitter = StaticEntity();
+	emitter.transform.translate(0, -0, -0);
+	FireworkDisplay *firework = new FireworkDisplay(&emitter);
+	firework->init();
+	ParticleManager::getManager()->addParticle(firework);
 }
 
 void ParticleFactory::setTextureManager(TextureManager * textureManager)

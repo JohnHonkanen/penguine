@@ -16,7 +16,7 @@ public:
 	void setCommand(Command c);
 	virtual ~InputHandler();
 
-	void update(bool &running, Particle *particle);
+	void update(bool &running);
 
 	void spawnParticles();
 
