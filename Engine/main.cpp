@@ -42,6 +42,7 @@ int main(int argc, char *argv[])
 
 	graphicsHandler.init(); // Initialize Rendering Library
 
+	TextureManager::setContext(OPENGL);
 	TextureManager *textureManager = TextureManager::getManager();
 	textureManager->saveTexture("smoke.png", "smoke");
 	textureManager->saveTexture("fire.png", "fire");
