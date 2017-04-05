@@ -14,11 +14,10 @@ InputHandler::~InputHandler()
 {
 }
 
-void InputHandler::update(bool &running, Particle *particle)
+void InputHandler::update(bool &running)
 {
 	const Uint8 *keys = SDL_GetKeyboardState(NULL);
 	SDL_Event sdlEvent;
-	while (running) {
 		while (SDL_PollEvent(&sdlEvent)) {
 			if (sdlEvent.type == SDL_QUIT) {
 				running = false;
@@ -36,7 +35,7 @@ void InputHandler::update(bool &running, Particle *particle)
 					break;
 				case SDLK_SPACE:
 					cout << "spawned a particle" << endl;
-					particle = cmd.execute();
+					cmd.execute();
 					break;
 				default:
 					cout << "default called" << endl;
@@ -45,8 +44,6 @@ void InputHandler::update(bool &running, Particle *particle)
 			}
 
 		}
-	}
-	
 }
 
 void InputHandler::spawnParticles()

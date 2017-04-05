@@ -12,10 +12,10 @@ class Command
 {
 private:
 	ParticleFactory *object;
-	Particle*(ParticleFactory:: *method)();
+	void (ParticleFactory:: *method)();
 public:
-	Command(ParticleFactory *obj = 0, Particle*(ParticleFactory:: *meth)() = 0);
+	Command(ParticleFactory *obj = 0, void (ParticleFactory:: *meth)() = 0);
 
-	Particle *execute();
+	void execute();
 };
 
