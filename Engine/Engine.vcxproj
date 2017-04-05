@@ -162,6 +162,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CollisionAABB.cpp" />
+    <ClCompile Include="CollisionManager.cpp" />
+    <ClCompile Include="CollisionObjects.cpp" />
     <ClCompile Include="DelayedSpawn.cpp" />
     <ClCompile Include="EntitySpawnStrategy.cpp" />
     <ClCompile Include="Firework.cpp" />
@@ -207,6 +210,9 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CollisionAABB.h" />
+    <ClInclude Include="CollisionManager.h" />
+    <ClInclude Include="CollisionObjects.h" />
     <ClInclude Include="DelayedSpawn.h" />
     <ClInclude Include="EntitySpawnStrategy.h" />
     <ClInclude Include="Firework.h" />

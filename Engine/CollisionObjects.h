@@ -13,11 +13,7 @@ struct ContactManifold {
 
 class CollisionObjects
 {
-public:
-	CollisionObjects();
-	CollisionObjects(vec3 halfExtents, bool isStatic = false, vec3 offset = vec3(0));
-	virtual ~CollisionObjects();
-
+private:
 	vec3 position;
 	ContactManifold manifold;
 	vec3 halfExtents;
@@ -25,6 +21,11 @@ public:
 	vec3 contactNormal;
 	vec3 offset;
 	bool isStatic;
-	CollisionObjects *collidingObject;
+	CollisionObjects *collidingObjects;
+public:
+	CollisionObjects();
+	virtual ~CollisionObjects();
+
+
 };
 
