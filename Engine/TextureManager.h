@@ -8,24 +8,29 @@
 
 using namespace std;
 
+enum context {
+	OPENGL
+};
+
+class OGLTextureManager;
 class TextureManager
 {
-private:
-	map<string, GLuint> textures;
+protected:
+	static TextureManager *inst;
 	TextureManager();
 	virtual ~TextureManager();
 
-	static TextureManager *inst;
+private:
+	map<string, GLuint> textures;
+
 public:
+	static void setContext(context c);
 	static TextureManager *getManager();
-	void saveTexture(const string fileLocation, const string textureName);
-	void deleteTexture(const string textureName);
-	void destroy();
+	virtual void saveTexture(const string fileLocation, const string textureName) = 0;
+	virtual void deleteTexture(const string textureName) = 0;
+	virtual void destroy() = 0;
 
-	GLuint getTexture(const string textureName);
-	
-
-
+	virtual GLuint getTexture(const string textureName) = 0;
 	
 };
 
