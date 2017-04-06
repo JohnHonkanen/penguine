@@ -172,6 +172,7 @@
     <ClCompile Include="Firework.cpp" />
     <ClCompile Include="FireworkDisplay.cpp" />
     <ClCompile Include="LifeTimeSpawn.cpp" />
+    <ClCompile Include="OGLTextureManager.cpp" />
     <ClCompile Include="OutputConsoleCollision.cpp" />
     <ClCompile Include="ParticleFactoryCommand.cpp" />
     <ClCompile Include="ParticleManager.cpp" />

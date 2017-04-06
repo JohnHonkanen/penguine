@@ -10,10 +10,10 @@
       <Field Name="physics" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Entity">
+  <Class Name="Entity" Collapsed="true">
     <Position X="9.5" Y="13.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EABAAAAAAAAEBABAAgAAAAAAECAEAAIAAAAQAAQUBAA=</HashCode>
+      <HashCode>EQBAAAKAAAAEBABgIhAgAAAAFCAEAAIAAIAwEAQUBAA=</HashCode>
       <FileName>Entity.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -41,7 +41,7 @@
       <FileName>Transform.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Physics">
+  <Class Name="Physics" Collapsed="true">
     <Position X="7.25" Y="19" Width="2.25" />
     <TypeIdentifier>
       <HashCode>BIhAAQAAAACAAAAAAAIAAAAAAAAAAAQIAAAAAAAEAAA=</HashCode>
@@ -77,7 +77,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="BaseParticle" Collapsed="true">
-    <Position X="8.25" Y="24.75" Width="1.5" />
+    <Position X="8.75" Y="24.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABCAAAAAAAAAAAAAAEABAAAAAAIAAAAAEAAUAAA=</HashCode>
       <FileName>BaseParticle.h</FileName>
@@ -88,13 +88,6 @@
     <TypeIdentifier>
       <HashCode>AAgAAAAAAAAACAAAAAAEAEAAAAAAAAIAAAAAAAAUAAA=</HashCode>
       <FileName>Particle.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ParticleDecorator" Collapsed="true">
-    <Position X="6" Y="24.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAABAAAAEAAAAAAAAIAAEAAAAAUCAA=</HashCode>
-      <FileName>ParticleDecorator.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Movement" Collapsed="true">
@@ -170,7 +163,7 @@
   <Class Name="TextureManager" Collapsed="true">
     <Position X="21.75" Y="16.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQAAEAAAgAABAAAAEAABAAACAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAAEAAAgACBAAAAEAABAAACAIAAAAAAAAAAAQ=</HashCode>
       <FileName>TextureManager.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -203,9 +196,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="BasicParticle" Collapsed="true">
-    <Position X="6" Y="26.25" Width="1.5" />
+    <Position X="5" Y="24.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAAAAAAAAgAAAAAgIAEABAAAAAAIAAAAAQAAUAAQ=</HashCode>
+      <HashCode>BAAAAAAAAAAAgAAAAAgIAEABAAAAAAIAAAAAAAAUAAA=</HashCode>
       <FileName>BasicParticle.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -238,16 +231,137 @@
     </TypeIdentifier>
   </Class>
   <Class Name="EntitySpawnStrategy" Collapsed="true">
-    <Position X="15.5" Y="25.5" Width="1.5" />
+    <Position X="12.25" Y="26" Width="1.5" />
     <InheritanceLine Type="SpawnStrategyDecorator" FixedToPoint="true">
       <Path>
         <Point X="16.25" Y="24.691" />
-        <Point X="16.25" Y="25.5" />
+        <Point X="16.25" Y="25.625" />
+        <Point X="13.25" Y="25.625" />
+        <Point X="13.25" Y="26" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAABAAAEQAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>EntitySpawnStrategy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AABBCollider" Collapsed="true">
+    <Position X="25.25" Y="26.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABBAAAAAAAAAgAIAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>AABBCollider.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Collider" Collapsed="true">
+    <Position X="25.25" Y="25.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAABAAAAAAAIAAAAIAAAAAQAAAAAAQAAAA=</HashCode>
+      <FileName>Collider.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BasicWithCollision" Collapsed="true">
+    <Position X="7" Y="24.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAgAAEAAAAAAAAIAAAAAAAgUAAA=</HashCode>
+      <FileName>BasicWithCollision.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Firework" Collapsed="true">
+    <Position X="3" Y="24.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIQAAAAAAAAAEBIwACABAIAAAAAAAAUAAA=</HashCode>
+      <FileName>Firework.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FireworkDisplay" Collapsed="true">
+    <Position X="1" Y="24.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABEAAAAAAAAAAAAAAEAAAAAAAAIIAAEAAAAUAAA=</HashCode>
+      <FileName>FireworkDisplay.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ParticleManager" Collapsed="true">
+    <Position X="23.5" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABgABACAAAAAAAAgAAAAAAQAACAIAAAAAAgAUIAQ=</HashCode>
+      <FileName>ParticleManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ParticleFactory" Collapsed="true">
+    <Position X="25.25" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAEAAAAAAAAAAAAAAABAAABAAAAABQAAAA=</HashCode>
+      <FileName>ParticleFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ColliderSpawn" Collapsed="true">
+    <Position X="18.5" Y="26" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAgAAAAAAAAAAAAAAAAAACAAAAAAAAAAAQEAAAAAA=</HashCode>
+      <FileName>ColliderSpawn.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DelayedSpawn" Collapsed="true">
+    <Position X="14.5" Y="26" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAABAAAACAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DelayedSpawn.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LifeTimeSpawn" Collapsed="true">
+    <Position X="16.5" Y="26" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAQAAAAAAAgAAACAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>LifeTimeSpawn.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CollisionStrategy" Collapsed="true">
+    <Position X="22.25" Y="25.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAABAAAAAAAgAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CollisionStrategy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OutputConsoleCollision" Collapsed="true">
+    <Position X="22.25" Y="26.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAABAAAAAAAAAAACAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>OutputConsoleCollision.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SDLWindow" Collapsed="true">
+    <Position X="22" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAEAAAAAAAAIIAAAgAQAAAAI=</HashCode>
+      <FileName>SDLWindow.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ParticleFactoryCommand" Collapsed="true">
+    <Position X="22.25" Y="23.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAACIAAAAEAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>ParticleFactoryCommand.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ParticleManagerCommand" Collapsed="true">
+    <Position X="24.5" Y="23.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAACAAAAAEAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>ParticleManagerCommand.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Command" Collapsed="true">
+    <Position X="23.5" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Command.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputHandler" Collapsed="true">
+    <Position X="23.5" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAABABBAAACAAAEAAAAAAAAAAEFAAI=</HashCode>
+      <FileName>InputHandler.h</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="Material" Collapsed="true">
@@ -271,5 +385,12 @@
       <FileName>GLMesh.h</FileName>
     </TypeIdentifier>
   </Struct>
+  <Enum Name="context" Collapsed="true">
+    <Position X="23.5" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TextureManager.h</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
