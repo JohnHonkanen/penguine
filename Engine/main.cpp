@@ -1,3 +1,15 @@
+/*
+
+Name: Lars Anthony Palm
+
+Student ID: B00294272
+
+I declare that the following code was produced by Lars Anthony Palm, John Christopher Arnon Honkanen as a group assignment for the GED module and that this is our own work.
+
+I am aware of the penalties incurred by submitting in full or in part work that is not our own and that was developed by third parties that are not appropriately acknowledged.
+
+*/
+
 #include <iostream>
 
 #include "TextureManager.h"
@@ -87,6 +99,17 @@ int main(int argc, char *argv[])
 	inputHandler.setCommand(0, createFirework);
 	inputHandler.setCommand(1, stopUpdate);
 	inputHandler.setCommand(2, createParticle);
+
+	cout << endl;
+	cout << "Welcome to project Penguine! "<< endl;
+	cout << "--------------------------------------- " << endl;
+	cout << "Please select one or more of the following commands to generate particles onto your display" << endl;
+	cout << "S: Pause the render display from updating" << endl;
+	cout << "A: Spawn a single particle with collision detection" << endl;
+	cout << "Space: Spawn a particle emitter and shoot fireworks!!" << endl;
+	cout << "Escape: Exit the application" << endl;
+	cout << "--------------------------------------- " << endl;
+	cout << endl << endl;
 
 	bool running = true;
 	while(running) {
