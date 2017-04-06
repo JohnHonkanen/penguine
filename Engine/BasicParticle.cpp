@@ -1,11 +1,11 @@
 #include "BasicParticle.h"
 
 
-BasicParticle::BasicParticle() :ParticleDecorator(nullptr, nullptr)
+BasicParticle::BasicParticle():Particle(nullptr)
 {
 }
 
-BasicParticle::BasicParticle(Particle * p, Entity * emitter, Shapes *shape, Spawner *spawn):ParticleDecorator(p, emitter)
+BasicParticle::BasicParticle(Particle * p, Entity * emitter, Shapes *shape, Spawner *spawn):Particle(emitter)
 {
 	BasicParticle::particleShape = shape;
 	BasicParticle::spawn = spawn;
@@ -19,14 +19,12 @@ void BasicParticle::init()
 {
 
 	particle = spawn->createEntity();
-	ParticleDecorator::init();
 }
 
 void BasicParticle::update(float ts)
 {
 	if (!BasicParticle::particle->expire()) {
 		particle->update(ts);
-		ParticleDecorator::update(ts);
 	}
 
 }
@@ -35,7 +33,6 @@ void BasicParticle::render(Renderer * renderer)
 {
 	if (particle->start()) {
 		renderer->renderObject(particle->getShape());
-		ParticleDecorator::render(renderer);
 	}
 	
 }

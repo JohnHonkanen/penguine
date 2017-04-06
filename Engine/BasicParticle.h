@@ -1,10 +1,10 @@
 #pragma once
-#include "ParticleDecorator.h"
+#include "Particle.h"
 #include "Spawner.h"
 #include "DynamicEntity.h"
 #include "Shapes.h"
 class BasicParticle :
-	public ParticleDecorator
+	public Particle
 {
 private:
 	
