@@ -153,15 +153,15 @@
       <FileName>BasicMesh.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TextureGenerator" Collapsed="true">
-    <Position X="20" Y="16.25" Width="1.5" />
+  <Class Name="TextureGenerator">
+    <Position X="33.5" Y="17.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAEAAAAA=</HashCode>
       <FileName>TextureGenerator.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TextureManager" Collapsed="true">
-    <Position X="21.75" Y="16.25" Width="1.5" />
+  <Class Name="TextureManager">
+    <Position X="35.5" Y="19.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAEAAAgACBAAAAEAABAAACAIAAAAAAAAAAAQ=</HashCode>
       <FileName>TextureManager.h</FileName>
@@ -364,6 +364,13 @@
       <FileName>InputHandler.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="OGLTextureManager">
+    <Position X="35.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAEABAgAAAAAAAEAAAAAACAIAAAAAAAAAAAA=</HashCode>
+      <FileName>OGLTextureManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Struct Name="Material" Collapsed="true">
     <Position X="18.25" Y="17.5" Width="1.5" />
     <TypeIdentifier>
@@ -385,8 +392,8 @@
       <FileName>GLMesh.h</FileName>
     </TypeIdentifier>
   </Struct>
-  <Enum Name="context" Collapsed="true">
-    <Position X="23.5" Y="17.5" Width="1.5" />
+  <Enum Name="context">
+    <Position X="33.5" Y="16" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TextureManager.h</FileName>

@@ -225,6 +225,7 @@
     <ClInclude Include="Firework.h" />
     <ClInclude Include="FireworkDisplay.h" />
     <ClInclude Include="LifeTimeSpawn.h" />
+    <ClInclude Include="OGLTextureManager.h" />
     <ClInclude Include="OutputConsoleCollision.h" />
     <ClInclude Include="ParticleFactoryCommand.h" />
     <ClInclude Include="ParticleManager.h" />

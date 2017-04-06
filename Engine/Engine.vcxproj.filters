@@ -431,6 +431,9 @@
     <ClInclude Include="OutputConsoleCollision.h">
       <Filter>Header Files\Behaviours\CollisionStrate</Filter>
     </ClInclude>
+    <ClInclude Include="OGLTextureManager.h">
+      <Filter>Header Files\OpenGL\Texture</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd">
