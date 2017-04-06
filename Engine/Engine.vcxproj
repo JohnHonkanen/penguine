@@ -162,11 +162,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AABBCollider.cpp" />
+    <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="ColliderSpawn.cpp" />
+    <ClCompile Include="CollisionStrategy.cpp" />
     <ClCompile Include="DelayedSpawn.cpp" />
     <ClCompile Include="EntitySpawnStrategy.cpp" />
     <ClCompile Include="Firework.cpp" />
     <ClCompile Include="FireworkDisplay.cpp" />
     <ClCompile Include="LifeTimeSpawn.cpp" />
+    <ClCompile Include="OutputConsoleCollision.cpp" />
     <ClCompile Include="ParticleFactoryCommand.cpp" />
     <ClCompile Include="ParticleManager.cpp" />
     <ClCompile Include="ParticleManagerCommand.cpp" />
@@ -209,11 +214,16 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AABBCollider.h" />
+    <ClInclude Include="Collider.h" />
+    <ClInclude Include="ColliderSpawn.h" />
+    <ClInclude Include="CollisionStrategy.h" />
     <ClInclude Include="DelayedSpawn.h" />
     <ClInclude Include="EntitySpawnStrategy.h" />
     <ClInclude Include="Firework.h" />
     <ClInclude Include="FireworkDisplay.h" />
     <ClInclude Include="LifeTimeSpawn.h" />
+    <ClInclude Include="OutputConsoleCollision.h" />
     <ClInclude Include="ParticleFactoryCommand.h" />
     <ClInclude Include="ParticleManager.h" />
     <ClInclude Include="ParticleManagerCommand.h" />

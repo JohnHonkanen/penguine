@@ -4,7 +4,8 @@
 #include "Clock.h"
 #include "Renderer.h"
 #include "Movement.h"
-
+#include "Collider.h"
+#include "CollisionStrategy.h"
 class Entity
 {
 protected:
@@ -16,6 +17,8 @@ protected:
 	Clock lifeClock;
 	Movement *movement;
 	float alpha;
+	Collider *collider;
+	CollisionStrategy *cStrategy;
 public:
 	Entity();
 	Entity(Shapes *shape, float lifeTime = 0);
@@ -27,6 +30,9 @@ public:
 	void setMovement(Movement *movement);
 	void setLifeTime(float lifeTime);
 	void setDelayTime(float delayTime);
+	Collider *getCollider();
+	void setCollider(Collider *collider);
+	void setCollisionStrategy(CollisionStrategy *strategy);
 	Shapes *getShape();
 	bool expire();
 	bool start();

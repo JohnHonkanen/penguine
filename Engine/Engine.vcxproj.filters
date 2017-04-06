@@ -258,6 +258,21 @@
     <ClCompile Include="ParticleManagerCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AABBCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ColliderSpawn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionStrategy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputConsoleCollision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -356,43 +371,58 @@
     <ClInclude Include="ParticleFactory.h">
       <Filter>Header Files\Particle</Filter>
     </ClInclude>
-    <ClInclude Include="DelayedSpawn.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EntitySpawnStrategy.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BasicParticle.h">
+      <Filter>Header Files\Particle</Filter>
     </ClInclude>
     <ClInclude Include="Firework.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LifeTimeSpawn.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ParticleManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Spawner.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AbstractSpawnStrategy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BasicParticle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LocationSpawnStrategy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SpawnStrategyDecorator.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Particle</Filter>
     </ClInclude>
     <ClInclude Include="FireworkDisplay.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractSpawnStrategy.h">
+      <Filter>Header Files\Behaviours\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="DelayedSpawn.h">
+      <Filter>Header Files\Behaviours\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="EntitySpawnStrategy.h">
+      <Filter>Header Files\Behaviours\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="LifeTimeSpawn.h">
+      <Filter>Header Files\Behaviours\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="LocationSpawnStrategy.h">
+      <Filter>Header Files\Behaviours\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleManager.h">
+      <Filter>Header Files\Particle</Filter>
     </ClInclude>
     <ClInclude Include="ParticleFactoryCommand.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Inputs</Filter>
     </ClInclude>
     <ClInclude Include="ParticleManagerCommand.h">
+      <Filter>Header Files\Inputs</Filter>
+    </ClInclude>
+    <ClInclude Include="SpawnStrategyDecorator.h">
+      <Filter>Header Files\Behaviours\Spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="Spawner.h">
+      <Filter>Header Files\Behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AABBCollider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ColliderSpawn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionStrategy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputConsoleCollision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

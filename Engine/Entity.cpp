@@ -6,6 +6,7 @@ Entity::Entity()
 	delayStarted = false;
 	doesNotExpire = true;
 	delayClock.setDelay(100);
+	collider = nullptr;
 }
 
 Entity::Entity(Shapes *shape, float lifeTime)
@@ -15,6 +16,7 @@ Entity::Entity(Shapes *shape, float lifeTime)
 	delayStarted = false;
 	delayClock.setDelay(1);
 	doesNotExpire = true;
+	collider = nullptr;
 }
 
 Entity::~Entity()
@@ -40,6 +42,13 @@ void Entity::update(float ts)
 		Entity::delayClock.updateClock();
 	}
 	Entity::shape->getMesh()->updateModelMatrix(Entity::transform.calculateModelMatrix());
+
+	if (collider != nullptr) {
+		collider->position = transform.getPosition();
+		if (collider->collided) {
+			cStrategy->handleCollision(this);
+		}
+	}
 }
 
 void Entity::setMovement(Movement * movement)
@@ -60,6 +69,21 @@ void Entity::setDelayTime(float delayTime)
 	if (delayTime != 0) {
 		delayClock.setDelay(delayTime);
 	}
+}
+
+Collider * Entity::getCollider()
+{
+	return collider;
+}
+
+void Entity::setCollider(Collider * in_collider)
+{
+	collider = in_collider;
+}
+
+void Entity::setCollisionStrategy(CollisionStrategy *strategy)
+{
+	cStrategy = strategy;
 }
 
 Shapes * Entity::getShape()
