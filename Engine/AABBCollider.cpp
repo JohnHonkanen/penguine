@@ -2,8 +2,9 @@
 
 
 
-AABBCollider::AABBCollider()
+AABBCollider::AABBCollider(vec3 in_halfExtents)
 {
+	halfExtents = in_halfExtents;
 }
 
 
@@ -28,4 +29,9 @@ bool AABBCollider::checkCollision(Collider * other)
 		(box1Min.y <= box2Max.y && box1Max.y >= box2Min.y) &&
 		(box1Min.z <= box2Max.z && box1Max.z >= box2Min.z);
 
+}
+
+Collider * AABBCollider::instantiate()
+{
+	return new AABBCollider(halfExtents);
 }

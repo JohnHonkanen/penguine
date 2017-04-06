@@ -13,6 +13,8 @@ void InputHandler::setCommand(int key, Command * c)
 		KEY_SPACE = c;
 	case 1:
 		KEY_S = c;
+	case 2:
+		KEY_A = c;
 	default:
 		break;
 	}
@@ -40,6 +42,7 @@ void InputHandler::update(bool &running)
 					break;
 				case SDLK_a:
 					cout << "a pressed" << endl;
+					KEY_A->execute();
 					break;
 				case SDLK_s:
 					cout << "s pressed" << endl;

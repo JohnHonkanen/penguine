@@ -35,7 +35,7 @@ void ParticleManager::update(double dt)
 	if (run) {
 		//Check Collision
 		for (int i = 0; i < entityWithColliders.size(); i++) {
-			for (int j = 0; j < entityWithColliders.size(); j++) {
+			for (int j = i+1; j < entityWithColliders.size(); j++) {
 				if (entityWithColliders.at(i)->getCollider()->checkCollision(entityWithColliders.at(j)->getCollider())) {
 					entityWithColliders.at(i)->getCollider()->collided = true;
 					entityWithColliders.at(j)->getCollider()->collided = true;

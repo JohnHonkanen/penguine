@@ -13,6 +13,7 @@ private:
 	//map<string, Command*> commandList;
 	Command *KEY_SPACE;
 	Command *KEY_S;
+	Command *KEY_A;
 	const Uint8 *keys;
 public:
 	InputHandler(string name);

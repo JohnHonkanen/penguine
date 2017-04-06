@@ -10,5 +10,6 @@ public:
 	OutputConsoleCollision();
 	~OutputConsoleCollision();
 	void handleCollision(Entity *entity);
+	CollisionStrategy *instantiate();
 };
 

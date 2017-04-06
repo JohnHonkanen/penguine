@@ -25,6 +25,15 @@ void ParticleFactory::createFireWork()
 	ParticleManager::getManager()->addParticle(firework);
 }
 
+void ParticleFactory::createBasicParticle()
+{
+	StaticEntity *emitter = new StaticEntity();
+	//emitter.transform.translate(0, -0, -0);
+	BasicWithCollision *p = new BasicWithCollision(emitter);
+	p->init();
+	ParticleManager::getManager()->addParticle(p);
+}
+
 void ParticleFactory::setTextureManager(TextureManager * textureManager)
 {
 	ParticleFactory::textureManager = textureManager;

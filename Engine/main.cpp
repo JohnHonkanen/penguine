@@ -81,9 +81,11 @@ int main(int argc, char *argv[])
 
 	InputHandler inputHandler("");
 	ParticleFactoryCommand *createFirework = new ParticleFactoryCommand(factory, &ParticleFactory::createFireWork);
+	ParticleFactoryCommand *createParticle = new ParticleFactoryCommand(factory, &ParticleFactory::createBasicParticle);
 	ParticleManagerCommand *stopUpdate = new ParticleManagerCommand(&ParticleManager::toggleRun);
 	inputHandler.setCommand(0, createFirework);
 	inputHandler.setCommand(1, stopUpdate);
+	inputHandler.setCommand(2, createParticle);
 
 	bool running = true;
 	while(running) {

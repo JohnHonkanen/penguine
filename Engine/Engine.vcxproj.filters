@@ -150,9 +150,6 @@
     <ClCompile Include="Movement.cpp">
       <Filter>Source Files\Behaviours\Movement</Filter>
     </ClCompile>
-    <ClCompile Include="ParticleDecorator.cpp">
-      <Filter>Source Files\Particle</Filter>
-    </ClCompile>
     <ClCompile Include="Shoot.cpp">
       <Filter>Source Files\Behaviours\Movement</Filter>
     </ClCompile>
@@ -273,6 +270,9 @@
     <ClCompile Include="OutputConsoleCollision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BasicWithCollision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -297,9 +297,6 @@
       <Filter>Header Files\Behaviours\Movement</Filter>
     </ClInclude>
     <ClInclude Include="BaseParticle.h">
-      <Filter>Header Files\Particle</Filter>
-    </ClInclude>
-    <ClInclude Include="ParticleDecorator.h">
       <Filter>Header Files\Particle</Filter>
     </ClInclude>
     <ClInclude Include="Shoot.h">
@@ -423,6 +420,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="OutputConsoleCollision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicWithCollision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

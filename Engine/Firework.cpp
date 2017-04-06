@@ -21,7 +21,7 @@ void Firework::shootRocket()
 
 	float xPos = rand() % 60 - 30;
 	float zPos = rand() %  30 + 40;
-	AbstractSpawnStrategy *locStrat = new LocationSpawnStrategy(vec3(0, -30, -50));
+	AbstractSpawnStrategy *locStrat = new LocationSpawnStrategy(vec3(xPos, -30, -zPos));
 	EntitySpawnStrategy *spawnStrat = new EntitySpawnStrategy(locStrat, emitter);
 	DelayedSpawn *delay = new DelayedSpawn(spawnStrat, 100);
 	LifeTimeSpawn *life = new LifeTimeSpawn(delay, 1000, 2000);

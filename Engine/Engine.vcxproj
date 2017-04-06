@@ -163,6 +163,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AABBCollider.cpp" />
+    <ClCompile Include="BasicWithCollision.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="ColliderSpawn.cpp" />
     <ClCompile Include="CollisionStrategy.cpp" />
@@ -192,7 +193,6 @@
     <ClCompile Include="Movement.cpp" />
     <ClCompile Include="openGLHandler.cpp" />
     <ClCompile Include="Particle.cpp" />
-    <ClCompile Include="ParticleDecorator.cpp" />
     <ClCompile Include="DynamicEntity.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="main.cpp" />
@@ -215,6 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AABBCollider.h" />
+    <ClInclude Include="BasicWithCollision.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="ColliderSpawn.h" />
     <ClInclude Include="CollisionStrategy.h" />
@@ -249,7 +250,6 @@
     <ClInclude Include="Movement.h" />
     <ClInclude Include="openGLHandler.h" />
     <ClInclude Include="Particle.h" />
-    <ClInclude Include="ParticleDecorator.h" />
     <ClInclude Include="DynamicEntity.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GraphicsHandler.h" />
